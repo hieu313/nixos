@@ -39,7 +39,6 @@
   environment.systemPackages = with pkgs; [
     foot
     waybar
-    kitty
     hyprpaper
     ghostty
     screen
