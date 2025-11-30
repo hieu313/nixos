@@ -12,6 +12,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.quickshell.follows = "quickshell";
+    };
+
   };
 
   outputs =
@@ -20,6 +32,8 @@
       nixpkgs-unstable,
       nixpkgs-stable,
       home-manager,
+      quickshell,
+      noctalia,
       ...
     }@inputs:
     let
@@ -69,7 +83,7 @@
     {
       nixosConfigurations = {
 
-        # Legacy
+        # Legacy, these profiles work but deprecated
         nix-hypr = mkWorkstation {
           hostFile = ./hosts/legacy/nix-hypr/configuration.nix;
           hmImports = [ ./hosts/legacy/nix-hypr/home.nix ];
@@ -81,6 +95,8 @@
         };
 
         # Workstations
+
+        # Erebos
         erebos-hypr = mkWorkstation {
           hostFile = ./hosts/erebos/hypr.nix;
           hmImports = [
@@ -97,11 +113,28 @@
           ];
         };
 
+        erebos-niri = mkWorkstation {
+          hostFile = ./hosts/erebos/niri.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/niri.nix
+          ];
+        };
+
+        # Prometheus
         prometheus-hypr = mkWorkstation {
           hostFile = ./hosts/prometheus/hypr.nix;
           hmImports = [
             ./home/common.nix
             ./home/hypr.nix
+          ];
+        };
+
+        prometheus-niri = mkWorkstation {
+          hostFile = ./hosts/prometheus/niri.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/niri.nix
           ];
         };
 
@@ -123,4 +156,5 @@
         v-hetz-pango = mkServer ./hosts/servers/v-hetz-pango.nix;
       };
     };
+
 }

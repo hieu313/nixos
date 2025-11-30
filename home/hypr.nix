@@ -6,7 +6,6 @@
 }:
 
 {
-  programs.git.enable = true;
 
   xdg.configFile."hypr" = {
     source = ../config/hypr;
