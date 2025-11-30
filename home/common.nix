@@ -16,7 +16,7 @@
       hello = "echo hey";
       ls = "eza";
       battery-health = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
-      nix-forge2git = "cp -r ~/nixos/* ~/git-repos/nixos-github/";
+      nix-forge2git = "cp -r ~/nixos/* ~/git-repos/nix-cb/";
     };
     initExtra = ''
       eval "$(${pkgs.starship}/bin/starship init bash)"
@@ -41,8 +41,8 @@
 
   xdg.configFile = {
     "starship.toml".source = ../config/starship/starship.main.toml;
-    "ghostty/config".source = ../config/ghostty.config;
-    "eza/theme.yml".source = ../config/eza.yml;
+    "ghostty/config".source = ../config/ghostty/cyberdream.config;
+    "eza/theme.yml".source = ../config/eza/eza.main.yml;
   };
 
   dconf.settings = {

@@ -11,6 +11,7 @@
     "nix-command"
     "flakes"
   ];
+
   nixpkgs.config.allowUnfree = true;
 
   boot = {
@@ -87,9 +88,10 @@
   };
 
   programs.firefox.enable = true;
+  programs.dconf.enable = true;
+  programs.neovim.enable = true;
 
   environment.systemPackages = with pkgs; [
-    vim
     wget
     git
     htop
@@ -104,7 +106,6 @@
     yubioath-flutter
     vscode
     lazyssh
-    brave
     signal-desktop
     protonmail-desktop
     nixfmt-rfc-style
@@ -121,6 +122,7 @@
     spice-vdagentd.enable = true;
     flatpak.enable = true;
     libinput.enable = true;
+    upower.enable = true;
   };
 
   # virtualization
@@ -142,22 +144,14 @@
     '';
   };
 
-  services.upower.enable = true;
-
-  programs.dconf.enable = true;
-
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   environment.shellAliases = {
-    update_xfce = "cd ~/nixos && nix flake update && sudo nixos-rebuild switch --flake /home/gumbo/nixos#nix-xfce";
-    update_hypr = "cd ~/nixos && nix flake update && sudo nixos-rebuild switch --flake /home/gumbo/nixos#nix-hypr";
-    rebuild_xfce = "sudo nixos-rebuild switch --flake /home/gumbo/nixos#nix-xfce";
-    rebuild_hypr = "sudo nixos-rebuild switch --flake /home/gumbo/nixos#nix-hypr";
-    rebuild_boot_xfce = "sudo nixos-rebuild boot --flake /home/gumbo/nixos#nix-xfce";
-    rebuild_boot_hypr = "sudo nixos-rebuild boot --flake /home/gumbo/nixos#nix-hypr";
     list_sys_gens = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
+
   };
 
   system.stateVersion = "25.05";
+
 }
