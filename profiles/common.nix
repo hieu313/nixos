@@ -112,6 +112,7 @@
     (retroarch.withCores (cores: with cores; [ mgba ]))
     upower
     blueman
+    ffmpeg
   ];
 
   services = {
