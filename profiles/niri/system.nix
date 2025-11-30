@@ -18,6 +18,7 @@
     swaylock
     inputs.quickshell # .packages.${pkgs.system}.default
     tokyonight-gtk-theme
+    nemo
   ];
 
   services.greetd = {
