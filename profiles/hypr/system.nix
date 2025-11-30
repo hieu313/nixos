@@ -7,11 +7,6 @@
 }:
 
 {
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-  };
 
   programs.hyprland = {
     enable = true;
@@ -37,7 +32,6 @@
   security.pam.services.hyprlock = { };
 
   environment.systemPackages = with pkgs; [
-    foot
     waybar
     hyprpaper
     ghostty
@@ -50,7 +44,6 @@
     slurp
     wl-clipboard
     swayimg
-    vlc
     nemo
     gvfs
   ];

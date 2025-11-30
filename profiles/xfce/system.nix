@@ -13,13 +13,6 @@
     elementary-xfce-icon-theme
   ];
 
-  services = {
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-    };
-
     blueman.enable = true;
 
     xserver = {
@@ -52,5 +45,4 @@
       backend = "glx";
       vSync = true;
     };
-  };
 }

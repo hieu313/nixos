@@ -36,4 +36,5 @@
   programs.steam.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
+  
 }

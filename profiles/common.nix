@@ -91,6 +91,16 @@
   programs.dconf.enable = true;
   programs.neovim.enable = true;
 
+  # virtualization
+  programs.virt-manager.enable = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
+    };
+    spiceUSBRedirection.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     wget
     git
@@ -113,6 +123,7 @@
     upower
     blueman
     ffmpeg
+    vlc
   ];
 
   services = {
@@ -124,16 +135,11 @@
     flatpak.enable = true;
     libinput.enable = true;
     upower.enable = true;
-  };
-
-  # virtualization
-  programs.virt-manager.enable = true;
-  virtualisation = {
-    libvirtd = {
+    pipewire = {
       enable = true;
-      qemu.swtpm.enable = true;
+      pulse.enable = true;
+      alsa.enable = true;
     };
-    spiceUSBRedirection.enable = true;
   };
 
   # flatpak repo
