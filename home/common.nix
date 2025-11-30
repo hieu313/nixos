@@ -16,7 +16,7 @@
       hello = "echo hey";
       ls = "eza";
       battery-health = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
-      nix-forge2git = "cp -r ~/nixos/* ~/git-repos/nix-cb/";
+      nix-forge2git = "rsync -avh --delete --exclude='.git' ~/nixos/ ~/git-repos/nix-cb/";
     };
     initExtra = ''
       eval "$(${pkgs.starship}/bin/starship init bash)"
