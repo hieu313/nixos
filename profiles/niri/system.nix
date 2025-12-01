@@ -11,14 +11,10 @@
 
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.system}.default
-    fuzzel
     rofi
-    swaybg
     xwayland-satellite
-    swaylock
-    inputs.quickshell # .packages.${pkgs.system}.default
     tokyonight-gtk-theme
-    nemo
+    swayimg
   ];
 
   services.greetd = {
