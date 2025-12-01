@@ -10,7 +10,7 @@
   programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
-    inputs.noctalia.packages.${pkgs.system}.default
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     rofi
     xwayland-satellite
     tokyonight-gtk-theme
@@ -21,7 +21,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd niri-session";
+        command = "${pkgs.tuigreet}/bin/tuigreet --cmd niri-session";
         user = "greeter";
       };
 

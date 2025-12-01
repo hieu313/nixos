@@ -26,7 +26,6 @@
       nixpkgs-unstable,
       nixpkgs-stable,
       home-manager,
-      quickshell,
       noctalia,
       ...
     }@inputs:
