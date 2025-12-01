@@ -137,7 +137,6 @@
     pcscd.enable = true; # yubikey dep
     qemuGuest.enable = true;
     spice-vdagentd.enable = true;
-    flatpak.enable = true;
     libinput.enable = true;
     upower.enable = true;
     pipewire = {
@@ -147,7 +146,11 @@
     };
   };
 
-  # flatpak repo
+  # flatpak
+  services.flatpak = {
+    enable = true;
+  };
+
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];

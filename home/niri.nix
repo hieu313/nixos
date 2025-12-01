@@ -6,7 +6,7 @@
 }:
 
 {
-    gtk = {
+  gtk = {
     enable = true;
 
     theme = {
@@ -27,4 +27,18 @@
       "gtk-application-prefer-dark-theme" = 1;
     };
   };
+
+  home.pointerCursor = {
+    name = "BreezeX-RosePine-Linux";
+    package = pkgs.rose-pine-cursor;
+    size = 28;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
+  home.sessionVariables = {
+    XCURSOR_THEME = "BreezeX-RosePine-Linux";
+    XCURSOR_SIZE = "28";
+  };
+
 }

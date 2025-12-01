@@ -15,6 +15,7 @@
     xwayland-satellite
     tokyonight-gtk-theme
     swayimg
+    rose-pine-cursor
   ];
 
   services.greetd = {
