@@ -14,6 +14,17 @@
   # Hostname
   networking.hostName = "prometheus";
 
+  systemd.services.micmute-led-off = {
+    description = "Turn off micmute LED at boot";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "sysinit.target" ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'echo 0 > /sys/class/leds/platform::micmute/brightness || true'";
+    };
+  };
+
   # Prometheus Tweaks
 
   services.syncthing = {

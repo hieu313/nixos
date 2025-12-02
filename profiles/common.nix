@@ -52,10 +52,6 @@
     ];
   };
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="leds", KERNEL=="platform::micmute", MODE:="0664", GROUP:="audio"
-  '';
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
