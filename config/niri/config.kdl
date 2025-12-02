@@ -3,15 +3,10 @@ input {
 
     // libinput settings.
     touchpad {
-        // off
         tap
-        // dwt
-        // dwtp
-        // drag false
-        // drag-lock
         natural-scroll
           accel-speed 0.2
-          accel-profile "flat"
+          accel-profile "adaptive"
           scroll-method "two-finger"
           disabled-on-external-mouse
     }
@@ -25,14 +20,9 @@ input {
     }
 
     trackpoint {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "on-button-down"
-        // scroll-button 273
-        // scroll-button-lock
-        // middle-emulation
+      // natural-scroll
+         accel-speed 0.25
+         accel-profile "adaptive"
     }
 
      warp-mouse-to-focus
@@ -352,4 +342,12 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+cursor {
+    xcursor-theme "BreezeX-RosePine-Linux"
+    xcursor-size 24
+
+    hide-when-typing
+    hide-after-inactive-ms 10000
 }

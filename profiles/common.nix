@@ -135,6 +135,7 @@
     spice-vdagentd.enable = true;
     libinput.enable = true;
     upower.enable = true;
+    power-profiles-daemon.enable = true;
     pipewire = {
       enable = true;
       pulse.enable = true;

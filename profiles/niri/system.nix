@@ -16,6 +16,7 @@
     tokyonight-gtk-theme
     swayimg
     rose-pine-cursor
+    pkgs.adwaita-icon-theme
   ];
 
   services.greetd = {

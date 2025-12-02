@@ -39,6 +39,7 @@
   home.sessionVariables = {
     XCURSOR_THEME = "BreezeX-RosePine-Linux";
     XCURSOR_SIZE = "24";
+    QT_QPA_PLATFORMTHEME = "gtk3";
   };
 
 }

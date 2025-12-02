@@ -8,7 +8,7 @@
         ],
         "position": "center",
         "sortByMostUsed": true,
-        "terminalCommand": "xterm -e",
+        "terminalCommand": "ghostty",
         "useApp2Unit": false,
         "viewMode": "list"
     },
@@ -51,7 +51,7 @@
                 {
                     "icon": "rocket",
                     "id": "CustomButton",
-                    "leftClickExec": "qs -c noctalia-shell ipc call launcher toggle",
+                    "leftClickExec": "noctalia-shell ipc call launcher toggle",
                     "leftClickUpdateText": false,
                     "maxTextLength": {
                         "horizontal": 10,
@@ -87,7 +87,7 @@
                     "id": "SystemMonitor",
                     "showCpuTemp": true,
                     "showCpuUsage": true,
-                    "showDiskUsage": false,
+                    "showDiskUsage": true,
                     "showMemoryAsPercent": false,
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
@@ -122,6 +122,7 @@
                 },
                 {
                     "blacklist": [
+                        "nm-applet"
                     ],
                     "colorizeIcons": false,
                     "drawerEnabled": true,
@@ -414,7 +415,7 @@
     "templates": {
         "alacritty": false,
         "cava": false,
-        "code": false,
+        "code": true,
         "discord": false,
         "emacs": false,
         "enableUserTemplates": false,
@@ -434,9 +435,9 @@
         "wezterm": false
     },
     "ui": {
-        "fontDefault": "Sans Serif",
+        "fontDefault": "Inter Variable",
         "fontDefaultScale": 1,
-        "fontFixed": "monospace",
+        "fontFixed": "JetBrainsMono Nerd Font Mono",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
