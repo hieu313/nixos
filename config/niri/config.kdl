@@ -42,63 +42,33 @@ input {
 layout {
 
     background-color "transparent"
-    
-    // Set gaps around windows in logical pixels.
-    gaps 16
-
-    // When to center a column when changing focus, options are:
-    // - "never", default behavior, focusing an off-screen column will keep at the left
-    //   or right edge of the screen.
-    // - "always", the focused column will always be centered.
-    // - "on-overflow", focusing a column will center it if it doesn't fit
-    //   together with the previously focused column.
+    gaps 12
     center-focused-column "never"
-
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
-        // Proportion sets the width as a fraction of the output width, taking gaps into account.
-        // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
-        // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
 
-        // Fixed sets the width in logical pixels exactly.
-        // fixed 1920
     }
 
-    // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
-        
-    // You can change how the focus ring looks.
     focus-ring {
 
-        // How many logical pixels the ring extends out from the windows.
-        width 2
+        width 1.5
         active-gradient from="#80c8ff" to="#c7ff7f" angle=45
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
 
     }
 
-    // You can enable drop shadows for windows.
     shadow {
-         on
-         draw-behind-window true
-
-        // Softness controls the shadow blur radius.
+        on
+        draw-behind-window true
         softness 30
-
-        // Spread expands the shadow.
         spread 5
-
-        // Offset moves the shadow relative to the window.
         offset x=0 y=5
-
-        // You can also change the shadow color and opacity.
         color "#0007"
+
     }
 
-    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     struts {
         // left 64
         // right 64
@@ -109,9 +79,6 @@ layout {
 
 spawn-at-startup "noctalia-shell"
 
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-
 hotkey-overlay {
      skip-at-startup
 }
@@ -121,18 +88,15 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // Uncomment to turn off all animations.
-    // off
 
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
+workspace "1" { }
+workspace "2" { }
+workspace "3" { }
+workspace "4" { }
+
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -142,6 +106,7 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 8
     clip-to-geometry true
+    open-on-workspace "3"
 }
 
 window-rule {
@@ -163,8 +128,6 @@ window-rule {
     block-out-from "screen-capture"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
@@ -175,23 +138,15 @@ binds {
     // shows a list of important hotkeys
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
     Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
-
-    // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
-    // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
-    // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; printf 0 | tee /sys/class/leds/platform::micmute/brightness"; }
 
-    // Example brightness key mappings for brightnessctl.
-    // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
-    // but you need to manually put each argument in separate "" quotes.
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
@@ -208,7 +163,6 @@ binds {
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
-    // CHANGED: use Ctrl here so Shift can be used for monitor/other binds
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
@@ -228,7 +182,6 @@ binds {
     Mod+U              { focus-workspace-down; }
     Mod+I              { focus-workspace-up; }
 
-    // CHANGED: use Ctrl+Shift for moving column between workspaces
     Mod+Ctrl+Shift+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Shift+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+Shift+U         { move-column-to-workspace-down; }
@@ -275,8 +228,6 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Shift+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
      Mod+Tab { focus-workspace-previous; }
