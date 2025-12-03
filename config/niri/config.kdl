@@ -1,7 +1,6 @@
 
 input {
 
-    // libinput settings.
     touchpad {
         tap
         natural-scroll
@@ -20,14 +19,11 @@ input {
     }
 
     trackpoint {
-      // natural-scroll
          accel-speed 0.25
          accel-profile "adaptive"
     }
 
      warp-mouse-to-focus
-
-    // Focus windows and outputs automatically when moving the mouse into them.
      focus-follows-mouse max-scroll-amount="0%"
 }
 
@@ -40,7 +36,6 @@ input {
 }
 
 layout {
-
     background-color "transparent"
     gaps 12
     center-focused-column "never"
@@ -48,15 +43,12 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
-
     }
 
     focus-ring {
-
         width 1.5
         active-gradient from="#80c8ff" to="#c7ff7f" angle=45
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-
     }
 
     shadow {
@@ -66,7 +58,6 @@ layout {
         spread 5
         offset x=0 y=5
         color "#0007"
-
     }
 
     struts {
@@ -83,12 +74,11 @@ hotkey-overlay {
      skip-at-startup
 }
 
- prefer-no-csd
+prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-
 }
 
 workspace "1" { }
@@ -135,7 +125,6 @@ window-rule {
 
 binds {
 
-    // shows a list of important hotkeys
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
@@ -145,7 +134,7 @@ binds {
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; printf 0 | tee /sys/class/leds/platform::micmute/brightness"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
@@ -187,7 +176,7 @@ binds {
     Mod+Ctrl+Shift+U         { move-column-to-workspace-down; }
     Mod+Ctrl+Shift+I         { move-column-to-workspace-up; }
 
-    // Workspace movement keeps plain Shift
+    // Workspace movement
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+U         { move-workspace-down; }
@@ -203,7 +192,7 @@ binds {
     Mod+Shift+WheelScrollRight { move-column-right; }
     Mod+Shift+WheelScrollLeft  { move-column-left; }
 
-    // Touchpad 2-finger swipe: workspaces (up/down) and columns (left/right)
+    // Touchpad 2-finger swipe
     Mod+TouchpadScrollDown cooldown-ms=350 { focus-workspace-down; }
     Mod+TouchpadScrollUp   cooldown-ms=350 { focus-workspace-up; }
     Mod+TouchpadScrollRight cooldown-ms=250 { focus-column-right; }
@@ -298,7 +287,6 @@ binds {
 cursor {
     xcursor-theme "BreezeX-RosePine-Linux"
     xcursor-size 24
-
     hide-when-typing
     hide-after-inactive-ms 10000
 }
