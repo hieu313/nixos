@@ -118,13 +118,13 @@
     vscode
     lazyssh
     signal-desktop
-    protonmail-desktop
     nixfmt-rfc-style
     (retroarch.withCores (cores: with cores; [ mgba ]))
     upower
     blueman
     ffmpeg
     vlc
+    whois
   ];
 
   services = {
