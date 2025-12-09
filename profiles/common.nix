@@ -125,6 +125,9 @@
     ffmpeg
     vlc
     whois
+    rustup
+    cargo
+    gcc
   ];
 
   services = {

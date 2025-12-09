@@ -17,6 +17,7 @@
     swayimg
     rose-pine-cursor
     pkgs.adwaita-icon-theme
+    nemo
   ];
 
   services.greetd = {
