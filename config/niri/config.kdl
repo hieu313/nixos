@@ -139,6 +139,15 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+    match app-id=r#"nemo$"#
+    opacity 0.85
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 900; }
+    open-floating true
+    default-floating-position x=0 y=14.5 relative-to="top"
+}
+
 binds {
 
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -152,8 +161,8 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness decrease"; }
 
     Mod+O repeat=false { toggle-overview; }
 
@@ -306,4 +315,21 @@ cursor {
     xcursor-size 24
     hide-when-typing
     hide-after-inactive-ms 10000
+}
+
+layer-rule {
+    match namespace="^noctalia-wallpaper-eDP-1"
+    place-within-backdrop true
+}
+
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
+gestures {
+    hot-corners {
+        off
+    }
 }
