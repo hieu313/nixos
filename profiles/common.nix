@@ -128,6 +128,7 @@
     rustup
     cargo
     gcc
+    rustlings
   ];
 
   services = {
