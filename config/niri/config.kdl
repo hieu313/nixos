@@ -98,14 +98,7 @@ window-rule {
     clip-to-geometry true
     open-on-workspace "3"
     open-maximized true
-    // opacity 0.85
-
-}
-
-window-rule {
-    match app-id=r#"Code$"#
     opacity 0.85
-    draw-border-with-background false
 }
 
 window-rule {
@@ -115,14 +108,13 @@ window-rule {
     default-floating-position x=168 y=96 relative-to="top-left"
 }
 
-window-rule {
-    match app-id="com.mitchellh.ghostty"
-    opacity 0.85
-    draw-border-with-background false
-}
-
+// Opacity rule
 window-rule {
     match app-id=r#"Bitwarden$"#
+    match app-id="signal"
+    match app-id="code"
+    match app-id="com.mitchellh.ghostty"
+    match app-id=r#"nemo$"#
     opacity 0.85
     draw-border-with-background false
 }
@@ -141,7 +133,6 @@ window-rule {
 
 window-rule {
     match app-id=r#"nemo$"#
-    opacity 0.85
     default-column-width { fixed 1000; }
     default-window-height { fixed 900; }
     open-floating true
@@ -152,7 +143,6 @@ window-rule {
     match app-id="com.github.iwalton3.jellyfin-media-player"
     draw-border-with-background false
     open-maximized true
-
 }
 
 binds {
@@ -160,7 +150,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
