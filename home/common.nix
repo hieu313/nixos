@@ -45,6 +45,7 @@
     "starship.toml".source = ../config/starship/starship.main.toml;
     "ghostty/config".source = ../config/ghostty/cyberdream.config;
     "eza/theme.yml".source = ../config/eza/eza.main.yml;
+    "fuzzel/fuzzel.ini".source = ../config/fuzzel/tokyonight.fuzzel.ini;
   };
 
   dconf.settings = {

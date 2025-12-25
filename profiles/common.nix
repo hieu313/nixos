@@ -129,6 +129,7 @@
     cargo
     gcc
     rustlings
+    mediawriter
   ];
 
   services = {

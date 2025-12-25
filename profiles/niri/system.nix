@@ -28,7 +28,7 @@
     rose-pine-cursor
     pkgs.adwaita-icon-theme
     nemo
-
+    fuzzel
   ];
 
   services.greetd = {
