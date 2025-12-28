@@ -26,6 +26,11 @@
     ];
   };
 
+  environment.systemPackages = with pkgs; [
+    lm_sensors
+    pciutils
+  ];
+
   services.nfs.server = {
     enable = true;
     exports = ''
