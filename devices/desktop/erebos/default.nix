@@ -29,6 +29,7 @@
   environment.systemPackages = with pkgs; [
     lm_sensors
     pciutils
+    heroic
   ];
 
   services.nfs.server = {
@@ -41,5 +42,5 @@
   programs.steam.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
-  
+
 }
