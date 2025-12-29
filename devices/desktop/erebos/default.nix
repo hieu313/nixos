@@ -40,6 +40,7 @@
   };
 
   programs.steam.enable = true;
+  programs.coolercontrol.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
 
