@@ -130,6 +130,7 @@
     gcc
     rustlings
     mediawriter
+    parted
   ];
 
   services = {
