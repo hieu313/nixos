@@ -15,9 +15,19 @@
   # Hostname
   networking.hostName = "erebos";
 
-  # Erebos-specific tweaks
+  # Erebos tweaks
   fileSystems."/mnt/jelly" = {
     device = "/dev/disk/by-uuid/a432d1c8-ec19-4700-8203-ec7530a6c81a";
+    fsType = "ext4";
+    options = [
+      "nosuid"
+      "nodev"
+      "noatime"
+    ];
+  };
+
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/815056fa-6b7d-401a-8607-8fa22a98089b";
     fsType = "ext4";
     options = [
       "nosuid"
