@@ -16,6 +16,8 @@
 
   # Prometheus Tweaks
 
+  hardware.cpu.amd.updateMicrocode = true;
+
   systemd.services.micmute-led-off = {
     description = "Turn off micmute LED at boot";
     wantedBy = [ "multi-user.target" ];

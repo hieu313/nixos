@@ -41,6 +41,7 @@
 
   programs.steam.enable = true;
   programs.coolercontrol.enable = true;
+  hardware.cpu.amd.updateMicrocode = true;
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
 
