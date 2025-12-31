@@ -17,7 +17,7 @@
 
   # Erebos tweaks
   fileSystems."/mnt/jelly" = {
-    device = "/dev/disk/by-uuid/a432d1c8-ec19-4700-8203-ec7530a6c81a";
+    device = "/dev/disk/by-uuid/928958de-b7ae-4310-9465-57377da78508";
     fsType = "ext4";
     options = [
       "nosuid"
