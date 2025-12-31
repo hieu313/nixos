@@ -43,6 +43,7 @@
     pciutils
     heroic
     usbutils
+    smartmontools
   ];
 
   services.nfs.server = {
