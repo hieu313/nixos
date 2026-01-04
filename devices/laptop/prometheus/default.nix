@@ -29,6 +29,8 @@
     };
   };
 
+  programs.steam.enable = true;
+
   services.syncthing = {
     enable = true;
     user = "gumbo";
