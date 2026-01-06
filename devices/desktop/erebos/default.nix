@@ -42,8 +42,6 @@
     lm_sensors
     pciutils
     heroic
-    usbutils
-    smartmontools
   ];
 
   services.nfs.server = {

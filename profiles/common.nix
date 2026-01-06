@@ -131,6 +131,8 @@
     rustlings
     mediawriter
     parted
+    usbutils
+    smartmontools
   ];
 
   services = {
