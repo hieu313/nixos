@@ -31,6 +31,10 @@
 
   programs.steam.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    v4l-utils
+  ];
+
   services.syncthing = {
     enable = true;
     user = "gumbo";
