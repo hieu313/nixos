@@ -116,7 +116,7 @@
     bitwarden-desktop
     spotify
     yubioath-flutter
-    vscode
+    vscodium
     lazyssh
     signal-desktop
     nixfmt-rfc-style
@@ -134,6 +134,7 @@
     parted
     usbutils
     smartmontools
+    pciutils
   ];
 
   services = {
