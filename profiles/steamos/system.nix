@@ -111,7 +111,7 @@
 
       initial_session = {
         user = "sensei";
-        command = "env XDG_SESSION_TYPE=wayland ${pkgs.gamescope}/bin/gamescope -w 1920 -h 1080 -f -- steam -bigpicture";
+        command = "/home/sensei/bin/start-console.sh";
       };
     };
   };
