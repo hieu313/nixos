@@ -140,7 +140,10 @@
         };
 
         steamos = mkWorkstation {
-          hostFile = ./hosts/dionysus/steam.nix
+          hostFile = ./hosts/dionysus/steam.nix;
+          hmImports = [
+            ./home/common.nix
+          ];
         };
 
         # Servers
