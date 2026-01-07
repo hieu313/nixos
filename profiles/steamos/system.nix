@@ -105,13 +105,13 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet";
         user = "greeter";
+        command = "${pkgs.tuigreet}/bin/tuigreet";
       };
 
       initial_session = {
         user = "sensei";
-        command = "${pkgs.gamescope}/bin/gamescope -w 1920 -h 1080 -f -- steam -bigpicture";
+        command = "env XDG_SESSION_TYPE=wayland ${pkgs.gamescope}/bin/gamescope -w 1920 -h 1080 -f -- steam -bigpicture";
       };
     };
   };
