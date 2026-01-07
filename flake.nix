@@ -139,6 +139,10 @@
           ];
         };
 
+        steamos = mkWorkstation {
+          hostFile = ./hosts/dionysus/steam.nix
+        };
+
         # Servers
         gaia = mkServer ./hosts/servers/gaia.nix;
         dns = mkServer ./hosts/servers/dns.nix;
