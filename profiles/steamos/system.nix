@@ -111,11 +111,7 @@
 
       initial_session = {
         user = "sensei";
-        command = ''
-          ${pkgs.gamescope}/bin/gamescope \
-            -w 1920 -h 1080 -f \
-            -- steam -bigpicture
-        '';
+        command = "${pkgs.gamescope}/bin/gamescope -w 1920 -h 1080 -f -- steam -bigpicture";
       };
     };
   };
