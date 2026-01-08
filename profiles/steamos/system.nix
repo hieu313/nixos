@@ -101,7 +101,6 @@
   programs.dconf.enable = true;
   programs.steam.enable = true;
 
-  services.logind.enable = true;
   services.seatd.enable = true;
 
   services.greetd = {
