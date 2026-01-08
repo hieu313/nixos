@@ -77,7 +77,6 @@
   };
 
     services.getty = {
-      enable = true;
       tty2.autologinUser = "sensei";
     };
 
