@@ -20,6 +20,11 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
+    autoLogin = {
+      enable = true;
+      user = "sensei";
+      tty = "2";
+    };
   };
 
   hardware.enableAllFirmware = true;
@@ -51,15 +56,30 @@
     ];
   };
 
-  users.users.sensei = {
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager"
-      "sound"
-      "video"
-      "audio"
-    ];
-  };
+users.users.sensei = {
+  isNormalUser = true;
+  extraGroups = [
+    "networkmanager"
+    "sound"
+    "video"
+    "audio"
+  ];
+
+  shell = pkgs.bash;
+
+  loginShellInit = ''
+    if [ "$(tty)" = "/dev/tty2" ]; then
+      export XDG_SESSION_TYPE=wayland
+      export XDG_CURRENT_DESKTOP=gamescope
+      export GAMESCOPE_DEBUG=1
+      export GAMESCOPE_DRM_DEVICE=/dev/dri/card2
+      exec ${pkgs.gamescope}/bin/gamescope \
+        --backend drm \
+        -W 1920 -H 1080 -f -- \
+        ${pkgs.steam}/bin/steam -tenfoot -gamepadui
+    fi
+  '';
+};
 
   hardware.bluetooth = {
     enable = true;
@@ -101,32 +121,6 @@
   programs.dconf.enable = true;
   programs.steam.enable = true;
 
-  services.seatd.enable = true;
-
-services.greetd = {
-  enable = true;
-  settings.seats = [
-    {
-      name = "seat0";
-      type = "local";
-      device = "/dev/dri/card2";  # Intel iGPU
-      initial_session = {
-        user = "sensei";
-        command = ''
-          export XDG_SESSION_TYPE=wayland
-          export XDG_CURRENT_DESKTOP=gamescope
-          export GAMESCOPE_DEBUG=1
-          export GAMESCOPE_DRM_DEVICE=/dev/dri/card2
-          exec ${pkgs.gamescope}/bin/gamescope \
-            --backend drm \
-            -W 1920 -H 1080 -f -- \
-            ${pkgs.steam}/bin/steam -tenfoot -gamepadui
-        '';
-      };
-    }
-  ];
-};
-
   environment.systemPackages = with pkgs; [
     wget
     git
@@ -147,7 +141,6 @@ services.greetd = {
     smartmontools
     pciutils
     gamescope
-    xorg.xvfb
   ];
 
   services = {
