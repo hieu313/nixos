@@ -112,17 +112,13 @@
       };
 
       initial_session = {
-        user = "sensei";
+        user = "gumbo";
         command = ''
-          ${pkgs.bash}/bin/bash -lc '
-            export GAMESCOPE_DEBUG=1
-            export XDG_SESSION_TYPE=wayland
-            export XDG_CURRENT_DESKTOP=gamescope
-            exec ${pkgs.gamescope}/bin/gamescope \
-              --backend drm \
-              -W 1920 -H 1080 -f -- \
-              ${pkgs.steam}/bin/steam -tenfoot -gamepadui
-          '
+          export XDG_SESSION_TYPE=wayland
+          export XDG_CURRENT_DESKTOP=gamescope
+          export GAMESCOPE_DEBUG=1
+          export GAMESCOPE_DRM_DEVICE=/dev/dri/card1 
+          exec ${pkgs.gamescope}/bin/gamescope --backend drm -W 1920 -H 1080 -f -- ${pkgs.steam}/bin/steam -tenfoot -gamepadui
         '';
       };
     };
