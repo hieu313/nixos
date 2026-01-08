@@ -143,6 +143,7 @@
           hostFile = ./hosts/dionysus/steam.nix;
           hmImports = [
             ./home/common.nix
+            ./home/steam.nix
           ];
         };
 
