@@ -101,6 +101,9 @@
   programs.dconf.enable = true;
   programs.steam.enable = true;
 
+  services.logind.enable = true;
+  services.seatd.enable = true;
+
   services.greetd = {
     enable = true;
     settings = {
@@ -111,7 +114,17 @@
 
       initial_session = {
         user = "sensei";
-        command = "${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -f -- ${pkgs.steam}/bin/steam -tenfoot -gamepadui";
+        command = ''
+          ${pkgs.bash}/bin/bash -lc '
+            export GAMESCOPE_DEBUG=1
+            export XDG_SESSION_TYPE=wayland
+            export XDG_CURRENT_DESKTOP=gamescope
+            exec ${pkgs.gamescope}/bin/gamescope \
+              --backend drm \
+              -W 1920 -H 1080 -f -- \
+              ${pkgs.steam}/bin/steam -tenfoot -gamepadui
+          '
+        '';
       };
     };
   };
@@ -121,6 +134,7 @@
     git
     htop
     curl
+    eza
     tree
     ghostty
     fastfetch
