@@ -117,9 +117,9 @@ services.greetd = {
           export XDG_CURRENT_DESKTOP=gamescope
           export GAMESCOPE_DEBUG=1
           export GAMESCOPE_DRM_DEVICE=/dev/dri/card2
-          export LIBSEAT_BACKEND=seatd
           exec ${pkgs.gamescope}/bin/gamescope \
-            --backend drm -W 1920 -H 1080 -f -- \
+            --backend drm \
+            -W 1920 -H 1080 -f -- \
             ${pkgs.steam}/bin/steam -tenfoot -gamepadui
         '';
       };
