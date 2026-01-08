@@ -20,11 +20,6 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    autoLogin = {
-      enable = true;
-      user = "sensei";
-      tty = "2";
-    };
   };
 
   hardware.enableAllFirmware = true;
@@ -56,30 +51,35 @@
     ];
   };
 
-users.users.sensei = {
-  isNormalUser = true;
-  extraGroups = [
-    "networkmanager"
-    "sound"
-    "video"
-    "audio"
-  ];
+  users.users.sensei = {
+    isNormalUser = true;
+    extraGroups = [
+      "networkmanager"
+      "sound"
+      "video"
+      "audio"
+    ];
 
-  shell = pkgs.bash;
+    shell = pkgs.bash;
 
-  loginShellInit = ''
-    if [ "$(tty)" = "/dev/tty2" ]; then
-      export XDG_SESSION_TYPE=wayland
-      export XDG_CURRENT_DESKTOP=gamescope
-      export GAMESCOPE_DEBUG=1
-      export GAMESCOPE_DRM_DEVICE=/dev/dri/card2
-      exec ${pkgs.gamescope}/bin/gamescope \
-        --backend drm \
-        -W 1920 -H 1080 -f -- \
-        ${pkgs.steam}/bin/steam -tenfoot -gamepadui
-    fi
-  '';
-};
+    loginShellInit = ''
+      if [ "$(tty)" = "/dev/tty2" ]; then
+        export XDG_SESSION_TYPE=wayland
+        export XDG_CURRENT_DESKTOP=gamescope
+        export GAMESCOPE_DEBUG=1
+        export GAMESCOPE_DRM_DEVICE=/dev/dri/card2
+        exec ${pkgs.gamescope}/bin/gamescope \
+          --backend drm \
+          -W 1920 -H 1080 -f -- \
+          ${pkgs.steam}/bin/steam -tenfoot -gamepadui
+      fi
+    '';
+  };
+
+    services.getty = {
+      enable = true;
+      tty2.autologinUser = "sensei";
+    };
 
   hardware.bluetooth = {
     enable = true;
