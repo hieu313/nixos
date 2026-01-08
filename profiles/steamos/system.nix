@@ -77,7 +77,6 @@
   };
 
     services.getty = {
-      enable = true;
       autologinUser = "sensei";
     };
 
