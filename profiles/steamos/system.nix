@@ -111,7 +111,7 @@
 
       initial_session = {
         user = "sensei";
-        command = "/home/sensei/bin/start-console.sh";
+        command = "${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -f -- ${pkgs.steam}/bin/steam -tenfoot -gamepadui";
       };
     };
   };
