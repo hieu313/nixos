@@ -77,7 +77,8 @@
   };
 
     services.getty = {
-      tty2.autologinUser = "sensei";
+      enable = true;
+      autologinUser = "sensei";
     };
 
   hardware.bluetooth = {
