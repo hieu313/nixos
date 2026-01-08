@@ -103,26 +103,29 @@
 
   services.seatd.enable = true;
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        user = "greeter";
-        command = "${pkgs.tuigreet}/bin/tuigreet";
-      };
-
+services.greetd = {
+  enable = true;
+  settings.seats = [
+    {
+      name = "seat0";
+      type = "local";
+      device = "/dev/dri/card2";  # Intel iGPU
       initial_session = {
-        user = "gumbo";
+        user = "sensei";
         command = ''
           export XDG_SESSION_TYPE=wayland
           export XDG_CURRENT_DESKTOP=gamescope
           export GAMESCOPE_DEBUG=1
-          export GAMESCOPE_DRM_DEVICE=/dev/dri/card1 
-          exec ${pkgs.gamescope}/bin/gamescope --backend drm -W 1920 -H 1080 -f -- ${pkgs.steam}/bin/steam -tenfoot -gamepadui
+          export GAMESCOPE_DRM_DEVICE=/dev/dri/card2
+          export LIBSEAT_BACKEND=seatd
+          exec ${pkgs.gamescope}/bin/gamescope \
+            --backend drm -W 1920 -H 1080 -f -- \
+            ${pkgs.steam}/bin/steam -tenfoot -gamepadui
         '';
       };
-    };
-  };
+    }
+  ];
+};
 
   environment.systemPackages = with pkgs; [
     wget
