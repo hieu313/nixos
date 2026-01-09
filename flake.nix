@@ -114,6 +114,14 @@
           ];
         };
 
+        erebos-kde = mkWorkstation {
+          hostFile = ./hosts/erebos/kde.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/kde.nix
+          ];
+        };
+
         # Prometheus
         prometheus-hypr = mkWorkstation {
           hostFile = ./hosts/prometheus/hypr.nix;
@@ -139,6 +147,15 @@
           ];
         };
 
+        prometheus-kde = mkWorkstation {
+          hostFile = ./hosts/prometheus/kde.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/kde.nix
+          ];
+        };
+
+        # Console DE test
         steamos = mkWorkstation {
           hostFile = ./hosts/dionysus/steam.nix;
           hmImports = [

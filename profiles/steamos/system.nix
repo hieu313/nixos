@@ -61,6 +61,12 @@
     ];
   };
 
+  services.seatd = {
+    enable = true;
+    user = "gumbo";
+    group = "video";
+  };
+
     services.getty = {
       autologinUser = "gumbo";
     };

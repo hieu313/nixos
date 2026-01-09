@@ -3,11 +3,12 @@
 {
   programs.bash.initExtra = ''
     # Only run Gamescope on TTY2
-    if [ "$(tty)" = "/dev/tty2" ]; then
+    if [ "$(tty)" = "/dev/tty1" ]; then
       export XDG_SESSION_TYPE=wayland
       export XDG_CURRENT_DESKTOP=gamescope
       export GAMESCOPE_DEBUG=1
-      export GAMESCOPE_DRM_DEVICE=/dev/dri/card2
+      export GAMESCOPE_DRM_DEVICE=/dev/dri/card0
+      export SEATD_SOCK_PATH=/run/seatd.sock
 
       exec ${pkgs.gamescope}/bin/gamescope \
         --backend drm \
