@@ -2,7 +2,6 @@
 
 {
   programs.bash.initExtra = ''
-    # Only run Gamescope on TTY2
     if [ "$(tty)" = "/dev/tty1" ]; then
       export XDG_SESSION_TYPE=wayland
       export XDG_CURRENT_DESKTOP=gamescope
