@@ -46,6 +46,8 @@
     "ghostty/config".source = ../config/ghostty/cyberdream.config;
     "eza/theme.yml".source = ../config/eza/eza.main.yml;
     "fuzzel/fuzzel.ini".source = ../config/fuzzel/tokyonight.fuzzel.ini;
+    "fastfetch/config.jsonc".source = ../config/fastfetch/main.fastfetch;
+    "fastfetch/violet.png".source = ../config/icons/violet.png;
   };
 
   dconf.settings = {
