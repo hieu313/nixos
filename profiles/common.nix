@@ -136,6 +136,7 @@
     smartmontools
     pciutils
     file
+    libreoffice
   ];
 
   services = {
