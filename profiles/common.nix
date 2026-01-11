@@ -135,6 +135,7 @@
     usbutils
     smartmontools
     pciutils
+    file
   ];
 
   services = {
