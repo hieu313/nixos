@@ -18,21 +18,17 @@
     },
     {
       "type": "custom",
-      "format": "     What good to foresee a demise unavoidable  "
-    },
-    {
-      "type": "custom",
       "format": ""
     },
     {
       "type": "os",
       "key": "   OS",
-      "keyColor": "38;5;19"  // Dark Blue
+      "keyColor": "38;5;19"  // White
     },
     {
       "type": "kernel",
       "key": "   Kernel",
-      "keyColor": "97"  // White
+      "keyColor": "97"  // Purple
     },
     {
       "type": "packages",
@@ -46,13 +42,13 @@
     },
     {
       "type": "wm",
-      "key": "  Niri ",
+      "key": "  WM ",
       "keyColor": "38;5;81"  // Light Blue
     },
     {
       "type": "terminal",
       "key": "   Terminal",
-      "keyColor": "90"  // Grey
+      "keyColor": "90"  // Light Grey
     },
     {
       "type": "media",
