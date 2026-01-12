@@ -42,7 +42,7 @@
     },
     {
       "type": "wm",
-      "key": "  WM ",
+      "key": "   WM ",
       "keyColor": "38;5;81"  // Light Blue
     },
     {
@@ -70,7 +70,7 @@
         },
     {
       "type": "custom",
-      "format": "   Codeberg : sensei ",
+      "format": "    Codeberg : sensei ",
       "keyColor": "\u001b[38;5;75m"
     },
 {
