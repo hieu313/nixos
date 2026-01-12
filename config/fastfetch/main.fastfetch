@@ -21,6 +21,11 @@
       "format": ""
     },
     {
+      "type": "os",
+      "key": "    OS",
+      "keyColor": "38;5;19"  // White
+    },
+    {
       "type": "kernel",
       "key": "   Kernel",
       "keyColor": "97"  // Purple
@@ -29,11 +34,6 @@
       "type": "title",
       "key": "   User",
       "keyColor": "38;5;250"  // Black
-    },
-    {
-      "type": "os",
-      "key": "    OS",
-      "keyColor": "38;5;19"  // White
     },
     {
       "type": "packages",
