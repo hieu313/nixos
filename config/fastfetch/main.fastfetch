@@ -73,20 +73,10 @@
       "format": "    Codeberg : sensei ",
       "keyColor": "\u001b[38;5;75m"
     },
-{
-  "type": "battery",
-  "key": "    Battery",
-  "keyColor": "38;5;228"  // Light Yellow
-},
-    "break",
     {
       "type": "title",
       "key": "   User",
       "keyColor": "38;5;250"  // Black
-    },
-    {
-      "type": "custom",
-      "format": ""
     },
     {
       "type": "cpu",
@@ -104,6 +94,11 @@
       "type": "memory",
       "key": "    Memory",
       "keyColor": "38;5;99"  // Pinkish Purple
+    },
+    {
+      "type": "battery",
+      "key": "    Battery",
+      "keyColor": "38;5;228"  // Light Yellow
     },
     {
       "type": "custom",
