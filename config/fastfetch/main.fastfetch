@@ -21,6 +21,16 @@
       "format": ""
     },
     {
+      "type": "title",
+      "key": "   User",
+      "keyColor": "38;5;250"  // Black
+    },
+    {
+      "type": "custom",
+      "format": "    Codeberg : sensei ",
+      "keyColor": "\u001b[38;5;75m"
+    },
+    {
       "type": "os",
       "key": "    OS",
       "keyColor": "38;5;19"  // White
@@ -68,16 +78,6 @@
             "key": "  ",
             "keyColor": "34",
         },
-    {
-      "type": "custom",
-      "format": "    Codeberg : sensei ",
-      "keyColor": "\u001b[38;5;75m"
-    },
-    {
-      "type": "title",
-      "key": "   User",
-      "keyColor": "38;5;250"  // Black
-    },
     {
       "type": "cpu",
       "format": "{1}",
