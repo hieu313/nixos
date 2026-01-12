@@ -95,7 +95,7 @@
       "key": "    Battery",
       "keyColor": "38;5;228"  // Light Yellow
     },
-    "break"
+    "break",
     {
       "type": "custom",
       "format": "    Codeberg : sensei ",
