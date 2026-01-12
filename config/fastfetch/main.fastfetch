@@ -21,24 +21,19 @@
       "format": ""
     },
     {
+      "type": "kernel",
+      "key": "   Kernel",
+      "keyColor": "97"  // Purple
+    },
+    {
       "type": "title",
       "key": "   User",
       "keyColor": "38;5;250"  // Black
     },
     {
-      "type": "custom",
-      "format": "    Codeberg : sensei ",
-      "keyColor": "\u001b[38;5;75m"
-    },
-    {
       "type": "os",
       "key": "    OS",
       "keyColor": "38;5;19"  // White
-    },
-    {
-      "type": "kernel",
-      "key": "   Kernel",
-      "keyColor": "97"  // Purple
     },
     {
       "type": "packages",
@@ -99,6 +94,12 @@
       "type": "battery",
       "key": "    Battery",
       "keyColor": "38;5;228"  // Light Yellow
+    },
+    "break"
+    {
+      "type": "custom",
+      "format": "    Codeberg : sensei ",
+      "keyColor": "\u001b[38;5;75m"
     },
     {
       "type": "custom",
