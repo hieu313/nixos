@@ -47,7 +47,7 @@
     "eza/theme.yml".source = ../config/eza/eza.main.yml;
     "fuzzel/fuzzel.ini".source = ../config/fuzzel/tokyonight.fuzzel.ini;
     "fastfetch/config.jsonc".source = ../config/fastfetch/main.fastfetch;
-    "fastfetch/lune.png".source = ../config/icons/lune.png;
+    "fastfetch/violet.png".source = ../config/icons/violet.png;
   };
 
   dconf.settings = {
