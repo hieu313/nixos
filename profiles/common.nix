@@ -137,6 +137,7 @@
     pciutils
     file
     libreoffice
+    gimp
   ];
 
   services = {
