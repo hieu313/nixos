@@ -122,6 +122,14 @@
           ];
         };
 
+        erebos-gnome = mkWorkstation {
+          hostFile = ./hosts/erebos/gnome.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/gnome.nix
+          ];
+        };
+
         # Prometheus
         prometheus-hypr = mkWorkstation {
           hostFile = ./hosts/prometheus/hypr.nix;
@@ -152,6 +160,14 @@
           hmImports = [
             ./home/common.nix
             ./home/kde.nix
+          ];
+        };
+
+        prometheus-gnome = mkWorkstation {
+          hostFile = ./hosts/prometheus/gnome.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/gnome.nix
           ];
         };
 
