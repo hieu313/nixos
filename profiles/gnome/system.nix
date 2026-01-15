@@ -17,6 +17,7 @@
     gnomeExtensions.user-themes
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
+    gnome-tweaks
   ];
   
   programs.dconf.profiles.user.databases = [
