@@ -119,7 +119,7 @@
     vscodium
     lazyssh
     signal-desktop
-    nixfmt-rfc-style
+    nixfmt
     (retroarch.withCores (cores: with cores; [ mgba ]))
     upower
     blueman
