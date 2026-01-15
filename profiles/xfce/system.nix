@@ -13,8 +13,6 @@
     elementary-xfce-icon-theme
   ];
 
-    blueman.enable = true;
-
     xserver = {
       enable = true;
       desktopManager.xfce.enable = true;
