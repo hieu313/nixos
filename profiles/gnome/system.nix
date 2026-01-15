@@ -19,7 +19,6 @@
     gnomeExtensions.appindicator
   ];
   
-{
   programs.dconf.profiles.user.databases = [
     {
       settings = {
@@ -34,6 +33,5 @@
       };
     }
   ];
-}
 
 }
