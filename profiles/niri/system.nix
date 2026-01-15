@@ -28,6 +28,7 @@
     pkgs.adwaita-icon-theme
     nemo
     fuzzel
+    gpu-screen-recorder
   ];
 
   services.greetd = {
