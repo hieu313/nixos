@@ -32,7 +32,7 @@
       };
     };
 
-    displayManager.defaultSession = "xfce";
+    # displayManager.defaultSession = "xfce";
 
     picom = {
       enable = true;
