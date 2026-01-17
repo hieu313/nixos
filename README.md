@@ -6,7 +6,7 @@ That being said, here are the following profiles (environments) I'm building / h
 
     - Niri: Fully functional, uses Noctalia Shell. My live config files for both are not being managed for both despite the files being in /config, my live files are mostly the same I've just been lazy and haven't implemented mkOutOfStoreSymLink for these yet. They are mostly up to date
 
-    - Hyprland: Functional (haven't tested/updated window rules for 0.53 changes)
+    - Hyprland: Functional (haven't tested/updated window rules for 0.53 changes). Boot into another environment like niri to adjust window rules if needed.
 
     - XFCE: Functional, disable XFCE's compositor and Picom take over. Haven't figured out how to declare this yet
 
