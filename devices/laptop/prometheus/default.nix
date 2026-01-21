@@ -33,6 +33,7 @@
 
   environment.systemPackages = with pkgs; [
     v4l-utils
+    picard
   ];
 
   services.syncthing = {
