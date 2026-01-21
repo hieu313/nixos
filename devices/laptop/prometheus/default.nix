@@ -34,6 +34,7 @@
   environment.systemPackages = with pkgs; [
     v4l-utils
     picard
+    cifs-utils
   ];
 
   services.syncthing = {
@@ -78,6 +79,29 @@
         };
       };
     };
+  };
+
+  systemd.services.cifs-tune = {
+    description = "Hetzner CIFS tuning";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = ''
+        ${pkgs.kmod}/bin/modprobe cifs
+        echo 0 > /proc/fs/cifs/OplockEnabled || true
+      '';
+    };
+  };
+
+  fileSystems."/mnt/storagebox" = {
+    device = "//u533956.your-storagebox.de/backup";
+    fsType = "cifs";
+    options = let
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users";
+    in [
+      "${automount_opts},credentials=/etc/nixos/smb-secrets,uid=1000,gid=100,iocharset=utf8,rw,seal,file_mode=0660,dir_mode=0770"
+    ];
   };
 
 }
