@@ -20,7 +20,7 @@
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelModules = [ "uvcvideo" "cifs" ];
+    kernelModules = [ "uvcvideo" ];
   };
 
   hardware.enableAllFirmware = true;
