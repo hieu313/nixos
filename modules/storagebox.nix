@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 let
   types = lib.types;
-  cfg = config.filesystems.storagebox;
+  cfg = config.mount.storagebox;
 in
 {
-  options.filesystems.storagebox = {
+  options.mount.storagebox = {
     enable = lib.mkEnableOption "Hetzner Storage Box CIFS mount";
 
     mountPoint = lib.mkOption {
@@ -35,7 +35,7 @@ in
     share = lib.mkOption {
       type = types.str;
       default = "backup";
-      description = "CIFS share name on the Storage Box.";
+      description = "Main user on storagebox.";
     };
 
     credentialsFile = lib.mkOption {

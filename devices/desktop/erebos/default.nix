@@ -37,7 +37,7 @@
   programs.coolercontrol.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
 
-  filesystems = {
+  mount = {
     media.enable = true;
     games.enable = true;
     storagebox.enable = true;

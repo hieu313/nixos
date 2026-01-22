@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.filesystems.games;
+  cfg = config.mount.games;
 in
 {
-  options.filesystems.games.enable = lib.mkEnableOption "Local media filesystem for storing video game files";
+  options.mount.games.enable = lib.mkEnableOption "Local mount for storing video game files";
 
   config = lib.mkIf cfg.enable {
     fileSystems."/mnt/games" = {

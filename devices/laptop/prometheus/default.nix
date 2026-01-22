@@ -34,7 +34,7 @@
   # workstation.xfce.enable = true;
 
   # mounts Hetzner storagebox module - remove or set to false if cloning
-  filesystems.storagebox.enable = true;
+  mount.storagebox.enable = true;
 
   # connects device to syncthing server - enables ROM sync across devices
   services.syncthing.retroshare.enable = true;

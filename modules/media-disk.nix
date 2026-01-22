@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.filesystems.media;
+  cfg = config.mount.media;
 in
 {
-  options.filesystems.media.enable = lib.mkEnableOption "Local media filesystem for Jellyfin, Kavita, Immich, and Navidrome";
+  options.mount.media.enable = lib.mkEnableOption "Local media mount for Jellyfin, Kavita, Immich, and Navidrome";
 
   config = lib.mkIf cfg.enable {
     fileSystems."/mnt/jelly" = {
