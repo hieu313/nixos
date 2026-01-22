@@ -1,25 +1,41 @@
-My NixOS journey. Use with caution. If you plan to clone, you should read through the configurations of the profile you plan to build from and make sure everything is correct for your system.
+# My NixOS configurations v3
 
-The purpose of this repository is to provide a public repo of how my NixOS systems evolve over time, and maybe some examples for different configurations. I am not a Nix expert, I'm sure there are better ways to do what I'm doing.
+This is a pretty significant overhaul of the structure the repo used previously, and should allow for more flexibility and easier modification. About 20 directories and 40 files were removed.
 
-That being said, here are the following profiles (environments) I'm building / have built:
+The flake builds no longer depend on hostname-profile (e.g. `erebos-niri`, `prometheus-hypr`, etc) and are now only `.#hostname`. I've converted the "profiles" I used before into modules which can be enabled or disabled as needed. At the time of writing, the Home Manager file for the respective environment will need to be uncommented in `flake.nix`. Make sure you comment or remove any conflicting files from other environments.
 
-    - Niri: Fully functional, uses Noctalia Shell. My live config files for both are not being managed for both despite the files being in /config, my live files are mostly the same I've just been lazy and haven't implemented mkOutOfStoreSymLink for these yet. They are mostly up to date
+I've removed the structure of the server layout from this repo. This is still planned and being tracked in a staging branch through my local forge. Until those are fully configured, it doesn't make sense to have the structure here.
 
-    - Hyprland: Functional (haven't tested/updated window rules for 0.53 changes)
+Though I've learned a lot about NixOS since I started daily driving it in 2025, this configuration should still be used with caution. It's advised that you review all files for anything that may conflict with what you are looking for out of your build. You may need to adjust occurrences of things specific to my environment, like hostnames, usernames, filesystem mounts, etc. Part of the reason I broke things up into modules is to make that process easier.
 
-    - XFCE: Functional, disable XFCE's compositor and Picom take over. Haven't figured out how to declare this yet
+## Repo structure
 
-    - GNOME: Functional, check /profiles/gnome/system.nix for the GNOME specific configuration and tweak what you would like. GNOME stock apps are disabled and some of my favorite extensions are included. I'll make it more declarative in the future.
+- `/config`: software configuration files (ghostty, fastfetch, niri binds, etc). Pretty much all of these are managed through Home Manager and deployed to `~/.config`.
+- `/devices`: broken into `/desktop` and `/laptop`. This is where device-specific configurations and modules are imported or set, as well as the home for `hardware-configuration.nix`. If you're cloning this repo, don’t forget to replace this file with your own.
+- `/home`: Home Manager configurations for my baseline (`common.nix`) and DE/WM-specific configurations.
+- `/modules`: this is where the vast majority of the restructuring was done. Review and adjust as needed. Many things are specific to my environment. Overall, the move to modules should make this repo much more flexible for both myself and anyone else who may want to use it.
+- `/pics`: profile pictures and eventually screenshots to include in the README.
 
-    - KDE Plasma: Broken, I rarely use KDE. Still working on full functionality
+## Important things to note
 
-    - SteamOS: Broken, I've been testing a custom "SteamOS" build that boots directly into gamescope with Steam in big picture mode. Doesn't work too well yet, will likely have to do a complete overhaul
+- My machines run on the **unstable** branch, use the **latest kernel**, and **allow unfree software**. Garbage collection removes all generations older than 7 days.
+- `/modules/baseline.nix` is exactly what it sounds like: a baseline. The majority of packages, services, kernel and boot parameters, and other core settings are defined here. You should be reviewing this file. The baseline is enabled with: ```workstation.baseline.enable = true;```
 
-How to use: I have built "host files" for each host and environment. This allows me to switch to a different environment based on hostname-profile (where profile is the environment). For example on my desktop with the hostname of erebos, to build into a niri environment, you would do sudo nixos-rebuild boot --flake .#erebos-niri (given that you're in the root of the repo), then reboot (I use the "boot" switch instead of "switch" as trying to rebuild into a system from a tty or different DE/WM is not clean). You can check the flake for exact names and modify them how you like if you're copying this repo. Please note that there are a lot of instances of using hostnames within different configs and files here, as hostnames for me are static. This build also expects that the user will always be gumbo, this comes into play especially with home manager. If you are using a different user in your configuration, you will need to adjust all occurences of the gumbo user in these configs.
+- I use **Niri** almost exclusively. That module will be kept the most up to date. GNOME and XFCE modules should be stable and usable.
+- Hyprland currently lags behind upstream. Breaking changes were made to window-rule syntax in version 0.53, and I have not yet made adjustments to accommodate this.
+- KDE is mostly broken. Wayland does not work, and while switching to X11 in SDDM will get you to a desktop, some applications do not open. I’ll fix it eventually, but don’t use KDE for now. If you would like to submit a PR to fix it, I will review and merge if everything looks good.
+- Display managers change depending on what environment you choose:
+  - Desktop environments use their defaults (GNOME = GDM, KDE = SDDM, XFCE = LightDM)
+  - Window managers use `tuigreet` with autologin
+- `/profiles/steamos` is **not** a functional configuration. This was an experiment to create a SteamOS-like environment that boots directly into Gamescope, aiming for a more console-like experience with support for things like Netflix or YouTube as non-Steam games. It does boot into Gamescope with Steam in Big Picture mode (after a delay), but playing games or streaming them from another device does not work.
+- No, this repo is not 100 MB. Wallpapers used to live here and were removed. The blobs should also be removed from `.git`. ```du -hs``` reports **8.7 MB** at the time of writing.
 
-Anything named "common.nix" is a shared configuration across my desktop and laptops. Most of the configurations are shared. Any device specific configurations would go in /devices to the respective device, as well as the hardware-configuration.nix which you ***MUST REPLACE***. Profile specific configurations live in /profiles to the respective environment, please note that there are often profile specific home manager configs that are imported into each profile. If it wasn't obvious, those can be found in /home.
+## Current valid build commands (from root of repo)
 
-The /hosts files are purely for importing configurations. If you're adjusting host names, file names, implementing a new profile, those must be changed in both the respective host file as well as the flake.
+```bash
+sudo nixos-rebuild boot --flake .#prometheus
+```
 
-Servers are not yet online, that project is being tracked in my local Forge and is expected to be completed in March of 2026. Eventually I'll overhaul the structure of this repo and turn the "profiles" into modules but don't have time for that rn
+```bash
+sudo nixos-rebuild boot --flake .#erebos
+```

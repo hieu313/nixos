@@ -9,33 +9,38 @@
 {
   imports = [
     ./hardware-configuration.nix
-    # ./containers.nix
+    ../../../modules/baseline.nix # <-- shared config between laptop/desktop
+    ../../../modules/niri.nix # <-- niri environment
+    # ../../../modules/hypr.nix # <-- hyprland environment
+    # ../../../modules/gnome.nix # <-- gnome environemt
+    # ../../../modules/kde.nix # <-- kde environment
+    # ../../../modules/xfce.nix # <-- xfce environment
+    ../../../modules/storagebox.nix
+    ../../../modules/games-disk.nix
+    ../../../modules/media-disk.nix
   ];
 
-  # Hostname
+  # hostname
   networking.hostName = "erebos";
 
-  # Erebos tweaks
-  fileSystems."/mnt/jelly" = {
-    device = "/dev/disk/by-uuid/928958de-b7ae-4310-9465-57377da78508";
-    fsType = "ext4";
-    options = [
-      "nosuid"
-      "nodev"
-      "noatime"
-      "nofail"
-    ];
-  };
+  # enable workstation baseline module
+  workstation.baseline.enable = true;
 
-  fileSystems."/mnt/games" = {
-    device = "/dev/disk/by-uuid/7b2f5538-ff2f-44a7-9a7e-105bf75d6c70";
-    fsType = "ext4";
-    options = [
-      "nosuid"
-      "nodev"
-      "noatime"
-      "nofail"
-    ];
+  # environments, switch to true or false as needed
+  workstation.niri.enable = true;
+  # workstation.hypr.enable = true;
+  # workstation.gnome.enable = true;
+  # workstation.kde.enable = true;
+  # workstation.xfce.enable = true;
+
+  programs.steam.enable = true;
+  programs.coolercontrol.enable = true;
+  hardware.cpu.amd.updateMicrocode = true;
+
+  filesystems = {
+    media.enable = true;
+    games.enable = true;
+    storagebox.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -49,10 +54,6 @@
       /mnt/jelly 192.168.0.0/24(ro,no_subtree_check,async)
     '';
   };
-
-  programs.steam.enable = true;
-  programs.coolercontrol.enable = true;
-  hardware.cpu.amd.updateMicrocode = true;
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
 

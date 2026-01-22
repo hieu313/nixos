@@ -1,17 +1,27 @@
-{ config, lib, pkgs, inputs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+let
+  cfg = config.workstation.xfce;
+in
+{
+  options.workstation.xfce.enable = lib.mkEnableOption "XFCE-based workstation environment";
 
-  programs.nm-applet.enable = true;
+  config = lib.mkIf cfg.enable {
+    programs.nm-applet.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    xfce.xfce4-whiskermenu-plugin
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-cpugraph-plugin
-    xfce.xfce4-battery-plugin
-    lightdm-gtk-greeter
-    elementary-xfce-icon-theme
-  ];
+    environment.systemPackages = with pkgs; [
+      xfce.xfce4-whiskermenu-plugin
+      xfce.xfce4-pulseaudio-plugin
+      xfce.xfce4-cpugraph-plugin
+      xfce.xfce4-battery-plugin
+      lightdm-gtk-greeter
+      elementary-xfce-icon-theme
+    ];
 
     xserver = {
       enable = true;
@@ -43,4 +53,5 @@
       backend = "glx";
       vSync = true;
     };
+  };
 }
