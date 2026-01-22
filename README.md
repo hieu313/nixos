@@ -11,7 +11,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 ## Repo structure
 
 - `/config`: software configuration files (ghostty, fastfetch, niri binds, etc). Pretty much all of these are managed through Home Manager and deployed to `~/.config`.
-- `/devices`: broken into `/desktop` and `/laptop`. This is where device-specific configurations and modules are imported or set, as well as the home for `hardware-configuration.nix`. If you're cloning this repo, don’t forget to replace this file with your own.
+- `/devices`: broken into `/desktop` and `/laptop`. This is where device-specific configurations and modules are imported or set, as well as the home for `hardware-configuration.nix`. If you're cloning this repo, don't forget to replace this file with your own.
 - `/home`: Home Manager configurations for my baseline (`common.nix`) and DE/WM-specific configurations.
 - `/modules`: this is where the vast majority of the restructuring was done. Review and adjust as needed. Many things are specific to my environment. Overall, the move to modules should make this repo much more flexible for both myself and anyone else who may want to use it.
 - `/pics`: profile pictures and eventually screenshots to include in the README.
@@ -23,7 +23,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 
 - I use **Niri** almost exclusively. That module will be kept the most up to date. GNOME and XFCE modules should be stable and usable.
 - Hyprland currently lags behind upstream. Breaking changes were made to window-rule syntax in version 0.53, and I have not yet made adjustments to accommodate this.
-- KDE is mostly broken. Wayland does not work, and while switching to X11 in SDDM will get you to a desktop, some applications do not open. I’ll fix it eventually, but don’t use KDE for now. If you would like to submit a PR to fix it, I will review and merge if everything looks good.
+- KDE is mostly broken. Wayland does not work, and while switching to X11 in SDDM will get you to a desktop, some applications do not open. I'll fix it eventually, but don't use KDE for now. If you would like to submit a PR to fix it, I will review and merge if everything looks good.
 - Display managers change depending on what environment you choose:
   - Desktop environments use their defaults (GNOME = GDM, KDE = SDDM, XFCE = LightDM)
   - Window managers use `tuigreet` with autologin
@@ -39,3 +39,5 @@ sudo nixos-rebuild boot --flake .#prometheus
 ```bash
 sudo nixos-rebuild boot --flake .#erebos
 ```
+
+Please consider sponsoring NixOS to support the people that have brought us this amazing software https://github.com/sponsors/NixOS
