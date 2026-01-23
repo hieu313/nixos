@@ -15,61 +15,71 @@
     };
   };
 
-  outputs = { self, nixpkgs-unstable, home-manager, noctalia, ... }@inputs:
-  let
-    system = "x86_64-linux";
-    libU = nixpkgs-unstable.lib;
+  outputs =
+    {
+      self,
+      nixpkgs-unstable,
+      home-manager,
+      noctalia,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      libU = nixpkgs-unstable.lib;
 
-    mkWorkstation =
-      { deviceModule, hmImports }:
-      libU.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          deviceModule
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              extraSpecialArgs = { inherit inputs; };
-              users.gumbo = {
-                imports = hmImports;
+      mkWorkstation =
+        { deviceModule, hmImports }:
+        libU.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            deviceModule
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                extraSpecialArgs = { inherit inputs; };
+                users.gumbo = {
+                  imports = hmImports;
+                };
               };
-            };
-          }
-        ];
-      };
-  in {
-    nixosConfigurations = {
-      # erebos is my desktop/gaming build
-      erebos = mkWorkstation {
-        deviceModule = ./devices/desktop/erebos/default.nix;
-        hmImports = [
-          ./home/common.nix
-          # all hm environments are listed below, comment/uncomment as needed
-          ./home/niri.nix
-          # ./home/hypr.nix
-          # ./home/gnome.nix
-          # ./home/kde.nix
-          # ./home/xfce.nix
-        ];
-      };
+            }
+          ];
+        };
+    in
+    {
+      nixosConfigurations = {
+        # erebos is my desktop/gaming build
+        erebos = mkWorkstation {
+          deviceModule = ./devices/desktop/erebos/default.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/zsh.nix
+            # all hm environments are listed below, comment/uncomment as needed
+            ./home/niri.nix
+            # ./home/hypr.nix
+            # ./home/gnome.nix
+            # ./home/kde.nix
+            # ./home/xfce.nix
+          ];
+        };
 
-      # prometheus is my laptop build
-      prometheus = mkWorkstation {
-        deviceModule = ./devices/laptop/prometheus/default.nix;
-        hmImports = [
-          ./home/common.nix
-          # all hm environments are listed below, comment/uncomment as needed
-          ./home/niri.nix
-          # ./home/hypr.nix
-          # ./home/gnome.nix
-          # ./home/kde.nix
-          # ./home/xfce.nix
-        ];
+        # prometheus is my laptop build
+        prometheus = mkWorkstation {
+          deviceModule = ./devices/laptop/prometheus/default.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/zsh.nix
+            # all hm environments are listed below, comment/uncomment as needed
+            ./home/niri.nix
+            # ./home/hypr.nix
+            # ./home/gnome.nix
+            # ./home/kde.nix
+            # ./home/xfce.nix
+          ];
+        };
       };
     };
-  };
 }

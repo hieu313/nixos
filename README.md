@@ -20,7 +20,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 
 - My machines run on the **unstable** branch, use the **latest kernel**, and **allow unfree software**. Garbage collection removes all generations older than 7 days.
 - `/modules/baseline.nix` is exactly what it sounds like: a baseline. The majority of packages, services, kernel and boot parameters, and other core settings are defined here. You should be reviewing this file. The baseline is enabled with: ```workstation.baseline.enable = true;```
-
+- All builds use **zsh** by default. I have separate **zsh** and **bash** Home Manager files, you can switch the shell to say bash by modifying the shell file Home Manager imports under either machines entry in ```flake.nix```.
 - I use **Niri** almost exclusively. That module will be kept the most up to date. GNOME and XFCE modules should be stable and usable.
 - Hyprland currently lags behind upstream. Breaking changes were made to window-rule syntax in version 0.53, and I have not yet made adjustments to accommodate this.
 - KDE is mostly broken. Wayland does not work, and while switching to X11 in SDDM will get you to a desktop, some applications do not open. I'll fix it eventually, but don't use KDE for now. If you would like to submit a PR to fix it, I will review and merge if everything looks good.

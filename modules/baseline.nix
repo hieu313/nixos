@@ -48,6 +48,7 @@ in
 
     users.users.gumbo = {
       isNormalUser = true;
+      shell = pkgs.zsh;
       extraGroups = [
         "wheel"
         "networkmanager"
@@ -95,6 +96,8 @@ in
     programs.firefox.enable = true;
     programs.dconf.enable = true;
     programs.neovim.enable = true;
+    programs.zsh.enable = true;
+    environment.pathsToLink = [ "/share/zsh" ];
 
     programs.virt-manager.enable = true;
     virtualisation = {
@@ -141,6 +144,7 @@ in
       libreoffice
       gimp
       dig
+      oh-my-zsh
     ];
 
     services = {
