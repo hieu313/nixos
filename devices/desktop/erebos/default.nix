@@ -37,20 +37,11 @@
   # workstation.kde.enable = true;
   # workstation.xfce.enable = true;
 
-  programs.steam.enable = true;
-  programs.coolercontrol.enable = true;
-  hardware.cpu.amd.updateMicrocode = true;
-
   mount = {
     media.enable = true;
     games.enable = true;
     storagebox.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    lm_sensors
-    heroic
-  ];
 
   services.nfs.server = {
     enable = true;
@@ -58,6 +49,15 @@
       /mnt/jelly 192.168.0.0/24(ro,no_subtree_check,async)
     '';
   };
+  
+  programs.steam.enable = true;
+  programs.coolercontrol.enable = true;
+  hardware.cpu.amd.updateMicrocode = true;
+
+  environment.systemPackages = with pkgs; [
+    lm_sensors
+    heroic
+  ];
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
 

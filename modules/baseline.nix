@@ -109,6 +109,7 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      # tools/etc
       wget
       git
       htop
@@ -118,34 +119,35 @@ in
       ghostty
       fastfetch
       starship
-      bitwarden-desktop
-      spotify
-      yubioath-flutter
-      vscodium
       lazyssh
-      signal-desktop
       nixfmt
-      (retroarch.withCores (cores: with cores; [ mgba ]))
-      upower
       blueman
       ffmpeg
-      vlc
       whois
-      rustup
-      cargo
-      gcc
-      rustlings
-      mediawriter
       parted
       usbutils
       smartmontools
       pciutils
       file
-      libreoffice
-      gimp
+      mediawriter
       dig
       oh-my-zsh
       autojump
+      # dev
+      rustup
+      cargo
+      gcc
+      rustlings
+      # applications/etc
+      bitwarden-desktop
+      spotify
+      yubioath-flutter
+      vscodium
+      signal-desktop
+      (retroarch.withCores (cores: with cores; [ mgba ]))
+      vlc
+      libreoffice
+      gimp
     ];
 
     services = {
@@ -176,10 +178,6 @@ in
 
     xdg.portal.enable = true;
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
-    environment.shellAliases = {
-      list_sys_gens = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
-    };
 
     system.stateVersion = "25.05";
   };
