@@ -145,6 +145,7 @@ in
       gimp
       dig
       oh-my-zsh
+      autojump
     ];
 
     services = {

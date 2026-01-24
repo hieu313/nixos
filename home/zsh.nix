@@ -31,6 +31,7 @@
     oh-my-zsh = {
       enable = true;
       package = pkgs.oh-my-zsh;
+      plugins = [ "systemd" "tailscale" "ssh" "rsync" "autojump"];
     };
   };
 }
