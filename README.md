@@ -32,12 +32,8 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 
 ## Current valid build commands (from root of repo)
 
-```bash
-sudo nixos-rebuild boot --flake .#prometheus (laptop build)
-```
+```sudo nixos-rebuild boot --flake .#prometheus``` (laptop build)
 
-```bash
-sudo nixos-rebuild boot --flake .#erebos (desktop/gaming build)
-```
+```sudo nixos-rebuild boot --flake .#erebos``` (desktop/gaming build)
 
 Please consider sponsoring NixOS to support the people that have brought us this amazing software https://github.com/sponsors/NixOS

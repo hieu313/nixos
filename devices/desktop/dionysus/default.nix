@@ -11,9 +11,21 @@
     ./hardware-configuration.nix
   ];
 
-  # Hostname
   networking.hostName = "dionysus";
 
-  hardware.cpu.amd.updateMicrocode = true;
+  services.seatd = {
+    enable = true;
+    user = "gumbo";
+    group = "video";
+  };
 
+  services.getty = {
+    autologinUser = "gumbo";
+  };
+
+  programs.steam.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    gamescope
+  ];
 }

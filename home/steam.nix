@@ -1,6 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
+
+  home.username = "gumbo";
+  home.homeDirectory = "/home/gumbo";
+  home.stateVersion = "25.05";
+  programs.home-manager.enable = true;
+
   programs.bash.initExtra = ''
     if [ "$(tty)" = "/dev/tty1" ]; then
       export XDG_SESSION_TYPE=wayland
