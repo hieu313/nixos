@@ -11,13 +11,14 @@
     ./hardware-configuration.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
     ../../../modules/niri.nix # <-- niri environment
-    # ../../../modules/hypr.nix # <-- hyprland environment
-    # ../../../modules/gnome.nix # <-- gnome environemt
-    # ../../../modules/kde.nix # <-- kde environment
-    # ../../../modules/xfce.nix # <-- xfce environment
+    # ../../../../modules/hypr.nix # <-- hyprland environment
+    # ../../../../modules/gnome.nix # <-- gnome environemt
+    # ../../../../modules/kde.nix # <-- kde environment
+    # ../../../../modules/xfce.nix # <-- xfce environment
     ../../../modules/storagebox.nix
     ../../../modules/games-disk.nix
     ../../../modules/media-disk.nix
+    ../../../modules/ssh.nix
   ];
 
   # hostname
@@ -25,6 +26,9 @@
 
   # enable workstation baseline module
   workstation.baseline.enable = true;
+
+  # enable default ssh configuration + authorized yubikeys
+  workstation.ssh.enable = true;
 
   # environments, switch to true or false as needed
   workstation.niri.enable = true;

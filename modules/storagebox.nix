@@ -55,6 +55,7 @@ in
       description = "Hetzner CIFS tuning";
       wantedBy = [ "multi-user.target" ];
       after = [ "network-online.target" ];
+      wants = [ "network-online.target" ];
       serviceConfig = {
         Type = "oneshot";
         ExecStart = ''
