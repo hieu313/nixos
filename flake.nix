@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,20 +14,27 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+
   };
 
   outputs =
     {
       self,
       nixpkgs-unstable,
+      nixpkgs-stable,
       home-manager,
       noctalia,
+      agenix,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       libU = nixpkgs-unstable.lib;
-
+      libS = nixpkgs-stable.lib;
       mkWorkstation =
         { deviceModule, hmImports }:
         libU.nixosSystem {
@@ -46,6 +54,19 @@
                 };
               };
             }
+          ];
+        };
+
+      mkServer =
+        { deviceModule }:
+        libS.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            deviceModule
+            agenix.nixosModules.default
+            ./modules/baseline.server.nix
+            ./modules/ssh.nix
           ];
         };
     in
@@ -86,6 +107,14 @@
           deviceModule = ./devices/desktop/dionysus/default.nix;
           hmImports = [
             ./home/steam.nix
+          ];
+        };
+
+        void = mkServer {
+          deviceModule = ./devices/server/void/default.nix;
+          hmImports = [
+            ./home/server.nix
+            ./home/zsh.nix
           ];
         };
       };

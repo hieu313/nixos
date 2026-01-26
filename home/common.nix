@@ -6,10 +6,14 @@
 }:
 
 {
-  home.username = "gumbo";
-  home.homeDirectory = "/home/gumbo";
-  home.stateVersion = "25.05";
 
+  home = {
+    username = "gumbo";
+    homeDirectory = "/home/gumbo";
+    stateVersion = "25.05";
+  };
+  
+  programs.home-manager.enable = true;
   programs.git.enable = true;
 
   programs.starship = {
@@ -41,6 +45,4 @@
       uris = [ "qemu:///system" ];
     };
   };
-
-  programs.home-manager.enable = true;
 }

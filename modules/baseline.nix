@@ -152,7 +152,6 @@ in
 
     services = {
       tailscale.enable = true;
-      openssh.enable = true;
       pcscd.enable = true; # yubikey dep
       qemuGuest.enable = true;
       spice-vdagentd.enable = true;

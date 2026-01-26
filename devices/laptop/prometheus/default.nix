@@ -52,8 +52,15 @@
     };
   };
 
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
   environment.systemPackages = with pkgs; [
     v4l-utils
     picard
+    terraform
+    distrobox
   ];
 }
