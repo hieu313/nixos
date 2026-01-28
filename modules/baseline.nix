@@ -133,6 +133,7 @@ in
       dig
       oh-my-zsh
       autojump
+      screen
       # dev
       rustup
       cargo

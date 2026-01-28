@@ -78,6 +78,7 @@ in
       autojump
       compose2nix
       jq
+      screen
     ];
 
     services = {
