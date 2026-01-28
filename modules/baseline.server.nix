@@ -23,7 +23,7 @@ in
 
     boot.loader.grub = {
       enable = true;
-      device = "/dev/vda2"
+      devices = [ "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_110561521" ];
     };
 
     nix.gc = {
@@ -58,7 +58,7 @@ in
 
     environment.systemPackages = with pkgs; [
       # tools/etc
-      inputs.compose2nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
       wget
       git
       htop
@@ -79,6 +79,7 @@ in
       compose2nix
       jq
       screen
+      eza
     ];
 
     services = {
@@ -94,8 +95,6 @@ in
     };
 
     networking.firewall.allowedTCPPorts = [ 22 ];
-
-
 
     system.stateVersion = "25.05";
   };

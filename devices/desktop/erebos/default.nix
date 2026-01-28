@@ -40,7 +40,7 @@
   mount = {
     media.enable = true;
     games.enable = true;
-    storagebox.enable = true;
+    storagebox.enable = false;
   };
 
   services.nfs.server = {
