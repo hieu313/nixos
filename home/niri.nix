@@ -20,14 +20,16 @@
     };
 
     gtk3.extraConfig = {
-      "gtk-application-prefer-dark-theme" = 1;
+      "gtk-application-prefer-dark-theme" = true;
     };
 
     gtk4.extraConfig = {
-      "gtk-application-prefer-dark-theme" = 1;
+      "gtk-application-prefer-dark-theme" = true;
     };
   };
 
+  xdg.configFile."gtk-3.0/settings.ini".force = true;
+  xdg.configFile."gtk-4.0/settings.ini".force = true;
   xdg.configFile."gtk-4.0/gtk.css".force = true;
 
   home.pointerCursor = {
