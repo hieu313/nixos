@@ -92,10 +92,15 @@ in
       };
       fontDir.enable = true;
     };
+    
+    programs.neovim = {
+        enable = true;
+        defaultEditor = true;
+    };
 
     programs.firefox.enable = true;
     programs.dconf.enable = true;
-    programs.neovim.enable = true;
+    
     programs.zsh.enable = true;
     environment.pathsToLink = [ "/share/zsh" ];
 
