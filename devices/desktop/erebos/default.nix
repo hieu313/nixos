@@ -19,19 +19,20 @@
     ../../../modules/games-disk.nix
     ../../../modules/media-disk.nix
     ../../../modules/ssh.nix
+    ../../../modules/nixvim.nix
   ];
 
   # hostname
   networking.hostName = "erebos";
 
-  # enable workstation baseline module
-  workstation.baseline.enable = true;
-
-  # enable default ssh configuration + authorized yubikeys
-  workstation.ssh.enable = true;
+  workstation = {
+    baseline.enable = true; # enable workstation baseline module
+    nixvim.enable = true;   # enable nixvim configuration
+    niri.enable = true;     # change to a different profile if you want
+    ssh.enable = true;      # enable default ssh configuration + authorized yubikeys
+  };
 
   # environments, switch to true or false as needed
-  workstation.niri.enable = true;
   # workstation.hypr.enable = true;
   # workstation.gnome.enable = true;
   # workstation.kde.enable = true;

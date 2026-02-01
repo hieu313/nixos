@@ -93,13 +93,6 @@ in
       fontDir.enable = true;
     };
     
-    programs.neovim = {
-        enable = true;
-        defaultEditor = true;
-        vimAlias = true;
-        viAlias = true;
-    };
-
     programs.firefox.enable = true;
     programs.dconf.enable = true;
     

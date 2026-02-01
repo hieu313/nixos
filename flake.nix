@@ -24,6 +24,11 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =
@@ -35,6 +40,7 @@
       home-managerS,
       noctalia,
       agenix,
+      nixvim,
       ...
     }@inputs:
     let

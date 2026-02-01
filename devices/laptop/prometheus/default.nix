@@ -17,24 +17,24 @@
     # ../../../modules/xfce.nix # <-- xfce environment
     ../../../modules/storagebox.nix
     ../../../modules/syncthing-retroshare.nix
+    ../../../modules/nixvim.nix
   ];
 
   # hostname
   networking.hostName = "prometheus";
   hardware.cpu.amd.updateMicrocode = true;
 
-  # enable workstation baseline module
-  workstation.baseline.enable = true;
+  workstation = {
+    baseline.enable = true; # enable workstation baseline module
+    nixvim.enable = true;   # enable nixvim configuration
+    niri.enable = true;     # change to a different profile if you want
+  };
 
   # environments, switch to true as needed
-  workstation.niri.enable = true;
   # workstation.hypr.enable = true;
   # workstation.gnome.enable = true;
   # workstation.kde.enable = true;
   # workstation.xfce.enable = true;
-
-  # mounts Hetzner storagebox module - remove or set to false if cloning
-  mount.storagebox.enable = true;
 
   # connects device to syncthing server - enables ROM sync across devices
   services.syncthing.retroshare.enable = true;
