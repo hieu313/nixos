@@ -44,6 +44,7 @@ in
       nemo
       fuzzel
       gpu-screen-recorder
+      wl-clipboard
     ];
 
     services.greetd = {

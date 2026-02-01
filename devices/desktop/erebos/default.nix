@@ -40,13 +40,15 @@
   mount = {
     media.enable = true;
     games.enable = true;
-    storagebox.enable = false;
   };
 
   services.nfs.server = {
     enable = true;
     exports = ''
-      /mnt/jelly 192.168.0.0/24(ro,no_subtree_check,async)
+      /mnt/jelly/jelly  192.168.0.0/24(ro,no_subtree_check,async)
+      /mnt/jelly/manga  192.168.0.0/24(ro,no_subtree_check,async)
+      /mnt/jelly/photos 192.168.0.0/24(rw,no_subtree_check,sync)
+      /mnt/jelly/music  192.168.0.0/24(rw,no_subtree_check,async)
     '';
   };
   
