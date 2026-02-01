@@ -17,8 +17,6 @@
       battery-health = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
       nix-forge2git = "rsync -avh --delete --exclude='.git' ~/nixos/ ~/git-repos/nix-cb/";
       yz = "yazi";
-      vim = "nvim";
-      vi = "nvim";
     };
     initContent = lib.mkMerge [
       (lib.mkOrder 1000 ''

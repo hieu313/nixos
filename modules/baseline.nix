@@ -96,6 +96,8 @@ in
     programs.neovim = {
         enable = true;
         defaultEditor = true;
+        vimAlias = true;
+        viAlias = true;
     };
 
     programs.firefox.enable = true;
