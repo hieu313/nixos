@@ -154,6 +154,7 @@ in
       vlc
       libreoffice
       gimp
+      feishin
     ];
 
     services = {
