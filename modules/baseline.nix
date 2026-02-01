@@ -150,6 +150,7 @@ in
       libreoffice
       gimp
       feishin
+      jellyfin-desktop
     ];
 
     services = {
