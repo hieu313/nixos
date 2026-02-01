@@ -109,6 +109,7 @@
           ];
         };
 
+        # steamos build is still in testing, expect major changes and broken functionality
         steamos = mkWorkstation {
           deviceModule = ./devices/desktop/dionysus/default.nix;
           hmImports = [
