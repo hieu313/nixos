@@ -17,6 +17,11 @@ in
     lib.mkEnableOption "Nvim configuration";
 
   config = lib.mkIf cfg.enable {
+
+    environment.systemPackages = with pkgs; [
+	ripgrep
+    ];
+
     programs.nixvim = {
       enable = true;
       viAlias = true;
