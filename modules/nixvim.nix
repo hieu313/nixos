@@ -130,7 +130,6 @@ in
         snacks-nvim
         ts-comments-nvim
         typescript-nvim
-        lazy-nvim
       ];
 
       extraConfigLua = ''
@@ -226,16 +225,7 @@ in
         vim.keymap.set("n", "<leader>sd", function()
           snacks.dashboard.open()
         end, { desc = "Snacks Dashboard" })
-
-        -- auto-open dashboard on start with no file
-        vim.api.nvim_create_autocmd("VimEnter", {
-          callback = function()
-            if vim.fn.argc() == 0 then
-              snacks.dashboard.open()
-            end
-          end,
-        })
-      '';
+     '';
     };
   };
 }
