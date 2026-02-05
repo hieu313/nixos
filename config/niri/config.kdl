@@ -1,3 +1,4 @@
+
 input {
 
     touchpad {
@@ -101,6 +102,16 @@ window-rule {
 }
 
 window-rule {
+    match app-id="feishin"
+    draw-border-with-background false
+    geometry-corner-radius 8
+    clip-to-geometry true
+    open-on-workspace "4"
+    open-maximized true
+    opacity 0.75
+}
+
+window-rule {
     match app-id="com.libretro.RetroArch"
     open-floating true
     default-column-width { fixed 1200; }
@@ -155,7 +166,13 @@ binds {
     Mod+Z { spawn-sh "flatpak run app.zen_browser.zen"; }
     Mod+X { spawn "codium"; }
     Mod+B { spawn "/run/current-system/sw/bin/bitwarden"; }
-
+    Mod+S { spawn "/run/current-system/sw/bin/signal-desktop"; }
+    Mod+Shift+J { spawn-sh "/run/current-system/sw/bin/jellyfin-desktop"; }
+    Mod+N { spawn-sh "ghostty -e nvim"; }
+    Mod+M { spawn "/run/current-system/sw/bin/feishin"; }
+    Mod+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
+    Mod+Shift+Space {spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Y { spawn-sh "ghostty -e yazi"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -334,3 +351,6 @@ gestures {
         off
     }
 }
+
+include "./noctalia.kdl"
+
