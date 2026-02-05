@@ -226,12 +226,12 @@ in
               files = {
                 hidden = true,
                 ignored = false,
-                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**", "**/.rustup/**", "**/.steam/**", "**/.mozilla/**", "**/.vscode", "**/.cargo/**, "**/vscode-oss/**" },
+                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**", "**/.rustup/**", "**/.steam/**", "**/.mozilla/**", "**/.vscode", "**/.cargo/**", "**/vscode-oss/**" },
               },
               grep = {
                 hidden = true,
                 ignored = false,
-                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**", "**/.rustup/**", "**/.steam/**", "**/.mozilla/**", "**/.vscode/**", "**/.cargo/**, "**/vscode-oss/**" },
+                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**", "**/.rustup/**", "**/.steam/**", "**/.mozilla/**", "**/.vscode/**", "**/.cargo/**", "**/vscode-oss/**" },
               },
             },
           },
