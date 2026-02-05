@@ -205,12 +205,12 @@ in
               files = {
                 hidden = true,
                 ignored = false,
-                exclude = { "**/.local/**", "**/.cache/**" },
+                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**" },
               },
               grep = {
                 hidden = true,
                 ignored = false,
-                exclude = { "**/.local/**", "**/.cache/**" },
+                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**" },
               },
             },
           },
