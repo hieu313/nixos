@@ -18,6 +18,7 @@
     ../../../modules/storagebox.nix
     ../../../modules/syncthing-retroshare.nix
     ../../../modules/nixvim.nix
+    ../../../modules/yazi.nix
   ];
 
   # hostname
@@ -28,6 +29,7 @@
     baseline.enable = true; # enable workstation baseline module
     nixvim.enable = true;   # enable nixvim configuration
     niri.enable = true;     # change to a different profile if you want
+    yazi.enable = true;
   };
 
   # environments, switch to true as needed

@@ -12,27 +12,30 @@ in
   imports = [
     inputs.nixvim.nixosModules.nixvim
   ];
-
   options.workstation.nixvim.enable =
     lib.mkEnableOption "Nvim configuration";
-
   config = lib.mkIf cfg.enable {
-
     environment.systemPackages = with pkgs; [
-	ripgrep
+      ripgrep
     ];
-
+    environment.sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
     programs.nixvim = {
       enable = true;
       viAlias = true;
       vimAlias = true;
-
       opts = {
         number = true;
         relativenumber = true;
         clipboard = "unnamedplus";
+        tabstop = 2;
+        shiftwidth = 2;
+        softtabstop = 2;
+        expandtab = true;
+        smartindent = true;
       };
-
       globals.clipboard = {
         name = "wl-clipboard";
         copy = {
@@ -58,9 +61,7 @@ in
           ];
         };
       };
-
       colorschemes.tokyonight.enable = true;
-
       plugins = {
         bufferline.enable = true;
         lualine.enable = true;
@@ -68,7 +69,6 @@ in
         mini.pairs.enable = true;
         noice.enable = true;
         web-devicons.enable = true;
-
         treesitter = {
           enable = true;
           settings = {
@@ -92,16 +92,41 @@ in
             ];
           };
         };
-
+        indent-blankline = {
+          enable = true;
+          settings = {
+            indent = {
+              char = "│";
+            };
+            scope = {
+              show_start = false;
+              show_end = false;
+              show_exact_scope = true;
+            };
+            exclude = {
+              filetypes = [
+                ""
+                "checkhealth"
+                "help"
+                "lspinfo"
+                "packer"
+                "TelescopePrompt"
+                "TelescopeResults"
+                "yaml"
+              ];
+              buftypes = [
+                "terminal"
+                "quickfix"
+              ];
+            };
+          };
+        };
         treesitter-textobjects.enable = true;
-
         trouble = {
           enable = true;
           settings.use_diagnostic_signs = true;
         };
-
         which-key.enable = true;
-
         lsp = {
           enable = true;
           servers = {
@@ -110,7 +135,6 @@ in
             jsonls.enable = true;
           };
         };
-
         mason = {
           enable = true;
           ensureInstalled = [
@@ -120,10 +144,8 @@ in
             "flake8"
           ];
         };
-
         telescope.enable = true;
       };
-
       extraPlugins = with pkgs.vimPlugins; [
         flash-nvim
         nui-nvim
@@ -131,15 +153,12 @@ in
         ts-comments-nvim
         typescript-nvim
       ];
-
       extraConfigLua = ''
         -- flash.nvim
         require("flash").setup({})
-
         -- ts-comments
         require("ts-comments").setup({})
-
-        -- Snacks configuration 
+        -- Snacks configuration
         local snacks = require("snacks")
         snacks.setup({
           lazy = {
@@ -205,26 +224,24 @@ in
               files = {
                 hidden = true,
                 ignored = false,
-                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**" },
+                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**", "**/.rustup/**" },
               },
               grep = {
                 hidden = true,
                 ignored = false,
-                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**" },
+                exclude = { "**/.local/**", "**/.cache/**", "**/.var/**", "**/.rustup/**" },
               },
             },
           },
         })
-
         -- command and keymap for dashboard
         vim.api.nvim_create_user_command("SnacksDashboard", function()
           snacks.dashboard.open()
         end, {})
-
         vim.keymap.set("n", "<leader>sd", function()
           snacks.dashboard.open()
         end, { desc = "Snacks Dashboard" })
-     '';
+      '';
     };
   };
 }
