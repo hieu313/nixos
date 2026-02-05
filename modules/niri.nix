@@ -14,6 +14,10 @@ in
   config = lib.mkIf cfg.enable {
     programs.niri.enable = true;
 
+    qt = {
+      enable = true;
+    };
+
     environment.systemPackages = with pkgs; [
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       xwayland-satellite
@@ -25,6 +29,7 @@ in
       fuzzel
       gpu-screen-recorder
       wl-clipboard
+      libsForQt5.qt5ct
     ];
 
     services.greetd = {

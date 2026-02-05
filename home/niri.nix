@@ -28,6 +28,12 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+    style.name = "Fusion";
+  };
+
   xdg.configFile."gtk-3.0/settings.ini".force = true;
   xdg.configFile."gtk-4.0/settings.ini".force = true;
   xdg.configFile."gtk-4.0/gtk.css".force = true;
@@ -43,7 +49,6 @@
   home.sessionVariables = {
     XCURSOR_THEME = "BreezeX-RosePine-Linux";
     XCURSOR_SIZE = "24";
-    QT_QPA_PLATFORMTHEME = "gtk3";
     NIXOS_OZONE_WL = "1";
   };
 }

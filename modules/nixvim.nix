@@ -63,6 +63,8 @@ in
       };
       colorschemes.tokyonight.enable = true;
       plugins = {
+        nix.enable = true;
+        nvim-autopairs.enable = true;
         bufferline.enable = true;
         lualine.enable = true;
         mini.ai.enable = true;
