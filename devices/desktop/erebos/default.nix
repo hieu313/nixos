@@ -21,17 +21,19 @@
     ../../../modules/ssh.nix
     ../../../modules/nixvim.nix
     ../../../modules/yazi.nix
+    ../../../modules/virtualization.nix
   ];
 
   # hostname
   networking.hostName = "erebos";
 
   workstation = {
-    baseline.enable = true; # enable workstation baseline module
-    nixvim.enable = true;   # enable nixvim configuration
-    niri.enable = true;     # change to a different profile if you want
-    yazi.enable = true;     # yazi
-    ssh.enable = true;      # enable default ssh configuration + authorized yubikeys
+    baseline.enable = true;       # enable workstation baseline module
+    nixvim.enable = true;         # enable nixvim configuration
+    niri.enable = true;           # change to a different profile if you want
+    yazi.enable = true;           # yazi
+    ssh.enable = true;            # enable default ssh configuration + authorized yubikeys
+    virtualization.enable = true; # enable QEMU/KVM virtualization
   };
 
   # environments, switch to true or false as needed

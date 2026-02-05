@@ -19,6 +19,7 @@
     ../../../modules/syncthing-retroshare.nix
     ../../../modules/nixvim.nix
     ../../../modules/yazi.nix
+    ../../../modules/virtualization.nix
   ];
 
   # hostname
@@ -26,10 +27,11 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   workstation = {
-    baseline.enable = true; # enable workstation baseline module
-    nixvim.enable = true;   # enable nixvim configuration
-    niri.enable = true;     # change to a different profile if you want
-    yazi.enable = true;
+    baseline.enable = true;       # enable workstation baseline module
+    nixvim.enable = true;         # enable nixvim configuration
+    niri.enable = true;           # change to a different profile if you want
+    yazi.enable = true;           # yazi
+    virtualization.enable = true; # enable QEMU/KVM virtualization
   };
 
   # environments, switch to true as needed

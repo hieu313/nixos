@@ -99,15 +99,6 @@ in
     programs.zsh.enable = true;
     environment.pathsToLink = [ "/share/zsh" ];
 
-    programs.virt-manager.enable = true;
-    virtualisation = {
-      libvirtd = {
-        enable = true;
-        qemu.swtpm.enable = true;
-      };
-      spiceUSBRedirection.enable = true;
-    };
-
     environment.systemPackages = with pkgs; [
       # tools/etc
       wget
@@ -156,8 +147,6 @@ in
     services = {
       tailscale.enable = true;
       pcscd.enable = true; # yubikey dep
-      qemuGuest.enable = true;
-      spice-vdagentd.enable = true;
       libinput.enable = true;
       upower.enable = true;
       power-profiles-daemon.enable = true;
