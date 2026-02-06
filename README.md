@@ -19,7 +19,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 ## Important things to note
 
 - My machines run on the **unstable** branch, use the **latest kernel**, and **allow unfree software**. Garbage collection removes all generations older than 7 days.
-- `/modules/baseline.nix` is exactly what it sounds like: a baseline. The majority of packages, services, kernel and boot parameters, and other core settings are defined here. You should be reviewing this file. The baseline is enabled with: ```workstation.baseline.enable = true;```
+- `/modules/baseline.nix` is exactly what it sounds like: a baseline. The majority of packages, services, kernel and boot parameters, and other core settings are defined here. You should be reviewing this file. The baseline is enabled with: ```workstation.baseline.enable = true;```. Most modules are nested within the ```workstation``` option.
 - All builds use **zsh** by default. I have separate **zsh** and **bash** Home Manager files, you can switch the shell to say bash by modifying the shell file Home Manager imports under either machines entry in ```flake.nix```.
 - I use **Niri** almost exclusively. The Niri module uses **Noctalia Shell**. If you don't want to use Noctalia, remove it's input in `flake.nix` and remove the package from Niri's module. If you're using my Niri config from `/config/niri`, remove ```spawn-at-startup "noctalia-shell"``` from the file. The Niri module will be up to date more often than the others. GNOME and XFCE modules should be stable and usable.
 - Hyprland currently lags behind upstream. Breaking changes were made to window-rule syntax in version 0.53, and I have not yet made adjustments to accommodate this.
