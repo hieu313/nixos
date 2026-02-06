@@ -157,6 +157,7 @@ in
         alsa.enable = true;
       };
     };
+    security.rtkit.enable = true;
 
     xdg.portal.enable = true;
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
