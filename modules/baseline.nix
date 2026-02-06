@@ -124,6 +124,7 @@ in
       oh-my-zsh
       autojump
       screen
+      speedtest
       # dev
       rustup
       cargo
