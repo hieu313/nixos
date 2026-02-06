@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
+    ../../../modules/flatpak.nix
     ../../../modules/niri.nix #     <-- niri environment
     # ../../../modules/hypr.nix     <-- hyprland environment
     # ../../../modules/gnome.nix    <-- gnome environemt
@@ -28,10 +29,18 @@
 
   workstation = {
     baseline.enable = true;       # enable workstation baseline module
+    retroshare.enable = true;     # enables ROM sync to server
     nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want
     yazi.enable = true;           # yazi
     virtualization.enable = true; # enable QEMU/KVM virtualization
+    flatpak = {
+      enable = true;
+      packages = [
+        "flathub:app/app.zen_browser.zen//stable"
+        "flathub:app/com.github.tchx84.Flatseal//stable"
+      ];
+    };
   };
 
   # environments, switch to true as needed
@@ -39,9 +48,6 @@
   # workstation.gnome.enable = true;
   # workstation.kde.enable = true;
   # workstation.xfce.enable = true;
-
-  # connects device to syncthing server - enables ROM sync across devices
-  services.syncthing.retroshare.enable = true;
 
   programs.steam.enable = true;
 
@@ -63,7 +69,6 @@
 
   environment.systemPackages = with pkgs; [
     v4l-utils
-    picard
     terraform
     distrobox
   ];

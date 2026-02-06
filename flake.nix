@@ -29,6 +29,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
   };
 
   outputs =
@@ -41,6 +43,7 @@
       noctalia,
       agenix,
       nixvim,
+      flatpaks,
       ...
     }@inputs:
     let
@@ -56,6 +59,7 @@
           modules = [
             deviceModule
             home-managerU.nixosModules.home-manager
+            flatpaks.nixosModules.default
             {
               home-manager = {
                 useGlobalPkgs = true;

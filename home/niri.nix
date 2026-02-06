@@ -50,5 +50,7 @@
     XCURSOR_THEME = "BreezeX-RosePine-Linux";
     XCURSOR_SIZE = "24";
     NIXOS_OZONE_WL = "1";
+    ICON_THEME = "Adwaita";
+    QS_ICON_THEME = "Adwaita";
   };
 }

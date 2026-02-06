@@ -92,10 +92,9 @@ in
       };
       fontDir.enable = true;
     };
-    
-    programs.firefox.enable = true;
+
     programs.dconf.enable = true;
-    
+
     programs.zsh.enable = true;
     environment.pathsToLink = [ "/share/zsh" ];
 
@@ -141,6 +140,7 @@ in
       libreoffice
       gimp
       feishin
+      picard
       jellyfin-desktop
     ];
 
@@ -155,16 +155,6 @@ in
         pulse.enable = true;
         alsa.enable = true;
       };
-    };
-
-    services.flatpak.enable = true;
-
-    systemd.services.flatpak-repo = {
-      wantedBy = [ "multi-user.target" ];
-      path = [ pkgs.flatpak ];
-      script = ''
-        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-      '';
     };
 
     xdg.portal.enable = true;

@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
+    ../../../modules/flatpak.nix
     ../../../modules/niri.nix #     <-- niri environment
     # ../../../modules/hypr.nix     <-- hyprland environment
     # ../../../modules/gnome.nix    <-- gnome environemt
@@ -34,6 +35,13 @@
     yazi.enable = true;           # yazi
     ssh.enable = true;            # enable default ssh configuration + authorized yubikeys
     virtualization.enable = true; # enable QEMU/KVM virtualization
+    flatpak = {
+      enable = true;
+      packages = [
+        "flathub:app/app.zen_browser.zen//stable"
+        "flathub:app/com.github.tchx84.Flatseal//stable"
+      ];
+    };
   };
 
   # environments, switch to true or false as needed
@@ -64,7 +72,6 @@
   environment.systemPackages = with pkgs; [
     lm_sensors
     heroic
-    picard
     terraform
   ];
 

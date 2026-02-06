@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.services.syncthing.retroshare;
+  cfg = config.workstation.retroshare;
 in
 {
-  options.services.syncthing.retroshare.enable =
+  options.workstation.retroshare.enable =
     lib.mkEnableOption "Syncthing RetroArch share";
 
   config = lib.mkIf cfg.enable {
