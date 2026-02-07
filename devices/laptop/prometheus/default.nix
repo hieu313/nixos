@@ -36,6 +36,7 @@
     virtualization.enable = true; # enable QEMU/KVM virtualization
     flatpak = {
       enable = true;
+      onCalendar = "weekly";
       packages = [
         "flathub:app/app.zen_browser.zen//stable"
         "flathub:app/com.github.tchx84.Flatseal//stable"

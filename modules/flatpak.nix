@@ -61,13 +61,25 @@ in
     veryVerbose = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable verbose logging for declarative-flatpak";
+      description = "Enables verbose logging";
     };
 
     flatpakDir = lib.mkOption {
       type = lib.types.nullOr lib.types.path;
       default = null;
       description = "Custom flatpak data directory - default is /var/lib/flatpak.";
+    };
+
+    forceRunOnActivation = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Run sync on every system activation (updates flatpaks)";
+    };
+
+    onCalendar = lib.mkOption {
+      type = lib.types.str;
+      default = "weekly";
+      description = "Periodic flatpak sync (updates)";
     };
   };
 
@@ -87,7 +99,7 @@ in
       preInstallCommand = "";
       preSwitchCommand = "";
       UNCHECKEDfinalizeCommand = "";
-      forceRunOnActivation = false;
+      forceRunOnActivation = cfg.forceRunOnActivation;
       onCalendar = "weekly";
     };
   };
