@@ -125,6 +125,7 @@ in
       autojump
       screen
       speedtest
+      unzip
       # dev
       rustup
       cargo
