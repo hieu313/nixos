@@ -144,6 +144,7 @@ in
       feishin
       picard
       jellyfin-desktop
+      gnome-calculator
     ];
 
     services = {
