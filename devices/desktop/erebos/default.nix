@@ -59,6 +59,15 @@
   # workstation.kde.enable = true;
   # workstation.xfce.enable = true;
 
+  age.identityPaths = [ "/home/gumbo/.ssh/agenix_gumbo" ];
+  
+  # symlink agenix key so I can use it in cli
+  system.activationScripts.agenix-cli-identity = ''
+    if [ ! -e /home/gumbo/.ssh/id_ed25519 ]; then
+      ln -s /home/gumbo/.ssh/agenix_gumbo /home/gumbo/.ssh/id_ed25519
+    fi
+  '';
+
   mount = {
     media.enable = true;
     games.enable = true;

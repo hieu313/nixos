@@ -27,14 +27,6 @@ input {
      focus-follows-mouse max-scroll-amount="0%"
 }
 
-/-output "eDP-1" {
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1200@60.002"
-
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1
-}
-
 layout {
     background-color "transparent"
     gaps 12
@@ -87,18 +79,13 @@ workspace "3" { }
 workspace "4" { }
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
     match app-id=r#"zen$"#
     draw-border-with-background false
     geometry-corner-radius 8
     clip-to-geometry true
     open-on-workspace "3"
     open-maximized true
-    opacity 0.95
+    opacity 0.90
 }
 
 window-rule {
@@ -129,6 +116,15 @@ window-rule {
     draw-border-with-background false
 }
 
+
+window-rule {
+    match app-id="steam_app_1903340"
+    open-maximized true
+    draw-border-with-background false
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -150,7 +146,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="org.jellyfin.JellyfinDesktop"
+    match app-id="com.github.iwalton3.jellyfin-media-player"
     draw-border-with-background false
     open-maximized true
 }
@@ -163,24 +159,26 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
+    // app shortcuts
     Mod+Z { spawn-sh "flatpak run app.zen_browser.zen"; }
-    Mod+X { spawn "codium"; }
     Mod+B { spawn "/run/current-system/sw/bin/bitwarden"; }
-    Mod+S { spawn "/run/current-system/sw/bin/signal-desktop"; }
-    Mod+Shift+J { spawn-sh "/run/current-system/sw/bin/jellyfin-desktop"; }
-    Mod+N { spawn-sh "ghostty -e nvim"; }
+    Mod+X { spawn "codium"; }
+    Mod+Shift+J  { spawn "/run/current-system/sw/bin/jellyfin-desktop"; }
     Mod+M { spawn "/run/current-system/sw/bin/feishin"; }
+    Mod+N { spawn-sh "ghostty -e nvim"; }
+    Mod+Shift+M { spawn-sh "noctalia-shell ipc call plugin togglePanel MediaMini"; }
     Mod+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Mod+Shift+Space {spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+Y { spawn-sh "ghostty -e yazi"; }
+
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness decrease"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     Mod+O repeat=false { toggle-overview; }
 
@@ -313,7 +311,7 @@ binds {
     // rather than stacked on top of each other.
     Mod+W { toggle-column-tabbed-display; }
 
-    Print      { screenshot; }
+    Mod+Shift+S { screenshot; }
     Shift+Print { screenshot-screen; }
     Alt+Print  { screenshot-window; }
 
@@ -335,8 +333,16 @@ cursor {
     hide-after-inactive-ms 10000
 }
 
+output "HDMI-A-1" {
+    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+    mode "1920x1080@144.004"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1
+}
+
 layer-rule {
-    match namespace="^noctalia-wallpaper-eDP-1"
+    match namespace="^noctalia-wallpaper-HDMI-A-1"
     place-within-backdrop true
 }
 
@@ -351,6 +357,3 @@ gestures {
         off
     }
 }
-
-include "./noctalia.kdl"
-
