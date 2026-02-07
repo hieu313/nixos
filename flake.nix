@@ -60,6 +60,7 @@
             deviceModule
             home-managerU.nixosModules.home-manager
             flatpaks.nixosModules.default
+            agenix.nixosModules.default
             {
               home-manager = {
                 useGlobalPkgs = true;

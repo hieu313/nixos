@@ -2,12 +2,15 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
   cfg = config.workstation.baseline.packages;
 
   toolsPackages = with pkgs; [
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    yubikey-manager
     wget
     git
     htop
