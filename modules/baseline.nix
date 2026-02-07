@@ -1,3 +1,4 @@
+# Note that baseline packages are now in ./packages.nix, and nested into the workstation.baseline module
 {
   config,
   lib,
@@ -97,55 +98,6 @@ in
 
     programs.zsh.enable = true;
     environment.pathsToLink = [ "/share/zsh" ];
-
-    environment.systemPackages = with pkgs; [
-      # tools/etc
-      wget
-      git
-      htop
-      curl
-      tree
-      eza
-      ghostty
-      fastfetch
-      starship
-      lazyssh
-      nixfmt
-      blueman
-      ffmpeg
-      whois
-      parted
-      usbutils
-      smartmontools
-      pciutils
-      file
-      mediawriter
-      dig
-      oh-my-zsh
-      autojump
-      screen
-      speedtest
-      unzip
-      # dev
-      rustup
-      cargo
-      gcc
-      rustlings
-      # applications/etc
-      bitwarden-desktop
-      spotify
-      yubioath-flutter
-      vscodium
-      signal-desktop
-      (retroarch.withCores (cores: with cores; [ mgba ]))
-      vlc
-      libreoffice
-      gimp
-      feishin
-      picard
-      jellyfin-desktop
-      gnome-calculator
-    ];
 
     services = {
       tailscale.enable = true;

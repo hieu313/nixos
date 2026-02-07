@@ -170,6 +170,7 @@ binds {
     Mod+Shift+J { spawn-sh "/run/current-system/sw/bin/jellyfin-desktop"; }
     Mod+N { spawn-sh "ghostty -e nvim"; }
     Mod+M { spawn "/run/current-system/sw/bin/feishin"; }
+    Mod+Shift+M { spawn-sh "noctalia-shell ipc call plugin togglePanel MediaMini"; }
     Mod+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Mod+Shift+Space {spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+Y { spawn-sh "ghostty -e yazi"; }

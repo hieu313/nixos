@@ -19,6 +19,7 @@
     ../../../modules/storagebox.nix
     ../../../modules/games-disk.nix
     ../../../modules/media-disk.nix
+    ../../../modules/packages.nix
     ../../../modules/ssh.nix
     ../../../modules/nixvim.nix
     ../../../modules/yazi.nix
@@ -29,7 +30,14 @@
   networking.hostName = "erebos";
 
   workstation = {
-    baseline.enable = true;       # enable workstation baseline module
+    baseline = {
+      enable = true;              # enable baseline config
+      packages = {
+        tools = true;             # enable common suite of CLI tools
+        dev = true;               # enable common langs/lang related tools
+        apps = true;              # enable common desktop applications
+      };
+    };      
     nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want
     yazi.enable = true;           # yazi

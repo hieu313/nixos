@@ -19,6 +19,7 @@
     ../../../modules/storagebox.nix
     ../../../modules/syncthing-retroshare.nix
     ../../../modules/nixvim.nix
+    ../../../modules/packages.nix
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
   ];
@@ -28,7 +29,14 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   workstation = {
-    baseline.enable = true;       # enable workstation baseline module
+    baseline = {
+      enable = true;              # enable baseline config
+      packages = {
+        tools = true;             # enable common suite of CLI tools
+        dev = true;               # enable common langs/lang related tools
+        apps = true;              # enable common desktop applications
+      };
+    }; 
     retroshare.enable = true;     # enables ROM sync to server
     nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want

@@ -1,0 +1,74 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.workstation.baseline.packages;
+
+  toolsPackages = with pkgs; [
+    wget
+    git
+    htop
+    curl
+    tree
+    eza
+    ghostty
+    fastfetch
+    starship
+    lazyssh
+    nixfmt
+    blueman
+    ffmpeg
+    whois
+    parted
+    usbutils
+    smartmontools
+    pciutils
+    file
+    dig
+    oh-my-zsh
+    autojump
+    screen
+    speedtest
+    unzip
+  ];
+
+  devPackages = with pkgs; [
+    rustup
+    cargo
+    gcc
+    rustlings
+  ];
+
+  appsPackages = with pkgs; [
+    bitwarden-desktop
+    spotify
+    yubioath-flutter
+    vscodium
+    signal-desktop
+    (retroarch.withCores (cores: with cores; [ mgba ]))
+    vlc
+    libreoffice
+    gimp
+    feishin
+    picard
+    jellyfin-desktop
+    gnome-calculator
+  ];
+in
+{
+  options.workstation.baseline.packages = {
+    tools = lib.mkEnableOption "CLI tools and utilities";
+    dev = lib.mkEnableOption "Development tools";
+    apps = lib.mkEnableOption "Desktop applications";
+  };
+
+  config = {
+    environment.systemPackages =
+      (lib.optionals cfg.tools toolsPackages)
+      ++ (lib.optionals cfg.dev devPackages)
+      ++ (lib.optionals cfg.apps appsPackages);
+  };
+}
