@@ -27,5 +27,6 @@ in
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIL6UrcHX2dRQu98j1yAO2Xo+XOJReQEXHuYIukguk8/aAAAABHNzaDo= yubikey3 mobile"
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIMHAg8btMUyPygL6n7d+aPu9surWfKncWrRf5o1pFRsxAAAABHNzaDo= yubikey4 backup"
     ];
+    networking.firewall.allowedTCPPorts = [ 22 ];
   };
 }
