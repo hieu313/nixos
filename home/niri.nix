@@ -2,13 +2,17 @@
   config,
   pkgs,
   lib,
+  hostName,
   ...
 }:
-
+let
+  niriConfig = if hostName == "prometheus" 
+    then ../config/niri/config.laptop.kdl 
+    else ../config/niri/config.desktop.kdl;
+in
 {
   gtk = {
     enable = true;
-
     theme = {
       name = "Tokyonight-Dark";
       package = pkgs.tokyonight-gtk-theme;
@@ -34,9 +38,13 @@
     style.name = "Fusion";
   };
 
-  xdg.configFile."gtk-3.0/settings.ini".force = true;
-  xdg.configFile."gtk-4.0/settings.ini".force = true;
-  xdg.configFile."gtk-4.0/gtk.css".force = true;
+  xdg.configFile = {
+    "gtk-3.0/settings.ini".force = true;
+    "gtk-4.0/settings.ini".force = true;
+    "gtk-4.0/gtk.css".force = true;
+    "niri/config.kdl".source = niriConfig;
+    "niri/noctalia.kdl".source = ../config/niri/noctalia.kdl;
+  };
 
   home.pointerCursor = {
     name = "BreezeX-RosePine-Linux";

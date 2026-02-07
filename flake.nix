@@ -66,6 +66,14 @@
                 useUserPackages = true;
                 backupFileExtension = "backup";
                 extraSpecialArgs = { inherit inputs; };
+                sharedModules = [
+                  (
+                    { osConfig, ... }:
+                    {
+                      _module.args.hostName = osConfig.networking.hostName;
+                    }
+                  )
+                ];
                 users.gumbo = {
                   imports = hmImports;
                 };
