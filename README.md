@@ -40,8 +40,14 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 
 <video src="https://codeberg.org/sensei/nixos/raw/branch/assets/recording_20260208_103359.mp4" controls width="100%"></video>
 
+## Installation
+
 For installation instructions, please see https://codeberg.org/sensei/nixos/wiki/Installation-instructions
 
-Please consider sponsoring NixOS to support the people that have brought us this amazing software https://github.com/sponsors/NixOS
+## Sponsor NixOS
+
+Please consider sponsoring NixOS to support the people that this possible https://github.com/sponsors/NixOS
+
+## Github mirror
 
 For the Github only folks, you can find the mirror here https://github.com/epic9491/nixos
