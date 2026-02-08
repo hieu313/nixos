@@ -37,8 +37,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 ```sudo nixos-rebuild boot --flake .#erebos``` (desktop/gaming build)
 
 ## Showcase
-
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/6GHJb2A4QbY" frameborder="0" allowfullscreen></iframe>
+[![Watch the video](https://img.youtube.com/vi/6GHJb2A4QbY/maxresdefault.jpg)](https://www.youtube.com/watch?v=6GHJb2A4QbY)
 
 Please consider sponsoring NixOS to support the people that have brought us this amazing software https://github.com/sponsors/NixOS
 
