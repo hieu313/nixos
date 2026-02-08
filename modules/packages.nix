@@ -36,6 +36,7 @@ let
     screen
     speedtest
     unzip
+    parallel
   ];
 
   devPackages = with pkgs; [

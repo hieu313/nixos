@@ -93,14 +93,14 @@ in
       overrides = cfg.overrides;
       veryVerbose = cfg.veryVerbose;
       flatpakDir = cfg.flatpakDir;
+      forceRunOnActivation = cfg.forceRunOnActivation;
+      onCalendar = "weekly";
 
       # optional hooks
       preRemotesCommand = "";
       preInstallCommand = "";
       preSwitchCommand = "";
       UNCHECKEDfinalizeCommand = "";
-      forceRunOnActivation = cfg.forceRunOnActivation;
-      onCalendar = "weekly";
     };
   };
 }
