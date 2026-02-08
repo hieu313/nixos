@@ -173,6 +173,7 @@ binds {
     Mod+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Mod+Shift+Space {spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+Y { spawn-sh "ghostty -e yazi"; }
+    Mod+Shift+B { spawn-sh "ghostty -e btop"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

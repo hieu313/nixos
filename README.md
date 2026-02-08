@@ -36,6 +36,10 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 
 ```sudo nixos-rebuild boot --flake .#erebos``` (desktop/gaming build)
 
+## Showcase
+
+<video src="https://codeberg.org/sensei/nixos/releases/download/1.0.0/recording_20250208_103359.mp4" controls width="100%"></video>
+
 Please consider sponsoring NixOS to support the people that have brought us this amazing software https://github.com/sponsors/NixOS
 
 For the Github only folks, you can find the mirror here https://github.com/epic9491/nixos
