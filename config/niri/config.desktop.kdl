@@ -104,8 +104,8 @@ window-rule {
 
 window-rule {
     match app-id="Bitwarden"
-    default-column-width { fixed 1054; }
-    default-window-height { fixed 900; }
+    default-column-width { fixed 1244; }
+    default-window-height { fixed 1019; }
     default-floating-position x=0 y=14.5 relative-to="top"
 }
 
