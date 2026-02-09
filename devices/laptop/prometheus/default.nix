@@ -58,6 +58,8 @@
   # workstation.kde.enable = true;
   # workstation.xfce.enable = true;
 
+  services.fprintd.enable = true;
+
   age.identityPaths = [ "/home/gumbo/.ssh/agenix_gumbo" ];
   
   # symlink agenix key so I can use it in cli
