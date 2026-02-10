@@ -59,6 +59,7 @@ let
     picard
     jellyfin-desktop
     gnome-calculator
+    element-desktop
   ];
 in
 {
