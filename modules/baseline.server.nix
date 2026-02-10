@@ -59,7 +59,6 @@ in
     environment.systemPackages = with pkgs; [
       # tools/etc
       inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-      vim
       wget
       git
       htop
