@@ -23,7 +23,7 @@ in
 
     boot.loader.grub = {
       enable = true;
-      devices = [ "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_110561521" ];
+      devices = [ "/dev/sda" ];
     };
 
     nix.gc = {
