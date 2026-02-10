@@ -19,8 +19,8 @@ in
     };
 
     iconTheme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
     };
 
     gtk3.extraConfig = {
@@ -58,7 +58,7 @@ in
     XCURSOR_THEME = "BreezeX-RosePine-Linux";
     XCURSOR_SIZE = "24";
     NIXOS_OZONE_WL = "1";
-    ICON_THEME = "Adwaita";
-    QS_ICON_THEME = "Adwaita";
+    ICON_THEME = "Papirus";
+    QS_ICON_THEME = "Papirus";
   };
 }

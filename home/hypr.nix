@@ -17,11 +17,6 @@
     recursive = true;
   };
 
-  xdg.configFile."foot" = {
-    source = ../config/foot;
-    recursive = true;
-  };
-
   xdg.dataFile."icons/future-cyan" = {
     source = ../config/icons/future-cyan;
     recursive = true;
@@ -36,8 +31,8 @@
     };
 
     iconTheme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
     };
 
     gtk3.extraConfig = {
@@ -53,7 +48,7 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       gtk-theme = "Tokyonight-Dark";
-      icon-theme = "Adwaita";
+      icon-theme = "Papirus";
     };
   };
 

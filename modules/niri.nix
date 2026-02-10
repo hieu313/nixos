@@ -24,7 +24,7 @@ in
       tokyonight-gtk-theme
       swayimg
       rose-pine-cursor
-      pkgs.adwaita-icon-theme
+      papirus-icon-theme
       nemo
       fuzzel
       gpu-screen-recorder
