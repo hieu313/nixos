@@ -48,7 +48,6 @@ let
 
   appsPackages = with pkgs; [
     bitwarden-desktop
-    spotify
     yubioath-flutter
     vscodium
     signal-desktop
