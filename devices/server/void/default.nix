@@ -10,8 +10,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../../modules/nixvim.nix
-#    ./containers.nix
-#    ./firewall.nix
+    ./containers.nix
+    ./firewall.nix
   ];
 
   networking.hostName = "void";
