@@ -36,11 +36,9 @@ in
     security.pam.services.hyprlock = { };
 
     environment.systemPackages = with pkgs; [
-      waybar
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       hyprpaper
-      ghostty
-      screen
-      rofi
+      fuzzel
       tokyonight-gtk-theme
       brightnessctl
       pamixer
