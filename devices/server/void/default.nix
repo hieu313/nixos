@@ -21,5 +21,5 @@
   workstation = {
     ssh.enable = true;
     nixvim.enable = true;
-  }
+  };
 }
