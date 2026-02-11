@@ -169,11 +169,16 @@ binds {
     Mod+Shift+J { spawn-sh "/run/current-system/sw/bin/jellyfin-desktop"; }
     Mod+N { spawn-sh "ghostty -e nvim"; }
     Mod+M { spawn "/run/current-system/sw/bin/feishin"; }
-    Mod+Shift+M { spawn-sh "noctalia-shell ipc call plugin togglePanel MediaMini"; }
-    Mod+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
-    Mod+Shift+Space {spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+       Mod+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Mod+Y { spawn-sh "ghostty -e yazi"; }
     Mod+Shift+B { spawn-sh "ghostty -e btop"; }
+
+    // Noctalia Media Controls
+    Ctrl+Alt+Space { spawn-sh "noctalia-shell ipc call media playPause"; }
+    Ctrl+Alt+Left { spawn-sh "noctalia-shell ipc call media previous"; }
+    Ctrl+Alt+Right { spawn-sh "noctalia-shell ipc call media next"; }
+    Mod+Shift+M { spawn-sh "noctalia-shell ipc call plugin togglePanel mediaMini"; }
+
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

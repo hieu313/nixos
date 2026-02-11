@@ -22,6 +22,7 @@
     ../../../modules/packages.nix
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
+    ../../../modules/polkit.nix
   ];
 
   # hostname
@@ -40,6 +41,7 @@
     retroshare.enable = true;     # enables ROM sync to server
     nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want
+    polkit.enable = true;
     yazi.enable = true;           # yazi
     virtualization.enable = true; # enable QEMU/KVM virtualization
     flatpak = {
