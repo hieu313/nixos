@@ -17,7 +17,7 @@
     # ../../../modules/kde.nix      <-- kde environment
     # ../../../modules/xfce.nix     <-- xfce environment
     ../../../modules/storagebox.nix
-    ../../../modules/syncthing-retroshare.nix
+    ../../../modules/retroshare.nix
     ../../../modules/nixvim.nix
     ../../../modules/packages.nix
     ../../../modules/yazi.nix

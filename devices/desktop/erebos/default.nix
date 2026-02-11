@@ -17,8 +17,7 @@
     # ../../../modules/kde.nix      <-- kde environment
     # ../../../modules/xfce.nix     <-- xfce environment
     ../../../modules/storagebox.nix
-    ../../../modules/games-disk.nix
-    ../../../modules/media-disk.nix
+    ../../../modules/mount.nix
     ../../../modules/packages.nix
     ../../../modules/ssh.nix
     ../../../modules/nixvim.nix
