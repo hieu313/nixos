@@ -31,7 +31,7 @@
   };
 
   xdg.configFile = {
-    "starship.toml".source = ../config/starship/starship.main.toml;
+    "starship.toml".source = ../config/starship/starship.server.toml;
   };
 
 }

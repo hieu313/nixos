@@ -30,7 +30,6 @@
     startAt = [ ];
   };
 
-
   age.secrets."borg.prometheus.age" = {
     file = ../../../secrets/borg.prometheus.age;
     path = "/run/agenix/borg.prometheus.age";
