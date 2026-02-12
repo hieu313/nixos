@@ -15,8 +15,9 @@
     shellAliases = {
       ls = "eza";
       battery-health = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
-      nix-forge2git = "rsync -avh --delete --exclude='.git' ~/nixos/ ~/git-repos/nix-cb/";
       yz = "yazi";
+      borg_backup_prom = "systemctl restart borgbackup-job-prometheus-home";
+      borg_logs_prom = "journalctl -u borgbackup-job-prometheus-home"
     };
     initContent = lib.mkMerge [
       (lib.mkOrder 1000 ''
