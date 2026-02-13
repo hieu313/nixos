@@ -28,11 +28,11 @@
       monthly = 3;
     };
     preHook = ''
-      cd /home/void/matrix
+      cd /home/gumbo/matrix
       ${pkgs.docker-compose}/bin/docker-compose down
     '';
     postHook = ''
-      cd /home/void/matrix
+      cd /home/gumbo/matrix
       ${pkgs.docker-compose}/bin/docker-compose up -d
       exit $exitStatus
     '';
