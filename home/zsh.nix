@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  hostName,
   ...
 }:
 
@@ -16,10 +17,8 @@
       ls = "eza";
       battery-health = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
       yz = "yazi";
-      borg_backup_prom = "systemctl restart borgbackup-job-prometheus-home";
-      borg_backup_erebos = "systemctl restart borgbackup-job-erebos-home";
-      borg_logs_prom = "journalctl -u borgbackup-job-prometheus-home";
-      borg_logs_erebos = "journalctl -u borgbackup-job-prometheus-home";
+      borg_backup = "systemctl restart borgbackup-job-${hostName}-home";
+      borg_logs = "journalctl -u borgbackup-job-${hostName}-home";
     };
     initContent = lib.mkMerge [
       (lib.mkOrder 1000 ''

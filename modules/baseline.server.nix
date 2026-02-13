@@ -50,6 +50,7 @@ in
         "sound"
         "video"
         "audio"
+        "borg"
       ];
     };
 

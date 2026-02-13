@@ -11,4 +11,5 @@ in
   "gumbo.age".publicKeys = workstations;
   "borg.prometheus.age".publicKeys = [ prometheus ];
   "borg.erebos.age".publicKeys = workstations;
+  "borg.void.age".publicKeys = [ prometheus void ];
 }

@@ -12,10 +12,10 @@
     ../../../modules/nixvim.nix
     ./containers.nix
     ./firewall.nix
+    ./backup.nix
   ];
 
   networking.hostName = "void";
-
 
   server.baseline.enable = true;
   workstation = {
