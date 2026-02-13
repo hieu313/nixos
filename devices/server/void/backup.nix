@@ -29,11 +29,11 @@
     };
     preHook = ''
       cd /home/gumbo/matrix
-      ${pkgs.sudo}/bin/sudo -u gumbo ${pkgs.docker}/bin/docker compose down
+      ${pkgs.sudo}/bin/sudo -u gumbo XDG_RUNTIME_DIR=/run/user/1000 DOCKER_HOST=unix:///run/user/1000/docker.sock ${pkgs.docker}/bin/docker compose down
     '';
     postHook = ''
       cd /home/gumbo/matrix
-      ${pkgs.sudo}/bin/sudo -u gumbo ${pkgs.docker}/bin/docker compose up -d
+      ${pkgs.sudo}/bin/sudo -u gumbo XDG_RUNTIME_DIR=/run/user/1000 DOCKER_HOST=unix:///run/user/1000/docker.sock ${pkgs.docker}/bin/docker compose up -d
       exit $exitStatus
     '';
     startAt = "daily";
