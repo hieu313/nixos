@@ -9,6 +9,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./backup.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
     ../../../modules/flatpak.nix
     ../../../modules/niri.nix #     <-- niri environment

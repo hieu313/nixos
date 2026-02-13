@@ -30,6 +30,7 @@ in
       gpu-screen-recorder
       wl-clipboard
       libsForQt5.qt5ct
+      mpvpaper
     ];
 
     services.greetd = {

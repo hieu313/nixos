@@ -10,4 +10,5 @@ in
   "matrix.env".publicKeys = systems;
   "gumbo.age".publicKeys = workstations;
   "borg.prometheus.age".publicKeys = [ prometheus ];
+  "borg.erebos.age".publicKeys = workstations;
 }
