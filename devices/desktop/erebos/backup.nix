@@ -34,7 +34,7 @@
     file = ../../../secrets/borg.erebos.age;
     path = "/run/agenix/borg.erebos.age";
     owner = "gumbo";
-    group = "users";
+    group = "borg";
     mode = "0400";
   };
 }

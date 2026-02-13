@@ -58,6 +58,7 @@ in
         "video"
         "audio"
         "libvirtd"
+        "borg"
       ];
     };
 
