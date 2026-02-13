@@ -43,7 +43,7 @@
     file = ../../../secrets/borg.void.age;
     path = "/run/agenix/borg.void.age";
     owner = "gumbo";
-    group = "borg";
+    group = "users";
     mode = "0400";
   };
 }

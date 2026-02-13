@@ -34,7 +34,7 @@
     file = ../../../secrets/borg.prometheus.age;
     path = "/run/agenix/borg.prometheus.age";
     owner = "gumbo";
-    group = "borg";
+    group = "users";
     mode = "0400";
   };
 }
