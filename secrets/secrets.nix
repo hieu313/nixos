@@ -10,9 +10,12 @@ in
   "test.age".publicKeys = systems;
   "matrix.env".publicKeys = systems;
   "gumbo.age".publicKeys = workstations;
+  # borg secrets
   "borg.prometheus.age".publicKeys = [ prometheus ];
   "borg.erebos.age".publicKeys = workstations;
   "borg.void.age".publicKeys = [ prometheus void ];
   "borg.v-gaia-main.age".publicKeys = workstations ++ [ v-gaia-main ];
-  "newt.env.age".publicKeys = workstations ++ [ v-gaia-main ]; 
+  #v-gaia-main secrets
+  "newt.env.age".publicKeys = workstations ++ [ v-gaia-main ];
+  "kavita.tokenkey.age".publicKeys = workstations ++ [ v-gaia-main ];
 }

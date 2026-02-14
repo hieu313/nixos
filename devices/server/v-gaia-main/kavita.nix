@@ -1,0 +1,38 @@
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  services.kavita = {
+    enable = true;
+    user = "gumbo";
+    tokenKeyFile = "/run/agenix/kavita.tokenkey.age";
+    dataDir = "/var/lib/kavita";
+    settings = {
+      port = "5000";
+      ipAddresses = "0.0.0.0,::";
+      baseUrl = "/";
+      cache = "75";
+      allowIFraming = "false";
+    }
+  };
+
+  age.secrets."kavita.tokenkey.age" = {
+    file = ../../../secrets/kavita.tokenkey.age;
+    path = "/run/agenix/kavita.tokenkey.age";
+    owner = "gumbo";
+    group = "users";
+    mode = "0400";
+  };
+
+  fileSystems."/mnt/manga" = {
+    device = "192.168.0.183:/mnt/jelly/manga";
+    fsType = "nfs";
+    options = [
+      "noatime"
+      "nofail"
+    ];
+  };
+}
