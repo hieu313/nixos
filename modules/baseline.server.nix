@@ -21,10 +21,7 @@ in
 
     networking.networkmanager.enable = true;
 
-    boot.loader.grub = {
-      enable = true;
-      devices = [ "/dev/sda" ];
-    };
+    
 
     nix.gc = {
       automatic = true;

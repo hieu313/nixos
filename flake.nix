@@ -31,6 +31,9 @@
     };
 
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs-stable";
   };
 
   outputs =
@@ -44,6 +47,7 @@
       agenix,
       nixvim,
       flatpaks,
+      disko,
       ...
     }@inputs:
     let
@@ -90,6 +94,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             deviceModule
+            disko.nixosModules.disko
             agenix.nixosModules.default
             ./modules/baseline.server.nix
             ./modules/ssh.nix
@@ -146,6 +151,14 @@
 
         void = mkServer {
           deviceModule = ./devices/server/void/default.nix;
+          hmImports = [
+            ./home/server.nix
+            ./home/zsh.nix
+          ];
+        };
+
+        v-gaia-main = mkServer {
+          deviceModule = ./devices/server/v-gaia-main/default.nix;
           hmImports = [
             ./home/server.nix
             ./home/zsh.nix

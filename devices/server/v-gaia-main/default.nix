@@ -5,26 +5,28 @@
   modulesPath,
   ...
 }:
-
 {
   imports = [
     ./hardware-configuration.nix
+    ./disk-config.nix
     ../../../modules/nixvim.nix
-    ./containers.nix
-    ./firewall.nix
-    ./backup.nix
   ];
-
+  
   boot.loader.grub = {
     enable = true;
-    devices = [ "/dev/sda" ];
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+    device = "nodev";
   };
 
-  networking.hostName = "void";
+  networking.hostName = "v-gaia-main";
 
   server.baseline.enable = true;
+
   workstation = {
     ssh.enable = true;
     nixvim.enable = true;
   };
+
 }
+
