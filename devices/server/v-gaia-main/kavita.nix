@@ -7,7 +7,7 @@
 {
   services.kavita = {
     enable = true;
-    user = "gumbo";
+    user = "kavita";
     tokenKeyFile = "/run/agenix/kavita.tokenkey.age";
     dataDir = "/var/lib/kavita";
     settings = {
@@ -16,13 +16,13 @@
       baseUrl = "/";
       cache = "75";
       allowIFraming = "false";
-    }
+    };
   };
 
   age.secrets."kavita.tokenkey.age" = {
     file = ../../../secrets/kavita.tokenkey.age;
     path = "/run/agenix/kavita.tokenkey.age";
-    owner = "gumbo";
+    owner = "kavita";
     group = "users";
     mode = "0400";
   };

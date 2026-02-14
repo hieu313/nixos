@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./disk-config.nix
     ./newt.nix
+    ./kavita.nix
     ./backup.nix
     ../../../modules/nixvim.nix
   ];
