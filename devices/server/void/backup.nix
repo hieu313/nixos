@@ -6,7 +6,10 @@
 }:
 {
   services.borgbackup.jobs.void-home = {
-    paths = "/home/gumbo";
+    paths = [
+      "/home/gumbo"
+      "/var/lib/nixos-containers/tuwunel/var/lib/matrix-tuwunel"
+    ];
     exclude = [
       "/home/gumbo/.cache"
       "/home/gumbo/.nix-defexpr"
@@ -16,6 +19,7 @@
       "/home/gumbo/.steam"
       "/home/gumbo/.terraform.d"
       "/home/gumbo/.var"
+      "/home/gumbo/matrix"
     ];
     encryption.mode = "repokey";
     encryption.passCommand = "cat /run/agenix/borg.void.age";
@@ -28,12 +32,10 @@
       monthly = 3;
     };
     preHook = ''
-      cd /home/gumbo/matrix
-      ${pkgs.sudo}/bin/sudo -u gumbo XDG_RUNTIME_DIR=/run/user/1000 DOCKER_HOST=unix:///run/user/1000/docker.sock ${pkgs.docker}/bin/docker compose down
+      systemctl stop container@tuwunel
     '';
     postHook = ''
-      cd /home/gumbo/matrix
-      ${pkgs.sudo}/bin/sudo -u gumbo XDG_RUNTIME_DIR=/run/user/1000 DOCKER_HOST=unix:///run/user/1000/docker.sock ${pkgs.docker}/bin/docker compose up -d
+      systemctl start container@tuwunel
       exit $exitStatus
     '';
     startAt = "daily";
