@@ -44,7 +44,7 @@ in
 
     # displayManager.defaultSession = "xfce";
 
-    picom = {
+    services.picom = {
       enable = true;
       fade = true;
       inactiveOpacity = 0.7;
