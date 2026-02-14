@@ -1,6 +1,11 @@
-{ config, pkgs, lib, ... }:
 {
-  age.identityPaths = [ "/home/gumbo/.ssh/id_ed25519" ];
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+
   age.secrets."matrix.env" = {
     file = ../../../secrets/matrix.env;
     path = "/run/agenix/matrix.env";

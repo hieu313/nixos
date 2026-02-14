@@ -9,24 +9,28 @@
   imports = [
     ./hardware-configuration.nix
     ./disk-config.nix
+    ./newt.nix
+    ./backup.nix
     ../../../modules/nixvim.nix
   ];
 
+  age.identityPaths = [ "/home/gumbo/.ssh/id_ed25519" ];
+
   users.users.gumbo = {
-  isNormalUser = true;
-  shell = pkgs.zsh;
-  initialPassword = "supersecretpassword";
-  extraGroups = [
-    "wheel"
-    "docker"
-    "networkmanager"
-    "sound"
-    "video"
-    "audio"
-    "borg"
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    initialPassword = "supersecretpassword";
+    extraGroups = [
+      "wheel"
+      "docker"
+      "networkmanager"
+      "sound"
+      "video"
+      "audio"
+      "borg"
     ];
   };
-  
+
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
@@ -44,4 +48,3 @@
   };
 
 }
-

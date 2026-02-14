@@ -15,6 +15,11 @@
     ./backup.nix
   ];
 
+  boot.loader.grub = {
+    enable = true;
+    devices = [ "/dev/sda" ];
+  };
+
   users.users.gumbo = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -29,12 +34,7 @@
     ];
   };
 
-
-
-  boot.loader.grub = {
-    enable = true;
-    devices = [ "/dev/sda" ];
-  };
+  age.identityPaths = [ "/home/gumbo/.ssh/id_ed25519" ];
 
   networking.hostName = "void";
 
