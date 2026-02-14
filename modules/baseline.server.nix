@@ -21,8 +21,6 @@ in
 
     networking.networkmanager.enable = true;
 
-    
-
     nix.gc = {
       automatic = true;
       dates = "weekly";
@@ -35,20 +33,6 @@ in
     console = {
       font = "Lat2-Terminus16";
       keyMap = "us";
-    };
-
-    users.users.gumbo = {
-      isNormalUser = true;
-      shell = pkgs.zsh;
-      extraGroups = [
-        "wheel"
-        "docker"
-        "networkmanager"
-        "sound"
-        "video"
-        "audio"
-        "borg"
-      ];
     };
 
     programs.zsh.enable = true;

@@ -15,6 +15,22 @@
     ./backup.nix
   ];
 
+  users.users.gumbo = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [
+      "wheel"
+      "docker"
+      "networkmanager"
+      "sound"
+      "video"
+      "audio"
+      "borg"
+    ];
+  };
+
+
+
   boot.loader.grub = {
     enable = true;
     devices = [ "/dev/sda" ];

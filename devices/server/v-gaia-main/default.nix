@@ -11,6 +11,21 @@
     ./disk-config.nix
     ../../../modules/nixvim.nix
   ];
+
+  users.users.gumbo = {
+  isNormalUser = true;
+  shell = pkgs.zsh;
+  initialPassword = "supersecretpassword";
+  extraGroups = [
+    "wheel"
+    "docker"
+    "networkmanager"
+    "sound"
+    "video"
+    "audio"
+    "borg"
+    ];
+  };
   
   boot.loader.grub = {
     enable = true;
