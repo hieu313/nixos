@@ -14,7 +14,13 @@
     stateVersion = "25.05";
   };
 
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    package = pkgs.git;
+    settings = {
+        core.editor = "nvim";
+    };
+  };
 
   programs.starship = {
     enable = true;

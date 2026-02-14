@@ -10,13 +10,6 @@
     user = "kavita";
     tokenKeyFile = "/run/agenix/kavita.tokenkey.age";
     dataDir = "/var/lib/kavita";
-    settings = {
-      port = "5000";
-      ipAddresses = "0.0.0.0,::";
-      baseUrl = "/";
-      cache = "75";
-      allowIFraming = "false";
-    };
   };
 
   age.secrets."kavita.tokenkey.age" = {
