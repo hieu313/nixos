@@ -10,7 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../../modules/nixvim.nix
-    ./containers.nix
+    ./tuwunel.nix
     ./firewall.nix
     ./backup.nix
   ];

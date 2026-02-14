@@ -9,6 +9,7 @@ in
 {
   "test.age".publicKeys = systems;
   "matrix.env".publicKeys = systems;
+  "tuwunel-token.age".publicKeys = systems;
   "gumbo.age".publicKeys = workstations;
   # borg secrets
   "borg.prometheus.age".publicKeys = [ prometheus ];
