@@ -8,9 +8,6 @@
   services.newt = {
     enable = true;
     environmentFile = "/run/agenix/newt.env.age";
-    settings = {
-      endpoint = "https://pangolin.gumbolabs.xyz";
-    };
   };
   
   systemd.services.newt.serviceConfig.DynamicUser = lib.mkForce false;
