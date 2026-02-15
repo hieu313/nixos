@@ -22,7 +22,7 @@ in
   config = lib.mkIf cfg.enable {
     services.xserver = {
       enable = true;
-      excludePackags = [ xterm ];
+      excludePackages = [ pkgs.xterm ];
     };
     services.displayManager.sddm = {
       enable = true;
