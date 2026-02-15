@@ -5,7 +5,7 @@
   ...
 }:
 {
-  networking.wq-quick = {
+  networking.wg-quick = {
     interfaces = {
       wg0 = {
         autostart = true;

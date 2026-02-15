@@ -28,6 +28,9 @@
     };
   };
 
+  xdg.configFile = {
+    "ghostty/config".source = ../config/ghostty/tokyo-night.kde.ghostty;
+  };
   qt = {
     enable = true;
     platformTheme.name = "qtct";

@@ -38,7 +38,6 @@
 
   xdg.configFile = {
     "starship.toml".source = ../config/starship/starship.main.toml;
-    "ghostty/config".source = ../config/ghostty/tokyo-night.ghostty;
     "eza/theme.yml".source = ../config/eza/eza.main.yml;
     "fuzzel/fuzzel.ini".source = ../config/fuzzel/tokyonight.fuzzel.ini;
     "fastfetch/config.jsonc".source = ../config/fastfetch/main.fastfetch;

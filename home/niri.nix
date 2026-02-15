@@ -44,6 +44,7 @@ in
     "gtk-4.0/gtk.css".force = true;
     "niri/config.kdl".source = niriConfig;
     "niri/noctalia.kdl".source = ../config/niri/noctalia.kdl;
+    "ghostty/config".source = ../config/ghostty/tokyo-night.ghostty;
   };
 
   home.pointerCursor = {
