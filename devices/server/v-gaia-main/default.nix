@@ -3,6 +3,7 @@
   lib,
   pkgs,
   modulesPath,
+  inputs,
   ...
 }:
 {
@@ -11,6 +12,7 @@
     ./disk-config.nix
     ./newt.nix
     ./kavita.nix
+    ./uptime.nix
     ./backup.nix
     ../../../modules/nixvim.nix
   ];
