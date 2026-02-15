@@ -13,9 +13,9 @@
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
     ../../../modules/flatpak.nix
     ../../../modules/niri.nix #     <-- niri environment
-    # ../../../modules/hypr.nix     <-- hyprland environment
+    ../../../modules/hypr.nix #     <-- hyprland environment
     # ../../../modules/gnome.nix    <-- gnome environemt
-    # ../../../modules/kde.nix      <-- kde environment
+    ../../../modules/kde.nix
     # ../../../modules/xfce.nix     <-- xfce environment
     ../../../modules/storagebox.nix
     ../../../modules/retroshare.nix
@@ -41,7 +41,8 @@
     }; 
     retroshare.enable = true;     # enables ROM sync to server
     nixvim.enable = true;         # enable nixvim configuration
-    niri.enable = true;           # change to a different profile if you want
+    niri.enable = false;           # change to a different profile if you want
+    kde.enable= true;
     polkit.enable = true;
     yazi.enable = true;           # yazi
     virtualization.enable = true; # enable QEMU/KVM virtualization

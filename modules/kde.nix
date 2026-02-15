@@ -20,7 +20,10 @@ in
   options.workstation.kde.enable = lib.mkEnableOption "KDE Plasma-based workstation environment";
 
   config = lib.mkIf cfg.enable {
-    services.xserver.enable = true;
+    services.xserver = {
+      enable = true;
+      excludePackags = [ xterm ];
+    };
     services.displayManager.sddm = {
       enable = true;
       theme = "breeze";
@@ -31,6 +34,15 @@ in
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
       konsole
       elisa
+      discover
+      ark
+      kcalc
+      gwenview
+      khelpcenter
+      kate
+      ktexteditor
+      print-manager
+      okular
     ];
     qt = {
       enable = true;
