@@ -20,4 +20,6 @@ in
   "newt.env.age".publicKeys = workstations ++ [ v-gaia-main ];
   "kavita.tokenkey.age".publicKeys = workstations ++ [ v-gaia-main ];
   "forgejo_dbPass.age".publicKeys = workstations ++ [ v-gaia-main ];
+  #etc
+  "wg0.age".publicKeys = workstations;
 }

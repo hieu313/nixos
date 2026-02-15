@@ -28,6 +28,12 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style.name = "Fusion";
+  };
+
   home.pointerCursor = {
     name = "BreezeX-RosePine-Linux";
     package = pkgs.rose-pine-cursor;
@@ -39,7 +45,6 @@
   home.sessionVariables = {
     XCURSOR_THEME = "BreezeX-RosePine-Linux";
     XCURSOR_SIZE = "24";
-    QT_QPA_PLATFORMTHEME = "gtk3";
   };
 
 }

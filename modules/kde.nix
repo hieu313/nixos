@@ -21,6 +21,9 @@ in
     konsole
     elisa
   ];
+    qt = {
+      enable = true;
+    };
 
     environment.systemPackages = with pkgs; [
       tokyonight-gtk-theme

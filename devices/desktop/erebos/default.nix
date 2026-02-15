@@ -17,7 +17,6 @@
     # ../../../modules/gnome.nix    <-- gnome environemt
     # ../../../modules/kde.nix      <-- kde environment
     # ../../../modules/xfce.nix     <-- xfce environment
-    ../../../modules/storagebox.nix
     ../../../modules/mount.nix
     ../../../modules/packages.nix
     ../../../modules/ssh.nix

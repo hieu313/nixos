@@ -141,6 +141,15 @@
           ];
         };
 
+        null = mkWorkstation {
+          deviceModule = ./devices/desktop/null/default.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/zsh.nix
+            ./home/kde.nix
+          ];
+        };
+
         # steamos build is still in testing, expect major changes and broken functionality
         steamos = mkWorkstation {
           deviceModule = ./devices/desktop/dionysus/default.nix;
