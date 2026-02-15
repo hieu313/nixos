@@ -12,6 +12,7 @@
     ./disk-config.nix
     ./newt.nix
     ./kavita.nix
+    ./forgejo.nix
     ./uptime.nix
     ./backup.nix
     ../../../modules/nixvim.nix
