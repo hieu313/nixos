@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ./networking.nix
     ../../../modules/baseline.nix 
-    ../../../modules/niri.nix 
+    ../../../modules/kde.nix 
     ../../../modules/packages.nix
     ../../../modules/ssh.nix
     ../../../modules/nixvim.nix
