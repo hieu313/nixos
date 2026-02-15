@@ -8,6 +8,15 @@ I've removed the structure of the server layout from this repo. This is still pl
 
 Though I've learned a lot about NixOS since I started daily driving it in 2025, this configuration should still be used with caution. It's advised that you review all files for anything that may conflict with what you are looking for out of your build. You may need to adjust occurrences of things specific to my environment, like hostnames, usernames, filesystem mounts, etc. Part of the reason I broke things up into modules is to make that process easier.
 
+## Table of Contents
+- [Repo structure](#repo-structure)
+- [Important things to note](#important-things-to-note)
+- [Current valid build commands](#current-valid-build-commands-from-root-of-repo)
+- [Showcase](#showcase)
+- [Installation](#installation)
+- [Sponsor NixOS](#sponsor-nixos)
+- [Github mirror](#github-mirror)
+
 ## Repo structure
 
 - `/config`: software configuration files (ghostty, fastfetch, niri binds, etc). Pretty much all of these are managed through Home Manager and deployed to `~/.config`.
