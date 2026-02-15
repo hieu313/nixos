@@ -6,7 +6,13 @@
 }:
 {
   services.borgbackup.jobs.v-gaia-main-home = {
-    paths = "/home/gumbo";
+    paths = [
+      "/home/gumbo"
+      "/var/lib/nixos-containers/forgejo"
+      "/var/lib/nixos-containers/uptime"
+      "/var/lib/kavita"
+      "/var/backup/postgresql"
+    ];
     exclude = [
       "/home/gumbo/.cache"
       "/home/gumbo/.nix-defexpr"
@@ -27,9 +33,17 @@
       weekly = 4;
       monthly = 3;
     };
+    preHook = ''
+      cleanup() {
+        systemctl start container@forgejo container@uptime
+      }
+      trap cleanup EXIT
+      mkdir -p /var/backup/postgresql
+      ${pkgs.sudo}/bin/sudo -u postgres ${pkgs.postgresql}/bin/pg_dumpall > /var/backup/postgresql/all_databases.sql
+      systemctl stop container@forgejo container@uptime
+    '';
     startAt = "daily";
   };
-
   age.secrets."borg.v-gaia-main.age" = {
     file = ../../../secrets/borg.v-gaia-main.age;
     path = "/run/agenix/borg.v-gaia-main.age";

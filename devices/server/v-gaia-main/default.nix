@@ -9,7 +9,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./disk-config.nix
     ./newt.nix
     ./kavita.nix
     ./forgejo.nix
