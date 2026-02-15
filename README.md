@@ -33,7 +33,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 - All builds use **zsh** by default. I have separate **zsh** and **bash** Home Manager files, you can switch the shell to say bash by modifying the shell file Home Manager imports under either machines entry in ```flake.nix```.
 - I use **Niri** almost exclusively. The Niri module uses **Noctalia Shell**. If you don't want to use Noctalia, remove it's input in `flake.nix` and remove the package from Niri's module. If you're using my Niri config from `/config/niri`, remove ```spawn-at-startup "noctalia-shell"``` from the file. The Niri module will be up to date more often than the others. GNOME and XFCE modules should be stable and usable.
 - Hyprland currently lags behind upstream. Breaking changes were made to window-rule syntax in version 0.53, and I have not yet made adjustments to accommodate this. I don't really have any window rules though so it's probably fine. Use niri.
-- KDE is mostly broken. Wayland does not work, and while switching to X11 in SDDM will get you to a desktop, some applications do not open. I'll fix it eventually, but don't use KDE for now. If you would like to submit a PR to fix it, I will review and merge if everything looks good.
+- KDE and GNOME work great if that's what you like.
 - Display managers change depending on what environment you choose:
   - Desktop environments use their defaults (GNOME = GDM, KDE = SDDM, XFCE = LightDM)
   - Window managers use `tuigreet` with autologin
