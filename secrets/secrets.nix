@@ -3,6 +3,7 @@ let
   erebos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIs1OcvnBVh9gb+beeBZwNWfnQTBHwFXk0WePYX9Z2Kc gumbo@erebos";
   void = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsDNzlcgZCCLp8lD3lfXJ7meW8j5mnxlI1uBQ63V/J6 gumbo@void";
   v-gaia-main = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDfwt9c7HbYBwgwGrEZBXDjvvajvAz4ubOEdpWobFntB gumbo@v-gaia-main";
+  null = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPTC0QXUBj1vKrSfG1iPTN46X0oXGZbb7DjhKctx2Np gumbo@null";
   systems = [ prometheus erebos void ];
   workstations = [ prometheus erebos ];
 in
@@ -21,5 +22,5 @@ in
   "kavita.tokenkey.age".publicKeys = workstations ++ [ v-gaia-main ];
   "forgejo_dbPass.age".publicKeys = workstations ++ [ v-gaia-main ];
   #etc
-  "wg0.age".publicKeys = workstations;
+  "wg0.age".publicKeys = workstations ++ [ null ];
 }

@@ -16,6 +16,7 @@
     ../../../modules/ssh.nix
     ../../../modules/nixvim.nix
     ../../../modules/yazi.nix
+    ../../../modules/flatpak.nix
   ];
 
   # hostname
@@ -50,3 +51,4 @@
     lm_sensors
     qbittorrent
   ];
+}

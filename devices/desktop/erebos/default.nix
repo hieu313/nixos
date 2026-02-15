@@ -86,6 +86,12 @@
   programs.coolercontrol.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   environment.systemPackages = with pkgs; [
     lm_sensors
     heroic
