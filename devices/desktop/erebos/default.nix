@@ -90,7 +90,6 @@
   environment.systemPackages = with pkgs; [
     lm_sensors
     heroic
-    terraform
   ];
 
   networking.firewall.allowedTCPPorts = [ 2049 ];

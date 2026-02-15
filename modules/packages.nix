@@ -44,6 +44,8 @@ let
     cargo
     gcc
     rustlings
+    terraform
+    distrobox
   ];
 
   appsPackages = with pkgs; [
