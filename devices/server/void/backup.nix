@@ -8,7 +8,7 @@
   services.borgbackup.jobs.void-home = {
     paths = [
       "/home/gumbo"
-      "/var/lib/nixos-containers/tuwunel/var/lib/matrix-tuwunel"
+      "/var/lib/nixos-containers/tuwunel"
     ];
     exclude = [
       "/home/gumbo/.cache"
