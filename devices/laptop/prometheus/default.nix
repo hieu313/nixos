@@ -41,8 +41,8 @@
     }; 
     retroshare.enable = true;     # enables ROM sync to server
     nixvim.enable = true;         # enable nixvim configuration
-    niri.enable = false;           # change to a different profile if you want
-    kde.enable= true;
+    niri.enable = true;           # change to a different profile if you want
+    kde.enable= false;
     polkit.enable = true;
     yazi.enable = true;           # yazi
     virtualization.enable = true; # enable QEMU/KVM virtualization

@@ -137,7 +137,7 @@
           hmImports = [
             ./home/common.nix
             ./home/zsh.nix
-            ./home/kde.nix
+            ./home/niri.nix
           ];
         };
 
