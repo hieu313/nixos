@@ -15,7 +15,7 @@
     ../../../modules/niri.nix #     <-- niri environment
     # ../../../modules/hypr.nix     <-- hyprland environment
     # ../../../modules/gnome.nix    <-- gnome environemt
-    # ../../../modules/kde.nix      <-- kde environment
+    ../../../modules/kde.nix      # <-- kde environment
     # ../../../modules/xfce.nix     <-- xfce environment
     ../../../modules/mount.nix
     ../../../modules/packages.nix
@@ -39,7 +39,8 @@
       };
     };      
     nixvim.enable = true;         # enable nixvim configuration
-    niri.enable = true;           # change to a different profile if you want
+    niri.enable = false;           # change to a different profile if you want
+    kde.enable = true;
     polkit.enable = true;
     yazi.enable = true;           # yazi
     ssh.enable = true;            # enable default ssh configuration + authorized yubikeys
@@ -88,7 +89,7 @@
   programs.coolercontrol.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
 
