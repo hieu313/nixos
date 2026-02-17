@@ -9,12 +9,15 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./backup.nix
     ./disko.nix
+    # self hosted stuff, will cleanup later
+    ./forgejo.nix
+    ./lube.nix
     ./newt.nix
     ./kavita.nix
-    ./forgejo.nix
     ./uptime.nix
-    ./backup.nix
+    # modules
     ../../../modules/nixvim.nix
   ];
 
