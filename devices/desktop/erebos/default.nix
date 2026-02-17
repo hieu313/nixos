@@ -93,6 +93,7 @@
   environment.systemPackages = with pkgs; [
     lm_sensors
     heroic
+    input-remapper
   ];
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
