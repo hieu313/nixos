@@ -80,6 +80,7 @@
     exports = ''
       /mnt/jelly/jelly  192.168.0.0/24(ro,no_subtree_check,async)
       /mnt/jelly/manga  192.168.0.0/24(ro,no_subtree_check,async)
+      /mnt/jelly/manga  100.69.69.217/32(ro,no_subtree_check_async)
       /mnt/jelly/photos 192.168.0.0/24(rw,no_subtree_check,sync)
       /mnt/jelly/music  192.168.0.0/24(rw,no_subtree_check,async)
     '';
