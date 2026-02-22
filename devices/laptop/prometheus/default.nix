@@ -39,7 +39,7 @@
         apps = true;              # enable common desktop applications
       };
     }; 
-    retroshare.enable = true;     # enables ROM sync to server
+    retroshare.enable = false;     # enables ROM sync to server
     nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want
     kde.enable= false;
