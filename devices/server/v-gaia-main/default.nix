@@ -13,10 +13,6 @@
     ./disko.nix
     # self hosted stuff, will cleanup later
     ./forgejo.nix
-    ./lube.nix
-    ./mealie.nix
-    ./newt.nix
-    ./kavita.nix
     ./uptime.nix
     # modules
     ../../../modules/nixvim.nix
