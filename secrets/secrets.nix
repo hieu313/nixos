@@ -3,7 +3,7 @@ let
   erebos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIs1OcvnBVh9gb+beeBZwNWfnQTBHwFXk0WePYX9Z2Kc gumbo@erebos";
   void = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsDNzlcgZCCLp8lD3lfXJ7meW8j5mnxlI1uBQ63V/J6 gumbo@void";
   v-gaia-main = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDfwt9c7HbYBwgwGrEZBXDjvvajvAz4ubOEdpWobFntB gumbo@v-gaia-main";
-  null = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPTC0QXUBj1vKrSfG1iPTN46X0oXGZbb7DjhKctx2Np gumbo@null";
+  null = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKf4hUmWlIiN8/+rLyZEqqhhBKNS08dEFGL6ix47Fjko gumbo@null";
   systems = [ prometheus erebos void ];
   workstations = [ prometheus erebos ];
 in
