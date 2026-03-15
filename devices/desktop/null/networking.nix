@@ -9,7 +9,7 @@
     interfaces = {
       wg0 = {
         autostart = true;
-        configFile = "/run/agenix/wg0.age";
+        configFile = "/home/gumbo/wireguard/wg0.conf";
       };
     };
   };
