@@ -28,4 +28,8 @@
       "nofail"
     ];
   };
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 5000 ];
+  };
 }

@@ -13,7 +13,7 @@
     ./disko.nix
     # self hosted stuff, will cleanup later
     ./forgejo.nix
-    ./uptime.nix
+    ./newt.nix
     # modules
     ../../../modules/nixvim.nix
   ];
