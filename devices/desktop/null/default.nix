@@ -45,8 +45,6 @@
     };
   };
 
-  #age.identityPaths = [ "/home/hieunm/.ssh/agenix_hieunm" ];
-
   fileSystems."/mnt/rip" = {
     device = "/dev/disk/by-uuid/5d53aa1b-a908-4feb-8e8c-956206b63d2d";
     fsType = "ext4";

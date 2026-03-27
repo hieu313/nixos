@@ -20,10 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-    };
 
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -44,7 +40,6 @@
       home-managerU,
       home-managerS,
       noctalia,
-      agenix,
       nixvim,
       flatpaks,
       disko,
@@ -64,7 +59,6 @@
             deviceModule
             home-managerU.nixosModules.home-manager
             flatpaks.nixosModules.default
-            agenix.nixosModules.default
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -95,7 +89,6 @@
           modules = [
             deviceModule
             disko.nixosModules.disko
-            agenix.nixosModules.default
             ./modules/baseline.server.nix
             ./modules/ssh.nix
             home-managerS.nixosModules.home-manager
