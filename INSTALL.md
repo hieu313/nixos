@@ -36,7 +36,7 @@ Before proceeding, it is HIGHLY recommended that you review the following files 
 
 nixos/modules/packages.nix - remove packages you don't want
 nixos/modules/baseline.nix - remove services you don't want
-nixos/devices/laptop/prometheus/default.nix - most of the configuration is nested into the workstation module, you probably want to change workstation.packages.dev to false, disable workstation.retroshare as well as workstation.virtualization, and remove the age configs around lines 61-68. Disabling nixvim will save you a ton of build time, but keep in mind that the only other editor is VSCodium (Mod+X). If you disable nixvim, make sure you add vim to the environment packages if you want a terminal based editor. You will also save a ton of build time by removing terraform from the packages list in this file. You should delete the ./backup.nix import as it would serve no purpose here.
+nixos/devices/laptop/prometheus/default.nix - most of the configuration is nested into the workstation module, you probably want to change workstation.packages.dev to false, disable workstation.virtualization, and remove the age configs around lines 61-68. Disabling nixvim will save you a ton of build time, but keep in mind that the only other editor is VSCodium (Mod+X). If you disable nixvim, make sure you add vim to the environment packages if you want a terminal based editor. You will also save a ton of build time by removing terraform from the packages list in this file. You should delete the ./backup.nix import as it would serve no purpose here.
 Installation (cont.)
 cd nixos && git init && git add .
 nixos-install --flake .#prometheus

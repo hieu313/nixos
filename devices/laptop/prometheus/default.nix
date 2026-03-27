@@ -17,7 +17,6 @@
     ../../../modules/kde.nix
     # ../../../modules/xfce.nix     <-- xfce environment
     ../../../modules/storagebox.nix
-    ../../../modules/retroshare.nix
     ../../../modules/nixvim.nix
     ../../../modules/packages.nix
     ../../../modules/yazi.nix
@@ -38,7 +37,6 @@
         apps = true;              # enable common desktop applications
       };
     }; 
-    retroshare.enable = false;     # enables ROM sync to server
     nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want
     kde.enable= false;
