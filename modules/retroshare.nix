@@ -11,8 +11,8 @@ in
       enable = true;
       user = "gumbo";
       group = "users";
-      dataDir = "/home/gumbo/sync";
-      configDir = "/home/gumbo/.config/syncthing";
+      dataDir = "/home/hieunm/sync";
+      configDir = "/home/hieunm/.config/syncthing";
       overrideDevices = false;
       overrideFolders = false;
       openDefaultPorts = true;
@@ -26,19 +26,19 @@ in
         folders = {
           "retro-bios" = {
             id = "p4epq-mmgmv";
-            path = "/home/gumbo/sync/retro/BIOS";
+            path = "/home/hieunm/sync/retro/BIOS";
             devices = [ "manga" ];
             type = "receiveonly";
           };
           "retro-roms" = {
             id = "74edp-unucu";
-            path = "/home/gumbo/sync/retro/ROMs";
+            path = "/home/hieunm/sync/retro/ROMs";
             devices = [ "manga" ];
             type = "receiveonly";
           };
           "retro-saves" = {
             id = "ymtp3-m4ngw";
-            path = "/home/gumbo/sync/retro/Saves";
+            path = "/home/hieunm/sync/retro/Saves";
             devices = [ "manga" ];
             type = "sendreceive";
           };

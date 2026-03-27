@@ -18,7 +18,7 @@
     ../../../modules/nixvim.nix
   ];
 
-  age.identityPaths = [ "/home/gumbo/.ssh/id_ed25519" ];
+  age.identityPaths = [ "/home/hieunm/.ssh/id_ed25519" ];
 
   users.users.gumbo = {
     isNormalUser = true;

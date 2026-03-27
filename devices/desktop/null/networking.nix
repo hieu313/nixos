@@ -9,7 +9,7 @@
     interfaces = {
       wg0 = {
         autostart = true;
-        configFile = "/home/gumbo/wireguard/wg0.conf";
+        configFile = "/home/hieunm/wireguard/wg0.conf";
       };
     };
   };

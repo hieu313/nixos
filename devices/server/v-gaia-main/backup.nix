@@ -7,25 +7,25 @@
 {
   services.borgbackup.jobs.v-gaia-main-home = {
     paths = [
-      "/home/gumbo"
+      "/home/hieunm"
       "/var/lib/nixos-containers/forgejo"
       "/var/lib/nixos-containers/uptime"
       "/var/lib/kavita"
       "/var/backup/postgresql"
     ];
     exclude = [
-      "/home/gumbo/.cache"
-      "/home/gumbo/.nix-defexpr"
-      "/home/gumbo/.nix-profile"
-      "/home/gumbo/.mozilla"
-      "/home/gumbo/.pki"
-      "/home/gumbo/.steam"
-      "/home/gumbo/.terraform.d"
-      "/home/gumbo/.var"
+      "/home/hieunm/.cache"
+      "/home/hieunm/.nix-defexpr"
+      "/home/hieunm/.nix-profile"
+      "/home/hieunm/.mozilla"
+      "/home/hieunm/.pki"
+      "/home/hieunm/.steam"
+      "/home/hieunm/.terraform.d"
+      "/home/hieunm/.var"
     ];
     encryption.mode = "repokey";
     encryption.passCommand = "cat /run/agenix/borg.v-gaia-main.age";
-    environment.BORG_RSH = "ssh -i /home/gumbo/.ssh/borg";
+    environment.BORG_RSH = "ssh -i /home/hieunm/.ssh/borg";
     repo = "ssh://borg@100.106.154.7:22/mnt/backups/v-gaia-main_home";
     compression = "auto,zstd";
     prune.keep = {
