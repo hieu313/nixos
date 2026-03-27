@@ -79,7 +79,7 @@
                     }
                   )
                 ];
-                users.gumbo = {
+                users.hieunm = {
                   imports = hmImports;
                 };
               };
@@ -113,7 +113,7 @@
                     }
                   )
                 ];
-                users.gumbo = {
+                users.hieunm = {
                   imports = hmImports;
                 };
               };

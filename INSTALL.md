@@ -41,7 +41,7 @@ nixos/devices/laptop/prometheus/default.nix - most of the configuration is neste
 Installation (cont.)
 cd nixos && git init && git add .
 nixos-install --flake .#prometheus
-nixos-enter --root /mnt -c 'passwd gumbo'
+nixos-enter --root /mnt -c 'passwd hieunm'
 reboot
 Post Installation
 You should now be able to go back to your VM and get booted directly into your niri session. Press Mod+Shift+/ to get the keybind list. Note that you may open a terminal (Mod+Enter) and run Noctalia Shell manually with noctalia-shell &disown. Your following reboots will start Noctalia automatically.

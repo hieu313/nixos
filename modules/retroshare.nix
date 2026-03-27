@@ -9,7 +9,7 @@ in
   config = lib.mkIf cfg.enable {
     services.syncthing = {
       enable = true;
-      user = "gumbo";
+      user = "hieunm";
       group = "users";
       dataDir = "/home/hieunm/sync";
       configDir = "/home/hieunm/.config/syncthing";

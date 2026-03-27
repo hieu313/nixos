@@ -9,7 +9,7 @@
     enable = true;
     environmentFile = "/run/agenix/newt.env.age";
     settings = {
-      endpoint = "https://pangolin.gumbolabs.xyz";
+      endpoint = "https://pangolin.hieunmlabs.xyz";
     };
   };
   

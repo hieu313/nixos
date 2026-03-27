@@ -9,7 +9,7 @@
   programs.home-manager.enable = true;
 
   home = {
-    username = "gumbo";
+    username = "hieunm";
     homeDirectory = lib.mkForce "/home/hieunm";
     stateVersion = "25.05";
   };

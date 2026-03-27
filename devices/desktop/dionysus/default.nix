@@ -15,12 +15,12 @@
 
   services.seatd = {
     enable = true;
-    user = "gumbo";
+    user = "hieunm";
     group = "video";
   };
 
   services.getty = {
-    autologinUser = "gumbo";
+    autologinUser = "hieunm";
   };
 
   programs.steam.enable = true;

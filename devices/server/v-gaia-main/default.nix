@@ -20,7 +20,7 @@
 
   age.identityPaths = [ "/home/hieunm/.ssh/id_ed25519" ];
 
-  users.users.gumbo = {
+  users.users.hieunm = {
     isNormalUser = true;
     shell = pkgs.zsh;
     initialPassword = "supersecretpassword";

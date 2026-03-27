@@ -47,7 +47,7 @@ in
       keyMap = "us";
     };
 
-    users.users.gumbo = {
+    users.users.hieunm = {
       isNormalUser = true;
       shell = pkgs.zsh;
       extraGroups = [

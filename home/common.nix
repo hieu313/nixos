@@ -8,7 +8,7 @@
 {
 
   home = {
-    username = "gumbo";
+    username = "hieunm";
     homeDirectory = "/home/hieunm";
     stateVersion = "25.05";
   };

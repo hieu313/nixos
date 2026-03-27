@@ -33,7 +33,7 @@
   age.secrets."borg.erebos.age" = {
     file = ../../../secrets/borg.erebos.age;
     path = "/run/agenix/borg.erebos.age";
-    owner = "gumbo";
+    owner = "hieunm";
     group = "users";
     mode = "0400";
   };

@@ -20,7 +20,7 @@
     devices = [ "/dev/sda" ];
   };
 
-  users.users.gumbo = {
+  users.users.hieunm = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [

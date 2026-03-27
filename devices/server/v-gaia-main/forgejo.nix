@@ -32,7 +32,7 @@
           host = "127.0.0.1";
           port = 5432;
           name = "forgejo";
-          user = "gumbo";
+          user = "hieunm";
           passwordFile = "/run/secrets/forgejo_dbPass";
         };
         settings = {
@@ -42,8 +42,8 @@
             HTTP_ADDR = "127.0.0.1";
             HTTP_PORT = 3000;
             SSH_PORT = 222;
-            DOMAIN = "git.gumbolabs.xyz";
-            ROOT_URL = "https://git.gumbolabs.xyz/";
+            DOMAIN = "git.hieunmlabs.xyz";
+            ROOT_URL = "https://git.hieunmlabs.xyz/";
           };
         };
       };
@@ -54,10 +54,10 @@
     enable = true;
     ensureDatabases = [ "forgejo" ];
     ensureUsers = [{
-      name = "gumbo";
+      name = "hieunm";
     }];
     authentication = ''
-      host forgejo gumbo 127.0.0.1/32 md5
+      host forgejo hieunm 127.0.0.1/32 md5
     '';
   };
 
