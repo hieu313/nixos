@@ -34,7 +34,7 @@ mv nix.bak/hardware-configuration.nix nixos/devices/laptop/prometheus/
 IMPORTANT
 Before proceeding, it is HIGHLY recommended that you review the following files and adjust as needed.
 
-nixos/secrets/\* - this will serve no purpose for you without my private keys. You can keep it in if you want, but there's really no point.
+(secrets removed) If you forked this repo earlier, the nixos/secrets/* folder is no longer used and has been removed.
 nixos/modules/packages.nix - remove packages you don't want
 nixos/modules/baseline.nix - remove services you don't want
 nixos/devices/laptop/prometheus/default.nix - most of the configuration is nested into the workstation module, you probably want to change workstation.packages.dev to false, disable workstation.retroshare as well as workstation.virtualization, and remove the age configs around lines 61-68. Disabling nixvim will save you a ton of build time, but keep in mind that the only other editor is VSCodium (Mod+X). If you disable nixvim, make sure you add vim to the environment packages if you want a terminal based editor. You will also save a ton of build time by removing terraform from the packages list in this file. You should delete the ./backup.nix import as it would serve no purpose here.

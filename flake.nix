@@ -157,22 +157,6 @@
             ./home/steam.nix
           ];
         };
-
-        void = mkServer {
-          deviceModule = ./devices/server/void/default.nix;
-          hmImports = [
-            ./home/server.nix
-            ./home/zsh.nix
-          ];
-        };
-
-        v-gaia-main = mkServer {
-          deviceModule = ./devices/server/v-gaia-main/default.nix;
-          hmImports = [
-            ./home/server.nix
-            ./home/zsh.nix
-          ];
-        };
       };
     };
 }

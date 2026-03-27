@@ -9,7 +9,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./backup.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
     ../../../modules/flatpak.nix
     ../../../modules/niri.nix #     <-- niri environment
@@ -61,14 +60,6 @@
   # workstation.kde.enable = true;
   # workstation.xfce.enable = true;
 
-  age.identityPaths = [ "/home/hieunm/.ssh/agenix_hieunm" ];
-  
-  # symlink agenix key so I can use it in cli
-  system.activationScripts.agenix-cli-identity = ''
-    if [ ! -e /home/hieunm/.ssh/id_ed25519 ]; then
-      ln -s /home/hieunm/.ssh/agenix_hieunm /home/hieunm/.ssh/id_ed25519
-    fi
-  '';
 
   mount = {
     media.enable = true;
