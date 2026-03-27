@@ -22,6 +22,7 @@
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
     ../../../modules/polkit.nix
+    ../../../modules/i18n.nix
   ];
 
   # hostname
@@ -51,6 +52,7 @@
         "flathub:app/com.github.tchx84.Flatseal//stable"
       ];
     };
+    i18n.enable = true;
   };
 
   # environments, switch to true as needed
