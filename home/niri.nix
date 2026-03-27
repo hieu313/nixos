@@ -6,7 +6,7 @@
   ...
 }:
 let
-  niriConfig = if hostName == "prometheus" 
+  niriConfig = if builtins.elem hostName [ "prometheus" "aries" ]
     then ../config/niri/config.laptop.kdl 
     else ../config/niri/config.desktop.kdl;
 in

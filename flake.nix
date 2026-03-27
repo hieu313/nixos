@@ -87,6 +87,15 @@
           ];
         };
 
+        aries = mkWorkstation {
+          deviceModule = ./devices/laptop/aries/default.nix;
+          hmImports = [
+            ./home/common.nix
+            ./home/zsh.nix
+            ./home/niri.nix
+          ];
+        };
+
         null = mkWorkstation {
           deviceModule = ./devices/desktop/null/default.nix;
           hmImports = [
