@@ -22,6 +22,7 @@
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
     ../../../modules/polkit.nix
+    ../../../modules/docker.nix
     ../../../modules/i18n.nix
   ];
 
@@ -52,6 +53,7 @@
         "flathub:app/com.github.tchx84.Flatseal//stable"
       ];
     };
+    docker.enable = true;
     i18n.enable = true;
   };
 

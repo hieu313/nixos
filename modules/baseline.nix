@@ -53,6 +53,7 @@ in
       extraGroups = [
         "wheel"
         "networkmanager"
+        "docker"
         "input"
         "sound"
         "video"
