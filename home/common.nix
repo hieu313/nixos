@@ -15,7 +15,7 @@
     homeDirectory = "/home/hieunm";
     stateVersion = "25.05";
   };
-  
+
   programs.home-manager.enable = true;
   programs.git = {
       enable = true;
@@ -27,11 +27,7 @@
 
 	programs.kitty = {
 		enable = true;
-	}
-
-	programs.fnm = {
-		enable = true;
-	}
+	};
 
   programs.starship = {
     enable = true;
