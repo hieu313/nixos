@@ -41,9 +41,11 @@ let
       rclone
       lazydocker
       lazysql
+			lazygit
     ];
 
     cliTools = with pkgs; [
+			fastfetch
       fd
       ripgrep
       ripgrep-all
@@ -60,10 +62,15 @@ let
       superfile
       serie
       pay-respects
+			jq
+			yq-go
     ];
 
     apps = with pkgs; [
+			libreoffice
+			google-chrome
       telegram-desktop
+			vscodium
       ipatool
       imagemagick
     ];

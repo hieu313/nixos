@@ -15,6 +15,7 @@ let
     pciutils
     ddcutil
     brightnessctl
+		ntfs3g
 
     # Network
     wget

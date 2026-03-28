@@ -45,6 +45,9 @@
       packages = [
         "flathub:app/app.zen_browser.zen//stable"
         "flathub:app/com.github.tchx84.Flatseal//stable"
+				"flathub:app/io.mpv.Mpv//stable"
+				"flathub:app/org.videolan.VLC//stable"
+				"flathub:app/com.obsproject.Studio//stable"
       ];
     };
     docker.enable = true;
@@ -71,11 +74,6 @@
       Type = "oneshot";
       ExecStart = "${pkgs.bash}/bin/bash -c 'echo 0 > /sys/class/leds/platform::micmute/brightness || true'";
     };
-  };
-
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
   };
 
   environment.systemPackages = with pkgs; [
