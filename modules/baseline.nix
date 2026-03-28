@@ -10,6 +10,8 @@ let
   cfg = config.workstation.baseline;
 in
 {
+  imports = [ ./fonts.nix ];
+
   options.workstation.baseline.enable = lib.mkEnableOption "Baseline workstation configuration";
 
   config = lib.mkIf cfg.enable {
@@ -74,26 +76,6 @@ in
           AutoEnable = true;
         };
       };
-    };
-
-    fonts = {
-      enableDefaultPackages = true;
-      packages = with pkgs; [
-        nerd-fonts.jetbrains-mono
-        inter
-      ];
-      fontconfig = {
-        enable = true;
-        defaultFonts = {
-          sansSerif = [
-            "Inter"
-            "Noto Sans"
-          ];
-          serif = [ "Noto Serif" ];
-          monospace = [ "JetBrainsMono Nerd Font" ];
-        };
-      };
-      fontDir.enable = true;
     };
 
     programs.dconf.enable = true;
