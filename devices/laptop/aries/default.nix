@@ -32,14 +32,7 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   workstation = {
-    baseline = {
-      enable = true;              # enable baseline config
-      packages = {
-        tools = true;             # enable common suite of CLI tools
-        dev = false;               # enable common langs/lang related tools
-        apps = false;              # enable common desktop applications
-      };
-    }; 
+		baseline.enable = true;      # enable baseline config
     nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want
     kde.enable= false;
