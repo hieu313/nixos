@@ -6,6 +6,9 @@
 }:
 
 {
+  imports = [
+    ./packages.nix
+  ];
 
   home = {
     username = "hieunm";
@@ -21,6 +24,14 @@
           core.editor = "nvim";
       };
   };
+
+	programs.kitty = {
+		enable = true;
+	}
+
+	programs.fnm = {
+		enable = true;
+	}
 
   programs.starship = {
     enable = true;
