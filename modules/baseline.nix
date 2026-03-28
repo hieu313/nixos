@@ -82,8 +82,8 @@ in
     environment.pathsToLink = [ "/share/zsh" ];
 
     services = {
+			blueman.enable = true;
       tailscale.enable = true;
-      pcscd.enable = true; # yubikey dep
       libinput.enable = true;
       upower.enable = true;
       power-profiles-daemon.enable = true;
