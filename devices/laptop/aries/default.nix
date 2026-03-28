@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
+		../../../modules/fonts.nix
     ../../../modules/flatpak.nix
     ../../../modules/niri.nix #     <-- niri environment
     ../../../modules/hypr.nix #     <-- hyprland environment

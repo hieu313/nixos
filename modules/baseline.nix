@@ -10,8 +10,6 @@ let
   cfg = config.workstation.baseline;
 in
 {
-  imports = [ ./fonts.nix ];
-
   options.workstation.baseline.enable = lib.mkEnableOption "Baseline workstation configuration";
 
   config = lib.mkIf cfg.enable {
