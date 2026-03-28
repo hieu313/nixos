@@ -52,12 +52,15 @@
                 backupFileExtension = "backup";
                 extraSpecialArgs = { inherit inputs; };
                 sharedModules = [
+                  # Propagate hostName to HM modules
                   (
                     { osConfig, ... }:
                     {
                       _module.args.hostName = osConfig.networking.hostName;
                     }
                   )
+                  # Expose declarative-flatpak Home Manager module
+                  flatpaks.homeModules.default
                 ];
                 users.hieunm = {
                   imports = hmImports;

@@ -8,6 +8,7 @@
 {
   imports = [
     ./packages.nix
+    ./flatpak.nix
   ];
 
   home = {
