@@ -15,8 +15,13 @@
   #   - home/niri.nix:41-48 → symlinks: niri/config.kdl, niri/noctalia.kdl, ghostty/config
   # - KDE + Ghostty:
   #   - home/kde.nix:32 → ghostty/config ← config/ghostty/tokyo-night.kde.ghostty
+  # - Zsh config:
+  #   - config/zsh/{all,aliases,token}.zsh → ~/.config/zsh/ (Zinit, plugins, env vars, functions)
+  # - Atuin config:
+  #   - config/atuin/config.toml → ~/.config/atuin/config.toml
+  #   - config/atuin/themes/catppuccin-macchiato-mauve.toml → ~/.config/atuin/themes/catppuccin-macchiato-mauve.toml
   # - Env vars:
-  #   - home/zsh.nix:25, home/bash.nix:18 → export EZA_CONFIG_DIR
+  #   - config/zsh/all.zsh → export EZA_CONFIG_DIR
   # - Internal reference:
   #   - config/hypr/hyprland.conf:29 → exec-once ~/.config/hypr/cycle-wall.sh
 
@@ -31,6 +36,11 @@
 
 	xdg.configFile."kitty" = {
     source = ../config/kitty;
+    recursive = true;
+  };
+
+	xdg.configFile."zsh" = {
+    source = ../config/zsh;
     recursive = true;
   };
 
