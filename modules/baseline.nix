@@ -22,8 +22,14 @@ in
 
     boot = {
       loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
+				systemd-boot.enable = false; # Disable systemd-boot in favor of GRUB
+        grub = {
+					enable = true;
+					efiSupport = true;
+					device = "nodev";
+					useOSProber = true;
+				};
+				efi.canTouchEfiVariables = true;
       };
       kernelPackages = pkgs.linuxPackages_latest;
       kernelModules = [ "uvcvideo" ];
