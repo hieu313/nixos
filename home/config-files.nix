@@ -28,4 +28,9 @@
     "qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
     "qt5ct/colors/noctalia.conf".source = ../config/qt5ct/colors/noctalia.conf;
   };
+
+	xdg.configFile."kitty" = {
+    source = ../config/kitty;
+    recursive = true;
+  };
 }
