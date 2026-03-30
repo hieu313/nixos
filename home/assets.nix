@@ -27,7 +27,7 @@
   };
 
 	xdg.configFile."atuin/config.toml".source = ../config/atuin/config.toml;
-	xdg.configFile."atuin/themes/macchiato/catppuccin-macchiato-mauve.toml".source = ../config/atuin/themes/catppuccin-macchiato-mauve.toml;
+	xdg.configFile."atuin/themes/catppuccin-macchiato-mauve.toml".source = ../config/atuin/themes/macchiato/catppuccin-macchiato-mauve.toml;
 
   home.file.".gitconfig".source = ../config/git/.gitconfig;
   xdg.configFile."git/ignore".source = ../config/git/.gitignore_global;
