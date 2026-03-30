@@ -20,4 +20,9 @@
     ];
     onCalendar = "weekly";
   };
+
+  home.sessionVariables = lib.mkIf (hostName == "aries") {
+    XDG_DATA_DIRS =
+      "$XDG_DATA_DIRS:$HOME/.local/share/flatpak/exports/share";
+  };
 }

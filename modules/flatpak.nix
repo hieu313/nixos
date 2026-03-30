@@ -84,6 +84,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+		environment.sessionVariables = {
+			XDG_DATA_DIRS = "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share";
+		};
+
     systemd.services.flatpak-repo.enable = lib.mkForce false;
 
     services.flatpak = {
@@ -94,7 +98,7 @@ in
       veryVerbose = cfg.veryVerbose;
       flatpakDir = cfg.flatpakDir;
       forceRunOnActivation = cfg.forceRunOnActivation;
-      onCalendar = "weekly";
+      onCalendar = cfg.onCalendar;
 
       # optional hooks
       preRemotesCommand = "";
