@@ -33,4 +33,7 @@
     source = ../config/kitty;
     recursive = true;
   };
+
+	home.file.".gitconfig".source = ../config/git/.gitconfig;
+	xdg.configFile."git/ignore".source = ../config/git/.gitignore_global;
 }
