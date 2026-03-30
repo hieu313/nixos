@@ -76,8 +76,8 @@
           deviceModule = ./devices/desktop/erebos/default.nix;
           hmImports = [
             ./home/common.nix
-            ./home/zsh.nix
-            ./home/kde.nix
+            ./home/programs/zsh.nix
+            ./home/desktop/kde.nix
           ];
         };
 
@@ -85,8 +85,8 @@
           deviceModule = ./devices/laptop/prometheus/default.nix;
           hmImports = [
             ./home/common.nix
-            ./home/zsh.nix
-            ./home/niri.nix
+            ./home/programs/zsh.nix
+            ./home/desktop/niri.nix
           ];
         };
 
@@ -94,9 +94,9 @@
           deviceModule = ./devices/laptop/aries/default.nix;
           hmImports = [
             ./home/common.nix
-            ./home/zsh.nix
-            ./home/niri.nix
-            # ./home/wine.nix
+            ./home/programs/zsh.nix
+            ./home/desktop/niri.nix
+            # ./home/programs/wine.nix
           ];
         };
 
@@ -104,8 +104,8 @@
           deviceModule = ./devices/desktop/null/default.nix;
           hmImports = [
             ./home/common.nix
-            ./home/zsh.nix
-            ./home/kde.nix
+            ./home/programs/zsh.nix
+            ./home/desktop/kde.nix
           ];
         };
 
@@ -113,7 +113,7 @@
         steamos = mkWorkstation {
           deviceModule = ./devices/desktop/dionysus/default.nix;
           hmImports = [
-            ./home/steam.nix
+            ./home/programs/steam.nix
           ];
         };
       };

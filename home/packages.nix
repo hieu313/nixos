@@ -44,6 +44,7 @@ let
     ];
 
     cliTools = with pkgs; [
+			atuin
 			fastfetch
       fd
       ripgrep
@@ -98,9 +99,6 @@ let
   allPackages = lib.flatten (builtins.attrValues packageGroups);
 in
 {
-	imports = [
-    ./atuin.nix
-  ];
   config = {
     home.packages = allPackages;
   };

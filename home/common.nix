@@ -9,7 +9,7 @@
   imports = [
     ./packages.nix
     ./flatpak.nix
-    ./config-files.nix
+    ./assets.nix
   ];
 
   home = {
@@ -44,7 +44,6 @@
       truecolor = true;
     };
   };
-
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
