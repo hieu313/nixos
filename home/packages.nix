@@ -68,9 +68,7 @@ let
 
     apps = with pkgs; [
 			libreoffice
-			google-chrome
       telegram-desktop
-			vscodium
       ipatool
       imagemagick
     ];
