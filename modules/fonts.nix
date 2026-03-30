@@ -15,6 +15,7 @@ in
       enableDefaultPackages = true;
       packages = with pkgs; [
         inter
+				open-sans
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-color-emoji
@@ -26,6 +27,7 @@ in
         defaultFonts = {
           sansSerif = [
             "Inter"
+            "Open Sans"
             "Noto Sans"
           ];
           serif = [ "Noto Serif" ];
