@@ -8,17 +8,17 @@
 {
 
   xdg.configFile."hypr" = {
-    source = ../config/hypr;
+    source = ../../config/hypr;
     recursive = true;
   };
 
   xdg.configFile."waybar" = {
-    source = ../config/waybar;
+    source = ../../config/waybar;
     recursive = true;
   };
 
   xdg.dataFile."icons/future-cyan" = {
-    source = ../config/icons/future-cyan;
+    source = ../../config/icons/future-cyan;
     recursive = true;
   };
 

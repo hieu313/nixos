@@ -7,8 +7,8 @@
 }:
 let
   niriConfig = if builtins.elem hostName [ "prometheus" "aries" ]
-    then ../config/niri/config.laptop.kdl 
-    else ../config/niri/config.desktop.kdl;
+    then ../../config/niri/config.laptop.kdl 
+    else ../../config/niri/config.desktop.kdl;
 in
 {
   gtk = {
@@ -43,8 +43,8 @@ in
     "gtk-4.0/settings.ini".force = true;
     "gtk-4.0/gtk.css".force = true;
     "niri/config.kdl".source = niriConfig;
-    "niri/noctalia.kdl".source = ../config/niri/noctalia.kdl;
-    "ghostty/config".source = ../config/ghostty/tokyo-night.ghostty;
+    "niri/noctalia.kdl".source = ../../config/niri/noctalia.kdl;
+    "ghostty/config".source = ../../config/ghostty/tokyo-night.ghostty;
   };
 
   home.pointerCursor = {

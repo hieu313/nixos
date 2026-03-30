@@ -6,7 +6,6 @@
 }:
 {
   # Configs mapped in other modules (not here):
-  #   atuin/*         → home/programs/atuin.nix
 	#   zsh/*         → home/programs/zsh.nix
   #   hypr/*, waybar/*, icons/future-cyan  → home/desktop/hypr.nix
   #   niri/*, ghostty/ (niri variant)      → home/desktop/niri.nix

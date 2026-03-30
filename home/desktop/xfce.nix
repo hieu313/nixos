@@ -22,7 +22,7 @@ in
     '';
   };
 
-  xdg.dataFile."icons/nix/nix-icon.svg".source = ../config/icons/nix-icon.svg;
+  xdg.dataFile."icons/nix/nix-icon.svg".source = ../../config/icons/nix-icon.svg;
 
   xdg.configFile."xfce4/panel/whiskermenu-12.rc".text = ''
     button-icon=${nixIconPath}
