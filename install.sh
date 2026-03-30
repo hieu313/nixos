@@ -49,69 +49,67 @@ echo -e "  Target root : ${YELLOW}${TARGET_DISK}${RESET}"
 echo -e "  ESP UUID    : ${YELLOW}${ESP_UUID}${RESET}"
 echo -e "  Swap UUID   : ${YELLOW}${SWAP_UUID}${RESET}"
 echo ""
-echo -e "${RED}${BOLD}  ⚠ Toàn bộ dữ liệu trên ${TARGET_DISK} sẽ bị xoá!${RESET}"
-echo -ne "  Xác nhận tiếp tục? [y/N] "
+echo -e "${RED}${BOLD}  ⚠ All data on ${TARGET_DISK} will be erased!${RESET}"
+echo -ne "  Continue? [y/N] "
 read -r confirm
-[[ "$confirm" =~ ^[Yy]$ ]] || fail "Hủy bởi người dùng."
+[[ "$confirm" =~ ^[Yy]$ ]] || fail "Cancelled by user."
 
 # ─────────────────────────────────────────────
 
 step "Format partition root (${TARGET_DISK})"
 wipefs -fa $TARGET_DISK
 mkfs.ext4 -L nixos-root $TARGET_DISK
-ok "Format ext4 hoàn tất"
+ok "ext4 format complete"
 
-step "Lấy UUID mới của root partition"
+step "Get new UUID of root partition"
 ROOT_UUID=$(blkid -s UUID -o value $TARGET_DISK)
 info "ROOT_UUID = ${ROOT_UUID}"
 
-step "Mount các partition"
+step "Mount partitions"
 mount /dev/disk/by-uuid/$ROOT_UUID /mnt
 ok "Mounted root → /mnt"
 mkdir -p /mnt/boot
 mount /dev/disk/by-uuid/$ESP_UUID /mnt/boot
 ok "Mounted ESP  → /mnt/boot"
 swapon /dev/disk/by-uuid/$SWAP_UUID
-ok "Swap đã bật"
+ok "Swap enabled"
 
 step "Generate hardware-configuration.nix"
 nixos-generate-config --root /mnt
-ok "File tạo tại /mnt/etc/nixos/hardware-configuration.nix"
+ok "Created /mnt/etc/nixos/hardware-configuration.nix"
 
 step "Clone flake repo (hieu313/nixos)"
 cd /mnt/etc
 mv nixos nixos.bak
 git clone https://github.com/hieu313/nixos.git nixos
 rm -rf nixos/.git
-ok "Clone thành công"
+ok "Clone succeeded"
 
-step "Đồng bộ hardware-configuration vào flake"
+step "Sync hardware-configuration into flake"
 cp nixos.bak/hardware-configuration.nix \
    nixos/devices/laptop/aries/hardware-configuration.nix
-ok "Đã copy → devices/laptop/aries/hardware-configuration.nix"
+ok "Copied → devices/laptop/aries/hardware-configuration.nix"
 
-step "Init git repo (flake yêu cầu tracked files)"
+step "Init git repo (flake requires tracked files)"
 cd nixos
-git init
+git config --global user.name "hieunm"
+git config --global user.email "hieunm@gmail.com"
+git init --initial-branch=master
 git add .
 git commit -m "Initial commit"
-ok "Git init hoàn tất"
+git remote add httporigin https://github.com/hieu313/nixos.git
+git push -u httporigin master
+ok "Git init complete"
 
-step "Cài đặt NixOS (nixos-install)"
-info "Bước này có thể mất vài phút tuỳ tốc độ mạng..."
+step "Install NixOS (nixos-install)"
+info "This step may take several minutes depending on network speed..."
 nixos-install --flake '.#aries'
-ok "nixos-install hoàn tất"
+ok "nixos-install complete"
 
-step "Đặt password cho user hieunm"
-nixos-enter --root /mnt -c 'passwd hieunm'
-ok "Password đã đặt"
+step "Copy nixos repo to home"
+cp -r /mnt/etc/nixos /mnt/home/hieunm/nixos
+ok "NixOS repo copied to /mnt/home/hieunm/nixos"
 
-step "Cleanup & reboot"
-swapoff -a || true
-umount -R /mnt
-ok "Unmount sạch"
-echo ""
-echo -e "${GREEN}${BOLD}  ✔ Cài đặt hoàn tất! Đang reboot...${RESET}"
-echo ""
-sleep 2
-reboot
+step "Set root password: nixos-enter --root /mnt -c 'passwd root'"
+step "Set password for user hieunm: nixos-enter --root /mnt -c 'passwd hieunm'"
+ok "Root and user hieunm passwords (set using commands above)"
