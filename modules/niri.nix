@@ -34,13 +34,13 @@ in
     ];
 
     services.greetd = {
-      enable = true;
+      enable = false;
       settings = {
         default_session = {
           command = "${pkgs.tuigreet}/bin/tuigreet --cmd niri-session";
           user = "greeter";
         };
-
+				# TODO: comment to require password to login
         initial_session = {
           command = "niri-session";
           user = "hieunm";

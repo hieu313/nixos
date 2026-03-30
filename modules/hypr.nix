@@ -19,12 +19,13 @@ in
     };
 
     services.greetd = {
-      enable = true;
+      enable = false;
       settings = {
         default_session = {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'uwsm start hyprland-uwsm.desktop'";
           user = "greeter";
         };
+				# TODO: comment to allow do not require password to login
         initial_session = {
           command = "uwsm start hyprland-uwsm.desktop";
           user = "hieunm";
