@@ -11,7 +11,6 @@ let
       eza
       zoxide
       bat
-      tmux
     ];
 
     dev = with pkgs; [
@@ -99,6 +98,7 @@ in
 {
 	imports = [
 		./flatpak.nix
+		./programs/tmux.nix
 	];
   config = {
     home.packages = allPackages;
