@@ -96,7 +96,7 @@
             ./home/common.nix
             ./home/zsh.nix
             ./home/niri.nix
-            ./home/wine.nix
+            # ./home/wine.nix
           ];
         };
 
