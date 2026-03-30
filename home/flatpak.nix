@@ -4,7 +4,7 @@
   ...
 }:
 {
-  services.flatpak = lib.mkIf (hostName == "aries") {
+  services.flatpak = {
     enable = true;
     remotes = {
       flathub = "https://dl.flathub.org/repo/flathub.flatpakrepo";
@@ -19,10 +19,5 @@
       "flathub:app/com.obsproject.Studio//stable"
     ];
     onCalendar = "weekly";
-  };
-
-  home.sessionVariables = lib.mkIf (hostName == "aries") {
-    XDG_DATA_DIRS =
-      "$XDG_DATA_DIRS:$HOME/.local/share/flatpak/exports/share";
   };
 }

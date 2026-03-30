@@ -84,9 +84,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-		environment.sessionVariables = {
-			XDG_DATA_DIRS = "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share";
-		};
+    environment.sessionVariables = {
+      XDG_DATA_DIRS = lib.mkForce "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share";
+    };
 
     systemd.services.flatpak-repo.enable = lib.mkForce false;
 
