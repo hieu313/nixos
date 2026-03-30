@@ -6,13 +6,18 @@
 }:
 
 {
+  imports = [
+    ./packages.nix
+    ./flatpak.nix
+    ./config-files.nix
+  ];
 
   home = {
-    username = "gumbo";
-    homeDirectory = "/home/gumbo";
+    username = "hieunm";
+    homeDirectory = "/home/hieunm";
     stateVersion = "25.05";
   };
-  
+
   programs.home-manager.enable = true;
   programs.git = {
       enable = true;
@@ -21,6 +26,10 @@
           core.editor = "nvim";
       };
   };
+
+	programs.kitty = {
+		enable = true;
+	};
 
   programs.starship = {
     enable = true;
@@ -36,15 +45,6 @@
     };
   };
 
-  xdg.configFile = {
-    "starship.toml".source = ../config/starship/starship.main.toml;
-    "eza/theme.yml".source = ../config/eza/eza.main.yml;
-    "fuzzel/fuzzel.ini".source = ../config/fuzzel/tokyonight.fuzzel.ini;
-    "fastfetch/config.jsonc".source = ../config/fastfetch/main.fastfetch;
-    "fastfetch/violet.png".source = ../config/icons/violet.png;
-    "qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
-    "qt5ct/colors/noctalia.conf".source = ../config/qt5ct/colors/noctalia.conf;
-  };
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {

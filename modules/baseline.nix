@@ -39,7 +39,7 @@ in
       options = "--delete-older-than 7d";
     };
 
-    time.timeZone = "America/Chicago";
+    time.timeZone = "Asia/Ho_Chi_Minh";
 
     i18n.defaultLocale = "en_US.UTF-8";
     console = {
@@ -47,18 +47,18 @@ in
       keyMap = "us";
     };
 
-    users.users.gumbo = {
+    users.users.hieunm = {
       isNormalUser = true;
       shell = pkgs.zsh;
       extraGroups = [
         "wheel"
         "networkmanager"
+        "docker"
         "input"
         "sound"
         "video"
         "audio"
         "libvirtd"
-        "borg"
       ];
     };
 
@@ -76,34 +76,14 @@ in
       };
     };
 
-    fonts = {
-      enableDefaultPackages = true;
-      packages = with pkgs; [
-        nerd-fonts.jetbrains-mono
-        inter
-      ];
-      fontconfig = {
-        enable = true;
-        defaultFonts = {
-          sansSerif = [
-            "Inter"
-            "Noto Sans"
-          ];
-          serif = [ "Noto Serif" ];
-          monospace = [ "JetBrainsMono Nerd Font" ];
-        };
-      };
-      fontDir.enable = true;
-    };
-
     programs.dconf.enable = true;
 
     programs.zsh.enable = true;
     environment.pathsToLink = [ "/share/zsh" ];
 
     services = {
+			blueman.enable = true;
       tailscale.enable = true;
-      pcscd.enable = true; # yubikey dep
       libinput.enable = true;
       upower.enable = true;
       power-profiles-daemon.enable = true;

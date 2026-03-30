@@ -36,7 +36,7 @@ in
             package = pkgs.graphite-gtk-theme;
           };
           extraConfig = ''
-            default-user-image=/usr/share/pixmaps/gumbo-face.png
+            default-user-image=/usr/share/pixmaps/hieunm-face.png
           '';
         };
       };

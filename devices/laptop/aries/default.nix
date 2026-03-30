@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
+		../../../modules/fonts.nix
     ../../../modules/flatpak.nix
     ../../../modules/niri.nix #     <-- niri environment
     ../../../modules/hypr.nix #     <-- hyprland environment
@@ -22,21 +23,16 @@
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
     ../../../modules/polkit.nix
+    ../../../modules/docker.nix
+    ../../../modules/i18n.nix
   ];
 
   # hostname
-  networking.hostName = "prometheus";
+  networking.hostName = "aries";
   hardware.cpu.amd.updateMicrocode = true;
 
   workstation = {
-    baseline = {
-      enable = true;              # enable baseline config
-      packages = {
-        tools = true;             # enable common suite of CLI tools
-        dev = true;               # enable common langs/lang related tools
-        apps = true;              # enable common desktop applications
-      };
-    }; 
+		baseline.enable = true;      # enable baseline config
     nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want
     kde.enable= false;
@@ -47,10 +43,11 @@
       enable = true;
       onCalendar = "weekly";
       packages = [
-        "flathub:app/app.zen_browser.zen//stable"
         "flathub:app/com.github.tchx84.Flatseal//stable"
       ];
     };
+    docker.enable = true;
+    i18n.enable = true;
   };
 
   # environments, switch to true as needed
@@ -73,11 +70,6 @@
       Type = "oneshot";
       ExecStart = "${pkgs.bash}/bin/bash -c 'echo 0 > /sys/class/leds/platform::micmute/brightness || true'";
     };
-  };
-
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
   };
 
   environment.systemPackages = with pkgs; [
