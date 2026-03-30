@@ -11,6 +11,8 @@
   #   niri/*, ghostty/ (niri variant)      → home/desktop/niri.nix
   #   ghostty/ (kde variant)               → home/desktop/kde.nix
 
+	home.file.".face".source = ../pics/fox.jpg;
+
   xdg.configFile = {
     "starship.toml".source = ../config/starship/starship.main.toml;
     "eza/theme.yml".source = ../config/eza/eza.main.yml;

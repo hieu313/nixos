@@ -83,7 +83,6 @@ let
 
     waylandDesktop = with pkgs; [
       cliphist
-      wl-clipboard
       grim
       slurp
       swappy
