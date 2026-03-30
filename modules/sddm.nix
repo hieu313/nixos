@@ -8,20 +8,18 @@ let
   cfg = config.workstation.sddm;
 in
 {
-  options.workstation.sddm.enable =
-    lib.mkEnableOption "SDDM configuration";
+  options.workstation.sddm = {
+		enable = lib.mkEnableOption "SDDM configuration";
+		variant = lib.mkOption {
+			type = lib.types.str;
+			default = "pixel_sakura_static";
+			description = "sddm-astronaut theme variant";
+		};
+	};
 
   config = lib.mkIf cfg.enable {
 		environment.systemPackages = with pkgs; [
-			(callPackage ../pkgs/sddm-astronaut-theme.nix {})
-		];
-
-		# Qt6 packages required at runtime for sddm-astronaut-theme
-		# ref: https://github.com/NixOS/nixpkgs/pull/298345
-		services.displayManager.sddm.extraPackages = with pkgs.kdePackages; [
-			qtsvg
-			qtvirtualkeyboard
-			qtmultimedia
+			(callPackage ../pkgs/sddm-astronaut-theme.nix { inherit (cfg) variant; })
 		];
 
 		fonts.packages = [
@@ -32,6 +30,12 @@ in
 			enable = true;
 			theme = "sddm-astronaut-theme";
 			wayland.enable = true;
+			# ref: https://github.com/NixOS/nixpkgs/pull/298345
+			extraPackages = with pkgs.kdePackages; [
+				qtsvg
+				qtvirtualkeyboard
+				qtmultimedia
+			];
 		};
 	};
 }

@@ -2,6 +2,7 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
+	variant ? "pixel_sakura_static",
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "sddm-astronaut-theme";
@@ -20,7 +21,23 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook preInstall
     mkdir -p $out/share/sddm/themes/sddm-astronaut-theme
     cp -aR $src/. $out/share/sddm/themes/sddm-astronaut-theme/
-    cp ${../config/sddm/metadata.desktop} $out/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+    cat <<EOF > $out/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+[SddmGreeterTheme]
+Name=sddm-astronaut-theme
+Description=sddm-astronaut-theme
+Author=keyitdev
+Website=https://github.com/Keyitdev/sddm-astronaut-theme
+License=GPL-3.0-or-later
+Type=sddm-theme
+Version=1.3
+ConfigFile=Themes/${variant}.conf
+Screenshot=Previews/astronaut.png
+MainScript=Main.qml
+TranslationsDirectory=translations
+Theme-Id=sddm-astronaut-theme
+Theme-API=2.0
+QtVersion=6
+EOF
     runHook postInstall
   '';
 
