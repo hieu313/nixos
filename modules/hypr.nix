@@ -7,6 +7,7 @@
 }:
 let
   cfg = config.workstation.hypr;
+	sddmCfg = config.workstation.sddm;
 in
 {
   options.workstation.hypr.enable = lib.mkEnableOption "Hyprland-based workstation environment";
@@ -19,13 +20,13 @@ in
     };
 
     services.greetd = {
-      enable = false;
+      enable = !sddmCfg.enable;
       settings = {
         default_session = {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'uwsm start hyprland-uwsm.desktop'";
           user = "greeter";
         };
-				# TODO: comment to allow do not require password to login
+				# TODO: comment to require password to login
         initial_session = {
           command = "uwsm start hyprland-uwsm.desktop";
           user = "hieunm";

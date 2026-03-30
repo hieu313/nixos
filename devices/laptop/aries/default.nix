@@ -25,6 +25,7 @@
     ../../../modules/polkit.nix
     ../../../modules/docker.nix
     ../../../modules/i18n.nix
+    ../../../modules/sddm.nix
   ];
 
   # hostname
@@ -48,6 +49,7 @@
     };
     docker.enable = true;
     i18n.enable = true;
+    sddm.enable = true;
   };
 
   # environments, switch to true as needed

@@ -7,6 +7,7 @@
 }:
 let
   cfg = config.workstation.niri;
+	sddmCfg = config.workstation.sddm;
 in
 {
   options.workstation.niri.enable = lib.mkEnableOption "Niri-based workstation environment with Noctalia Shell";
@@ -34,7 +35,7 @@ in
     ];
 
     services.greetd = {
-      enable = false;
+      enable = !sddmCfg.enable;
       settings = {
         default_session = {
           command = "${pkgs.tuigreet}/bin/tuigreet --cmd niri-session";
