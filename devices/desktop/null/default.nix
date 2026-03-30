@@ -14,7 +14,6 @@
     ../../../modules/kde.nix 
     ../../../modules/packages.nix
     ../../../modules/ssh.nix
-    ../../../modules/nixvim.nix
     ../../../modules/yazi.nix
     ../../../modules/flatpak.nix
   ];
@@ -31,7 +30,6 @@
         apps = false;             
       };
     };      
-    nixvim.enable = true;         
     kde.enable = true;           
     yazi.enable = true;           
     ssh.enable = true;            

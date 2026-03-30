@@ -14,11 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
   };
 
@@ -28,7 +23,6 @@
       nixpkgs-unstable,
       home-managerU,
       noctalia,
-      nixvim,
       flatpaks,
       ...
     }@inputs:

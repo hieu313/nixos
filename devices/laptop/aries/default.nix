@@ -18,7 +18,6 @@
     ../../../modules/kde.nix
     # ../../../modules/xfce.nix     <-- xfce environment
     ../../../modules/storagebox.nix
-    ../../../modules/nixvim.nix
     ../../../modules/packages.nix
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
@@ -34,7 +33,6 @@
 
   workstation = {
 		baseline.enable = true;      # enable baseline config
-    nixvim.enable = true;         # enable nixvim configuration
     niri.enable = true;           # change to a different profile if you want
     kde.enable= false;
     polkit.enable = true;

@@ -19,7 +19,6 @@
     ../../../modules/mount.nix
     ../../../modules/packages.nix
     ../../../modules/ssh.nix
-    ../../../modules/nixvim.nix
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
     ../../../modules/polkit.nix
@@ -37,7 +36,6 @@
         apps = true;              # enable common desktop applications
       };
     };      
-    nixvim.enable = true;         # enable nixvim configuration
     niri.enable = false;           # change to a different profile if you want
     kde.enable = true;
     polkit.enable = true;
