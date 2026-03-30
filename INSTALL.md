@@ -50,3 +50,5 @@ I currently don't manage Noctalia Shell declaratively. Cleanest way is:
 Copy the repo to your home folder: sudo cp -r /etc/nixos ~/nixos and cp ~/nixos/config/noctalia/{settings.json,colors.json} ~/.config/noctalia/ to get my settings and colors into the shell
 Video Tutorial
 Pretty much an exact clone of this guide if you wanna watch it first https://youtu.be/pPXmUFQbjzg
+
+
