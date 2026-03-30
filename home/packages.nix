@@ -12,7 +12,6 @@ let
       zoxide
       bat
       tmux
-      atuin
     ];
 
     dev = with pkgs; [
@@ -99,6 +98,9 @@ let
   allPackages = lib.flatten (builtins.attrValues packageGroups);
 in
 {
+	imports = [
+    ./atuin.nix
+  ];
   config = {
     home.packages = allPackages;
   };
