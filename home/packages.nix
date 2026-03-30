@@ -99,6 +99,9 @@ let
   allPackages = lib.flatten (builtins.attrValues packageGroups);
 in
 {
+	imports = [
+		./flatpak.nix
+	];
   config = {
     home.packages = allPackages;
   };

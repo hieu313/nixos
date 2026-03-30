@@ -8,7 +8,6 @@
 {
   imports = [
     ./packages.nix
-    ./flatpak.nix
     ./assets.nix
   ];
 
