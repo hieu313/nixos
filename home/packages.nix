@@ -33,7 +33,6 @@ let
 
     cloudDevops = with pkgs; [
       awscli2
-      ngrok
       stripe-cli
       cloudflared
       rclone
