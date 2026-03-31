@@ -60,8 +60,17 @@ let
       superfile
       serie
       pay-respects
-			jq
-			yq-go
+      jq
+      yq-go
+      wl-clipboard
+      (tesseract.override {
+        enableLanguages = [ "eng" ];
+      })
+      zbar
+      curl
+      translate-shell
+      ffmpeg
+      gifski
     ];
 
     apps = with pkgs; [
@@ -89,6 +98,7 @@ let
       satty
       wf-recorder
       flameshot
+      wl-screenrec
     ];
   };
 
