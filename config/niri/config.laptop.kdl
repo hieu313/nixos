@@ -376,8 +376,8 @@ binds {
 }
 
 cursor {
-    xcursor-theme "BreezeX-RosePine-Linux"
-    xcursor-size 24
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 20
     hide-when-typing
     hide-after-inactive-ms 10000
 }

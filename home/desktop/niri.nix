@@ -23,12 +23,23 @@ in
       package = pkgs.papirus-icon-theme;
     };
 
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 20;
+    };
+
     gtk3.extraConfig = {
       "gtk-application-prefer-dark-theme" = true;
+      "gtk-cursor-theme-name" = "Bibata-Modern-Classic";
     };
 
     gtk4.extraConfig = {
       "gtk-application-prefer-dark-theme" = true;
+      Settings = ''
+      gtk-cursor-theme-name=Bibata-Modern-Classic
+      gtk-cursor-theme-size=16
+      '';
     };
   };
 
@@ -48,16 +59,16 @@ in
   };
 
   home.pointerCursor = {
-    name = "BreezeX-RosePine-Linux";
-    package = pkgs.rose-pine-cursor;
-    size = 24;
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+    size = 20;
     gtk.enable = true;
     x11.enable = true;
   };
 
   home.sessionVariables = {
-    XCURSOR_THEME = "BreezeX-RosePine-Linux";
-    XCURSOR_SIZE = "24";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "20";
     NIXOS_OZONE_WL = "1";
     ICON_THEME = "Papirus";
     QS_ICON_THEME = "Papirus";
