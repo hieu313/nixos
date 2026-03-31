@@ -19,6 +19,12 @@ in
       enable = true;
     };
 
+		environment.variables = {
+			NIXOS_OZONE_WL = "1";
+			XDG_SESSION_TYPE = "wayland";
+			XDG_CURRENT_DESKTOP = "niri";
+		};
+
     environment.systemPackages = with pkgs; [
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       xwayland-satellite
@@ -34,8 +40,10 @@ in
       mpvpaper
     ];
 
+		services.displayManager.sddm.enable = lib.mkForce (!sddmCfg.enable);
+
     services.greetd = {
-      enable = !sddmCfg.enable;
+      enable = lib.mkForce (!sddmCfg.enable);
       settings = {
         default_session = {
           command = "${pkgs.tuigreet}/bin/tuigreet --cmd niri-session";

@@ -18,9 +18,11 @@ in
       xwayland.enable = true;
       withUWSM = true;
     };
+		
+		services.displayManager.sddm.enable = lib.mkForce (!sddmCfg.enable);
 
     services.greetd = {
-      enable = !sddmCfg.enable;
+      enable = lib.mkForce (!sddmCfg.enable);
       settings = {
         default_session = {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'uwsm start hyprland-uwsm.desktop'";
