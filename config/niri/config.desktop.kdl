@@ -1,4 +1,10 @@
 // Desktop Niri Config
+
+environment {
+    TERMINAL = "ghostty";
+    TERM_RUN = "ghostty -e";
+}
+
 input {
 
     mouse {
@@ -147,7 +153,7 @@ binds {
 
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: ${TERMINAL}" { spawn "${TERMINAL}"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
@@ -157,12 +163,12 @@ binds {
     Mod+X { spawn "codium"; }
     Mod+Shift+J  { spawn "/run/current-system/sw/bin/jellyfin-desktop"; }
     Mod+M { spawn "/run/current-system/sw/bin/feishin"; }
-    Mod+N { spawn-sh "ghostty -e nvim"; }
+    Mod+N { spawn-sh "${TERM_RUN} nvim"; }
     Mod+Shift+M { spawn-sh "noctalia-shell ipc call plugin togglePanel MediaMini"; }
     Mod+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Mod+Shift+Space {spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
-    Mod+Y { spawn-sh "ghostty -e yazi"; }
-    Mod+Shift+B { spawn-sh "ghostty -e btop"; }
+    Mod+Y { spawn-sh "${TERM_RUN} yazi"; }
+    Mod+Shift+B { spawn-sh "${TERM_RUN} btop"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
