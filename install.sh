@@ -61,12 +61,8 @@ wipefs -fa $TARGET_DISK
 mkfs.ext4 -L nixos-root $TARGET_DISK
 ok "ext4 format complete"
 
-step "Get new UUID of root partition"
-ROOT_UUID=$(blkid -s UUID -o value $TARGET_DISK)
-info "ROOT_UUID = ${ROOT_UUID}"
-
 step "Mount partitions"
-mount /dev/disk/by-uuid/$ROOT_UUID /mnt
+mount $TARGET_DISK /mnt
 ok "Mounted root → /mnt"
 mkdir -p /mnt/boot
 mount /dev/disk/by-uuid/$ESP_UUID /mnt/boot
@@ -97,8 +93,8 @@ git config --global user.email "hieunm@gmail.com"
 git init --initial-branch=master
 git add .
 git commit -m "Initial commit"
-git remote add httporigin https://github.com/hieu313/nixos.git
-git push -u httporigin master
+# git remote add httporigin https://github.com/hieu313/nixos.git
+# git push -u httporigin master
 ok "Git init complete"
 
 step "Install NixOS (nixos-install)"
