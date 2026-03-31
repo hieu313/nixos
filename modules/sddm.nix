@@ -37,5 +37,7 @@ in
 				qtmultimedia
 			];
 		};
+
+    services.displayManager.defaultSession = "niri";
 	};
 }
