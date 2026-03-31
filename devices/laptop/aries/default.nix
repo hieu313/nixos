@@ -53,7 +53,7 @@
     };
     docker.enable = true;
     i18n.enable = true;
-    sddm.enable = true;
+    sddm.enable = false;
   };
 
   # environments, switch to true as needed

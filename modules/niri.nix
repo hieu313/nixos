@@ -42,10 +42,10 @@ in
           user = "greeter";
         };
 				# TODO: comment to require password to login
-        initial_session = {
-          command = "niri-session";
-          user = "hieunm";
-        };
+        # initial_session = {
+        #   command = "niri-session";
+        #   user = "hieunm";
+        # };
       };
     };
   };
