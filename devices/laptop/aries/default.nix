@@ -6,6 +6,12 @@
   ...
 }:
 
+# IF YOU ARE NOT HIEUNM, PLEASE CHANGE THE FOLLOWING LINES:
+# - networking.hostName
+# - users.users.hieunm.homeDirectory
+# - users.users.hieunm.extraGroups
+# - modules/mount.nix
+
 {
   imports = [
     ./hardware-configuration.nix

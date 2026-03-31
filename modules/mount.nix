@@ -3,41 +3,31 @@
   lib,
   pkgs,
   ...
-}:
-let
-  cfg = config.mount;
-in
-{
-  options.mount = {
-    games.enable = lib.mkEnableOption "Local mount for storing video game files";
-    media.enable = lib.mkEnableOption "Local media mount for Jellyfin, Kavita, Immich, and Navidrome";
+}: {
+  fileSystems = {
+    # Arch Linux /home partition
+    "/home/arch" = {
+      device = "/dev/disk/by-uuid/4e7b15ac-054a-44e6-96c3-644ac60effd2";
+      fsType = "ext4";
+      options = [ "defaults" "nofail" ];
+    };
+
+    # Workspace
+    "/home/hieunm/Workspace" = {
+      device = "/dev/disk/by-uuid/34553dc9-ca35-4885-b542-66f442a45305";
+      fsType = "ext4";
+      options = [ "defaults" "nofail" ];
+    };
+
+    # Data (NTFS)
+    "/home/hieunm/Data" = {
+      device = "/dev/disk/by-uuid/CEA89ED4A89EBA83";
+      fsType = "ntfs3";
+      options = [ "uid=1000" "gid=981" "umask=000" "nofail" ];
+    };
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf cfg.games.enable {
-      fileSystems."/mnt/games" = {
-        device = "/dev/disk/by-uuid/7b2f5538-ff2f-44a7-9a7e-105bf75d6c70";
-        fsType = "ext4";
-        options = [
-          "nosuid"
-          "nodev"
-          "noatime"
-          "nofail"
-        ];
-      };
-    })
-
-    (lib.mkIf cfg.media.enable {
-      fileSystems."/mnt/jelly" = {
-        device = "/dev/disk/by-uuid/928958de-b7ae-4310-9465-57377da78508";
-        fsType = "ext4";
-        options = [
-          "nosuid"
-          "nodev"
-          "noatime"
-          "nofail"
-        ];
-      };
-    })
+  systemd.tmpfiles.rules = [
+    "d /home/arch 0755 root root -"
   ];
 }
