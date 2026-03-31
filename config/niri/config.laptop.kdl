@@ -1,8 +1,8 @@
 // Laptop Niri Config
 
 environment {
-	TERMINAL = "kitty";
-	TERM_RUN = "kitty -e";
+	TERMINAL "kitty"
+	TERM_RUN "kitty -e"
 }
 
 input {
@@ -172,6 +172,8 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
+		Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+		Mod+Shift+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Mod+Z { spawn-sh "flatpak run app.zen_browser.zen"; }
     Mod+Shift+C { spawn "codium"; }
     Mod+B { spawn-sh "flatpak run app.zen_browser.zen"; }
@@ -179,7 +181,6 @@ binds {
     Mod+Shift+J { spawn-sh "/run/current-system/sw/bin/jellyfin-desktop"; }
     Mod+N { spawn-sh "${TERM_RUN} nvim"; }
     Mod+M { spawn "/run/current-system/sw/bin/feishin"; }
-       Mod+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Mod+Y { spawn-sh "${TERM_RUN} yazi"; }
     Mod+Shift+B { spawn-sh "${TERM_RUN} btop"; }
 
@@ -310,7 +311,7 @@ binds {
     Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
-    Mod+Shift+C { center-visible-columns; }
+    Mod+Shift+X { center-visible-columns; }
 
     // Finer width adjustments.
     Mod+Minus { set-column-width "-10%"; }
