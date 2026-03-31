@@ -15,6 +15,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../../modules/mount.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
 		../../../modules/fonts.nix
     ../../../modules/flatpak.nix

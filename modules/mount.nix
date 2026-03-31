@@ -23,7 +23,7 @@
     "/home/hieunm/Data" = {
       device = "/dev/disk/by-uuid/CEA89ED4A89EBA83";
       fsType = "ntfs3";
-      options = [ "uid=1000" "gid=981" "umask=000" "nofail" ];
+      options = [ "uid=1000" "gid=100" "umask=000" "nofail" ];
     };
   };
 
