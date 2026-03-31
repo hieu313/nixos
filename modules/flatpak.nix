@@ -106,5 +106,6 @@ in
       preSwitchCommand = "";
       UNCHECKEDfinalizeCommand = "";
     };
+    security.unprivilegedUsernsClone = true;
   };
 }
