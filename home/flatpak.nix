@@ -21,4 +21,14 @@
     ];
     onCalendar = "weekly";
   };
+  programs.zsh.shellAliases = {
+    mpv = "flatpak run io.mpv.Mpv";
+    zen = "app.zen_browser.zen";
+    firefox = "org.mozilla.firefox";
+    chrome = "org.chromium.Chromium";
+    vlc = "org.videolan.VLC";
+    vscode = "com.visualstudio.code";
+    obs = "com.obsproject.Studio";
+    floorp = "one.ablaze.floorp";
+  };
 }
