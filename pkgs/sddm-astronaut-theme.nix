@@ -20,7 +20,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
     mkdir -p $out/share/sddm/themes/sddm-astronaut-theme
-    cp -aR $src/. $out/share/sddm/themes/sddm-astronaut-theme/
+		cp -r $src/. $out/share/sddm/themes/sddm-astronaut-theme/
+		chmod -R u+w $out/share/sddm/themes/sddm-astronaut-theme/
     cat <<EOF > $out/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
 [SddmGreeterTheme]
 Name=sddm-astronaut-theme
