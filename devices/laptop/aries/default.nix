@@ -58,8 +58,14 @@
 
   services.fprintd.enable = true;
 
+  programs.steam.enable = false;
 
-  programs.steam.enable = true;
+	programs.neovim = {
+		enable = true;
+		viAlias = true;
+		vimAlias = true;
+		defaultEditor = true;
+	};
 
   systemd.services.micmute-led-off = {
     description = "Turn off micmute LED at boot";
