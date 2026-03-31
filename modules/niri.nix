@@ -39,22 +39,5 @@ in
       libsForQt5.qt5ct
       mpvpaper
     ];
-
-		services.displayManager.sddm.enable = lib.mkForce (!sddmCfg.enable);
-
-    services.greetd = {
-      enable = lib.mkForce (!sddmCfg.enable);
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --cmd niri-session";
-          user = "greeter";
-        };
-				# TODO: comment to require password to login
-        # initial_session = {
-        #   command = "niri-session";
-        #   user = "hieunm";
-        # };
-      };
-    };
   };
 }

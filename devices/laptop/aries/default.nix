@@ -18,6 +18,7 @@
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
 		../../../modules/fonts.nix
     ../../../modules/flatpak.nix
+    ../../../modules/sddm.nix
     ../../../modules/niri.nix #     <-- niri environment
     ../../../modules/hypr.nix #     <-- hyprland environment
     # ../../../modules/gnome.nix    <-- gnome environemt
@@ -30,7 +31,6 @@
     ../../../modules/polkit.nix
     ../../../modules/docker.nix
     ../../../modules/i18n.nix
-    ../../../modules/sddm.nix
   ];
 
   # hostname
@@ -38,6 +38,7 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   workstation = {
+    sddm.enable = true;
 		baseline.enable = true;      # enable baseline config
     niri.enable = true;           # change to a different profile if you want
     kde.enable= false;
@@ -53,7 +54,6 @@
     };
     docker.enable = true;
     i18n.enable = true;
-    sddm.enable = true;
   };
 
   # environments, switch to true as needed
