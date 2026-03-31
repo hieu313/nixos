@@ -185,6 +185,36 @@ binds {
     Mod+Shift+B { spawn-sh "${TERM_RUN} btop"; }
 
     // Noctalia Media Controls
+
+    // Noctalia IPC quick actions (from noctalia.md) — dùng Mod+Alt để tránh trùng phím lõi
+    Mod+Alt+A { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Alt+H { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
+    Mod+Alt+K { spawn-sh "noctalia-shell ipc call nightLight toggle"; }
+    Mod+Alt+Z { spawn-sh "noctalia-shell ipc call bar toggle"; }
+    Mod+Alt+X { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit ocr"; }
+    Mod+Alt+R { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit record"; }
+    Mod+Alt+Shift+R { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit recordStop"; }
+    Mod+Alt+C { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit colorPicker"; }
+    Mod+Alt+Period { spawn-sh "noctalia-shell ipc call launcher emoji"; }
+
+    // --- App & utility bindings (ported from keybinds.conf) ---
+    // Terminal & apps
+    Mod+E { spawn "dolphin"; }
+    Ctrl+Super+Shift+Alt+W { spawn "libreoffice"; }
+    Ctrl+Super+V { spawn-sh "pavucontrol-qt || pavucontrol"; }
+    Mod+Ctrl+I { spawn "systemsettings"; }
+    Ctrl+Shift+Escape { spawn "plasma-systemmonitor"; }
+
+    // Screenshots
+    Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }
+    Ctrl+Print { spawn-sh "mkdir -p \"$(xdg-user-dir PICTURES)/Screenshots\" && grim \"$(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +%F_%H.%M.%S).png\""; }
+
+    // Clipboard & emoji
+    Mod+Alt+V { spawn-sh "cliphist list | fuzzel --match-mode fzf --dmenu | cliphist decode | wl-copy"; }
+    // Super+Period already bound to Noctalia launcher emoji
+
+    // Session actions
+    Ctrl+Alt+Delete { spawn-sh "wlogout -p layer-shell"; }
     Ctrl+Alt+Space { spawn-sh "noctalia-shell ipc call media playPause"; }
     Ctrl+Alt+Left { spawn-sh "noctalia-shell ipc call media previous"; }
     Ctrl+Alt+Right { spawn-sh "noctalia-shell ipc call media next"; }
