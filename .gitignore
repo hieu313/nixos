@@ -12,3 +12,4 @@ repomix-output.xml
 .repomixignore
 AGENTS.md
 release-manifest.json
+hardware-configuration.nix
