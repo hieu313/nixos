@@ -66,6 +66,7 @@ let
     ];
 
     apps = with pkgs; [
+			ghostty
 			libreoffice
       telegram-desktop
       ipatool
