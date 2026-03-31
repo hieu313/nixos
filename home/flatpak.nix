@@ -17,6 +17,7 @@
       "flathub:app/io.mpv.Mpv//stable"
       "flathub:app/com.visualstudio.code//stable"
       "flathub:app/com.obsproject.Studio//stable"
+      "flathub:app/one.ablaze.floorp//stable"
     ];
     onCalendar = "weekly";
   };
