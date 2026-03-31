@@ -90,7 +90,7 @@
             ./home/common.nix
             ./home/programs/zsh.nix
             ./home/desktop/niri.nix
-            # ./home/programs/wine.nix
+            ./home/programs/wine.nix
           ];
         };
 
