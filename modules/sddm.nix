@@ -26,6 +26,11 @@ in
 			(pkgs.callPackage ../pkgs/custom-fonts.nix {})
 		];
 
+		services.xserver = {
+			enable = true;
+			excludePackages = [ pkgs.xterm ];
+		};
+
 		services.displayManager.sddm = {
 			enable = true;
 			theme = "sddm-astronaut-theme";
