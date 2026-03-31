@@ -78,7 +78,6 @@ step "Clone flake repo (hieu313/nixos)"
 cd /mnt/etc
 mv nixos nixos.bak
 git clone https://github.com/hieu313/nixos.git nixos
-rm -rf nixos/.git
 ok "Clone succeeded"
 
 step "Sync hardware-configuration into flake"
