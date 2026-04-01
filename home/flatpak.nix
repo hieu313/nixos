@@ -19,16 +19,24 @@
       "flathub:app/com.obsproject.Studio//stable"
       "flathub:app/one.ablaze.floorp//stable"
     ];
+    overrides = {
+      global.Context.filesystems = "xdg-download";
+
+      "app.zen_browser.zen".Context.filesystems = "xdg-download:rw;xdg-documents:rw";
+      "org.mozilla.firefox".Context.filesystems   = "xdg-download:rw;xdg-documents:rw";
+      "one.ablaze.floorp".Context.filesystems     = "xdg-download:rw;xdg-documents:rw";
+      "org.chromium.Chromium".Context.filesystems = "xdg-download:rw;xdg-documents:rw";
+    };
     onCalendar = "weekly";
   };
   programs.zsh.shellAliases = {
-    mpv = "flatpak run io.mpv.Mpv";
-    zen = "app.zen_browser.zen";
-    firefox = "org.mozilla.firefox";
-    chrome = "org.chromium.Chromium";
-    vlc = "org.videolan.VLC";
-    vscode = "com.visualstudio.code";
-    obs = "com.obsproject.Studio";
-    floorp = "one.ablaze.floorp";
+    mpv     = "flatpak run io.mpv.Mpv";
+    zen     = "flatpak run app.zen_browser.zen";
+    firefox = "flatpak run org.mozilla.firefox";
+    chrome  = "flatpak run org.chromium.Chromium";
+    vlc     = "flatpak run org.videolan.VLC";
+    vscode  = "flatpak run com.visualstudio.code";
+    obs     = "flatpak run com.obsproject.Studio";
+    floorp  = "flatpak run one.ablaze.floorp";
   };
 }
