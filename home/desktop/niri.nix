@@ -72,5 +72,6 @@ in
     NIXOS_OZONE_WL = "1";
     ICON_THEME = "Papirus";
     QS_ICON_THEME = "Papirus";
+    QT_QPA_PLATFORM      = "wayland";
   };
 }

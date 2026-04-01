@@ -104,7 +104,6 @@ let
       wf-recorder
       flameshot
       wl-screenrec
-      kdePackages.qtwayland
     ];
   };
 
