@@ -167,14 +167,15 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
-    Mod+A { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+A repeat=false { toggle-overview; }
+    Mod+Z { spawn-sh "noctalia-shell ipc call launcher toggle"; }
     Mod+S { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+D { spawn-sh "noctalia-shell ipc call plugin:assistant-panel toggle"; }
     Mod+Space { spawn-sh "noctalia-shell ipc call settings toggleTab $tab"; }
 
-    Mod+B { spawn-sh "chrome"; }
-    Mod+Shift+B { spawn-sh "zen"; }
-    Mod+C { spawn-sh "vscode"; }
+    Mod+B { spawn-sh "flatpak run org.chromium.Chromium"; }
+    Mod+Shift+B { spawn-sh "flatpak run app.zen_browser.zen"; }
+    Mod+C { spawn-sh "flatpak run com.visualstudio.code"; }
     Mod+N { spawn-sh "kitty -e nvim"; }
     Mod+Y { spawn-sh "kitty -e yazi"; }
 
@@ -211,8 +212,6 @@ binds {
 
     XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness decrease"; }
-
-    Mod+O repeat=false { toggle-overview; }
 
     Mod+W repeat=false { close-window; }
 
