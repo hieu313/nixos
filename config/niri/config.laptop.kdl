@@ -172,11 +172,10 @@ binds {
     Mod+D { spawn-sh "noctalia-shell ipc call plugin:assistant-panel toggle"; }
     Mod+Space { spawn-sh "noctalia-shell ipc call settings toggleTab $tab"; }
 
-    Mod+B { spawn-sh "org.chromium.Chromium"; }
-    Mod+Shift+B { spawn-sh "flatpak run app.zen_browser.zen"; }
-    Mod+Shift+C { spawn "flatpak run com.visualstudio.code"; }
+    Mod+B { spawn-sh "chrome"; }
+    Mod+Shift+B { spawn-sh "zen"; }
+    Mod+C { spawn-sh "vscode"; }
     Mod+N { spawn-sh "kitty -e nvim"; }
-    Mod+M { spawn "/run/current-system/sw/bin/feishin"; }
     Mod+Y { spawn-sh "kitty -e yazi"; }
 
     // Noctalia Media Controls
@@ -184,10 +183,6 @@ binds {
     // Noctalia IPC quick actions (from noctalia.md) — dùng Mod+Alt để tránh trùng phím lõi
     Mod+V { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
     Mod+Alt+H { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
-    Mod+Alt+X { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit ocr"; }
-    Mod+Alt+R { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit record"; }
-    Mod+Alt+Shift+R { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit recordStop"; }
-    Mod+Alt+C { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit colorPicker"; }
     Mod+Alt+Period { spawn-sh "noctalia-shell ipc call launcher emoji"; }
 
     // --- App & utility bindings (ported from keybinds.conf) ---
@@ -318,8 +313,6 @@ binds {
     Mod+Shift+F { fullscreen-window; }
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F  { expand-column-to-available-width; }
-
-    Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
     Mod+Shift+X { center-visible-columns; }
