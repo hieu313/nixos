@@ -14,6 +14,7 @@
 	home.file.".face".source = ../pics/fox.jpg;
 
   xdg.configFile = {
+    "fzf/fzf-git.sh".source = ../config/fzf/fzf-git.sh;
     "starship.toml".source = ../config/starship/starship.main.toml;
     "eza/theme.yml".source = ../config/eza/eza.main.yml;
     "fuzzel/fuzzel.ini".source = ../config/fuzzel/tokyonight.fuzzel.ini;
