@@ -1,10 +1,4 @@
 // Laptop Niri Config
-
-environment {
-	TERMINAL "kitty"
-	TERM_RUN "kitty -e"
-}
-
 input {
 
     touchpad {
@@ -45,6 +39,9 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+    }
+    default-column-width {
+        proportion 0.5;
     }
 
     focus-ring {
@@ -165,32 +162,28 @@ window-rule {
 }
 
 binds {
-
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: ${TERMINAL}" { spawn "${TERMINAL}"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
-		Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-		Mod+Shift+Space { spawn-sh "noctalia-shell ipc call settings toggle"; }
-    Mod+Z { spawn-sh "flatpak run app.zen_browser.zen"; }
-    Mod+Shift+C { spawn "codium"; }
-    Mod+B { spawn-sh "flatpak run app.zen_browser.zen"; }
-    Mod+S { spawn "/run/current-system/sw/bin/signal-desktop"; }
-    Mod+Shift+J { spawn-sh "/run/current-system/sw/bin/jellyfin-desktop"; }
-    Mod+N { spawn-sh "${TERM_RUN} nvim"; }
+    Mod+A { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+S { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+    Mod+D { spawn-sh "noctalia-shell ipc call plugin:assistant-panel toggle"; }
+    Mod+Space { spawn-sh "noctalia-shell ipc call settings toggleTab $tab"; }
+
+    Mod+B { spawn-sh "org.chromium.Chromium"; }
+    Mod+Shift+B { spawn-sh "flatpak run app.zen_browser.zen"; }
+    Mod+Shift+C { spawn "flatpak run com.visualstudio.code"; }
+    Mod+N { spawn-sh "kitty -e nvim"; }
     Mod+M { spawn "/run/current-system/sw/bin/feishin"; }
-    Mod+Y { spawn-sh "${TERM_RUN} yazi"; }
-    Mod+Shift+B { spawn-sh "${TERM_RUN} btop"; }
+    Mod+Y { spawn-sh "kitty -e yazi"; }
 
     // Noctalia Media Controls
 
     // Noctalia IPC quick actions (from noctalia.md) — dùng Mod+Alt để tránh trùng phím lõi
-    Mod+Alt+A { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+    Mod+V { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
     Mod+Alt+H { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
-    Mod+Alt+K { spawn-sh "noctalia-shell ipc call nightLight toggle"; }
-    Mod+Alt+Z { spawn-sh "noctalia-shell ipc call bar toggle"; }
     Mod+Alt+X { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit ocr"; }
     Mod+Alt+R { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit record"; }
     Mod+Alt+Shift+R { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit recordStop"; }
@@ -203,18 +196,13 @@ binds {
     Ctrl+Super+Shift+Alt+W { spawn "libreoffice"; }
     Ctrl+Super+V { spawn-sh "pavucontrol-qt || pavucontrol"; }
     Mod+Ctrl+I { spawn "systemsettings"; }
-    Ctrl+Shift+Escape { spawn "plasma-systemmonitor"; }
 
     // Screenshots
     Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }
     Ctrl+Print { spawn-sh "mkdir -p \"$(xdg-user-dir PICTURES)/Screenshots\" && grim \"$(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +%F_%H.%M.%S).png\""; }
 
-    // Clipboard & emoji
-    Mod+Alt+V { spawn-sh "cliphist list | fuzzel --match-mode fzf --dmenu | cliphist decode | wl-copy"; }
-    // Super+Period already bound to Noctalia launcher emoji
-
     // Session actions
-    Ctrl+Alt+Delete { spawn-sh "wlogout -p layer-shell"; }
+    Ctrl+Alt+Delete { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
     Ctrl+Alt+Space { spawn-sh "noctalia-shell ipc call media playPause"; }
     Ctrl+Alt+Left { spawn-sh "noctalia-shell ipc call media previous"; }
     Ctrl+Alt+Right { spawn-sh "noctalia-shell ipc call media next"; }
@@ -231,16 +219,14 @@ binds {
 
     Mod+O repeat=false { toggle-overview; }
 
-    Mod+Q repeat=false { close-window; }
+    Mod+W repeat=false { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
+    Mod+U     { focus-workspace-down; }
+    Mod+I     { focus-workspace-up; }
 
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
@@ -267,11 +253,6 @@ binds {
     Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
-
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
 
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
@@ -310,7 +291,7 @@ binds {
 
 
     // Switches focus between the current and the previous workspace.
-     Mod+Tab { focus-workspace-previous; }
+    Mod+Tab { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
@@ -352,13 +333,13 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
+    Mod+Alt+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+Q { toggle-column-tabbed-display; }
 
     Print      { screenshot; }
     Shift+Print { screenshot-screen; }
