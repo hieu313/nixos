@@ -63,6 +63,7 @@ let
       jq
       yq-go
       wl-clipboard
+      yt-dlp
       (tesseract.override {
         enableLanguages = [ "eng" ];
       })
@@ -74,6 +75,10 @@ let
     ];
 
     apps = with pkgs; [
+      kdePackages.konsole
+      kdePackages.dolphin
+      nautilus
+      pavucontrol
 			ghostty
 			libreoffice
       telegram-desktop
