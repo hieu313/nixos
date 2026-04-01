@@ -20,12 +20,19 @@
     "fastfetch/config.jsonc".source = ../config/fastfetch/main.fastfetch;
     "qt5ct/qt5ct.conf".source = ../config/qt5ct/qt5ct.conf;
     "qt5ct/colors/noctalia.conf".source = ../config/qt5ct/colors/noctalia.conf;
+		"qt6ct/qt6ct.conf".source = ../config/qt6ct/qt6ct.conf;
+		"qt6ct/style-colors.conf".source = ../config/qt6ct/style-colors.conf;
   };
 
   xdg.configFile."kitty" = {
     source = ../config/kitty;
     recursive = true;
   };
+
+	xdg.configFile."Kvantum" = {
+		source = ../config/Kvantum;
+		recursive = true;
+	}
 
 	xdg.configFile."atuin/config.toml".source = ../config/atuin/config.toml;
 	xdg.configFile."atuin/themes/catppuccin-macchiato-mauve.toml".source = ../config/atuin/themes/macchiato/catppuccin-macchiato-mauve.toml;

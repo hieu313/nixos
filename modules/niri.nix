@@ -38,6 +38,7 @@ in
       gpu-screen-recorder
       wl-clipboard
       libsForQt5.qt5ct
+			kdePackages.qt6ct
       mpvpaper
     ];
   };
