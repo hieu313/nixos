@@ -112,6 +112,7 @@ in
 {
 	imports = [
 		./flatpak.nix
+    ./appimage.nix
 		./programs/tmux.nix
 	];
   config = {
