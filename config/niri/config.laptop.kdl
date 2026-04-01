@@ -175,7 +175,8 @@ binds {
 
     Mod+B { spawn-sh "flatpak run org.chromium.Chromium"; }
     Mod+Shift+B { spawn-sh "flatpak run app.zen_browser.zen"; }
-    Mod+C { spawn-sh "flatpak run com.visualstudio.code"; }
+    Mod+C { spawn-sh "cursor-ai"; }
+    Mod+Shift+C { spawn-sh "flatpak run com.visualstudio.code"; }
     Mod+N { spawn-sh "kitty -e nvim"; }
     Mod+Y { spawn-sh "kitty -e yazi"; }
 
