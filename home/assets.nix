@@ -23,6 +23,7 @@
     "qt5ct/colors/noctalia.conf".source = ../config/qt5ct/colors/noctalia.conf;
 		"qt6ct/qt6ct.conf".source = ../config/qt6ct/qt6ct.conf;
 		"qt6ct/style-colors.conf".source = ../config/qt6ct/style-colors.conf;
+		"lazygit/config.yml".source = ../config/lazygit/tokyonight_moon.yml;
   };
 
   xdg.configFile."kitty" = {
