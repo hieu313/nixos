@@ -50,4 +50,14 @@
       uris = [ "qemu:///system" ];
     };
   };
+
+  xdg.mimeApps.defaultApplications = {
+    "inode/directory" = "org.kde.dolphin.desktop";
+  };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
 }
