@@ -20,21 +20,6 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
-    boot = {
-      loader = {
-				systemd-boot.enable = false; # Disable systemd-boot in favor of GRUB
-        grub = {
-					enable = true;
-					efiSupport = true;
-					device = "nodev";
-					useOSProber = false;
-				};
-				efi.canTouchEfiVariables = true;
-      };
-      kernelPackages = pkgs.linuxPackages_latest;
-      kernelModules = [ "uvcvideo" ];
-    };
-
     hardware.enableAllFirmware = true;
 
     networking.networkmanager.enable = true;
