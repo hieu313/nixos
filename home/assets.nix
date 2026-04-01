@@ -32,7 +32,12 @@
 	xdg.configFile."Kvantum" = {
 		source = ../config/Kvantum;
 		recursive = true;
-	}
+	};
+
+	xdg.configFile."btop" = {
+		source = ../config/btop;
+		recursive = true;
+	};
 
 	xdg.configFile."atuin/config.toml".source = ../config/atuin/config.toml;
 	xdg.configFile."atuin/themes/catppuccin-macchiato-mauve.toml".source = ../config/atuin/themes/macchiato/catppuccin-macchiato-mauve.toml;
