@@ -39,6 +39,11 @@
 		recursive = true;
 	};
 
+	xdg.configFile."fcitx5" = {
+		source = ../config/fcitx5;
+		recursive = true;
+	};
+
 	xdg.configFile."atuin/config.toml".source = ../config/atuin/config.toml;
 	xdg.configFile."atuin/themes/catppuccin-macchiato-mauve.toml".source = ../config/atuin/themes/macchiato/catppuccin-macchiato-mauve.toml;
 
