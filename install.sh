@@ -103,6 +103,10 @@ ok "nixos-install complete"
 
 step "Copy nixos repo to home"
 cp -r /mnt/etc/nixos /mnt/home/hieunm/nixos
+chown -R hieunm:users /mnt/home/hieunm/nixos
+mkdir -p ~/.config/yazi
+cp -r /mnt/etc/nixos/config/yazi/package.toml /mnt/home/hieunm/.config/yazi/package.toml
+cp -r /mnt/etc/nixos/config/noctalia/{*.json} /mnt/home/hieunm/.config/noctalia/
 ok "NixOS repo copied to /mnt/home/hieunm/nixos"
 
 step "Set root password: nixos-enter --root /mnt -c 'passwd root'"
