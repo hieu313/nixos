@@ -41,7 +41,10 @@
 
   workstation = {
     sddm.enable = true;
-		baseline.enable = true;      # enable baseline config
+		baseline = {
+			enable = true;
+			packages.enable = true;
+		};
     niri.enable = true;           # change to a different profile if you want
     kde.enable= false;
     polkit.enable = true;
@@ -71,6 +74,7 @@
   services.fprintd.enable = true;
 
   programs.steam.enable = false;
+	programs.nix-ld.enable = true;
 
 	programs.neovim = {
 		enable = true;
