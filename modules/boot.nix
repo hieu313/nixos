@@ -5,17 +5,23 @@
   ...
 }:
 let
-  cfg = config.workstation.bootmgr;
+  cfg = config.workstation.boot;
 in
 {
-  options.workstation.bootmgr = {
-    enable = lib.mkEnableOption "Boot manager configuration";
+  options.workstation.boot = {
+    enable = lib.mkEnableOption "Boot configuration";
 
     loader = lib.mkOption {
       type = lib.types.enum [ "systemd-boot" "grub" ];
       default = "systemd-boot";
       description = "Boot loader to use: systemd-boot or grub";
     };
+
+		enablePlymouth = lib.mkOption {
+			type = lib.types.bool;
+			default = false;
+			description = "Enable Plymouth boot";
+		};
   };
 
   config = lib.mkIf cfg.enable {
@@ -59,8 +65,25 @@ in
         };
       };
 
-      kernelPackages = pkgs.linuxPackages_latest;
-      kernelModules = [ "uvcvideo" ];
+			plymouth = lib.mkIf cfg.enablePlymouth {
+				enable = true;
+				theme = "spin";
+				themePackages = with pkgs; [
+					# By default we would install all themes
+					(adi1090x-plymouth-themes.override {
+						selected_themes = [ "spin" ];
+					})
+				];
+			};
+
+			# Enable "Silent boot"`
+			consoleLogLevel = 3;
+			initrd.verbose = false;
+			kernelParams = [
+				"quiet"
+				"udev.log_level=3"
+				"systemd.show_status=auto"
+			];
     };
   };
 }

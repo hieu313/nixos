@@ -17,7 +17,7 @@
     ./hardware-configuration.nix
     ../../../modules/mount.nix
     ../../../modules/baseline.nix # <-- shared config between laptop/desktop
-    ../../../modules/bootmgr.nix
+    ../../../modules/boot.nix
 		../../../modules/fonts.nix
     ../../../modules/flatpak.nix
     ../../../modules/sddm.nix
@@ -57,9 +57,10 @@
         "flathub:app/com.github.tchx84.Flatseal//stable"
       ];
     };
-    bootmgr = {
+    boot = {
       enable = true;
       loader = "grub";
+      enablePlymouth = true;
     };
     docker.enable = true;
     i18n.enable = true;
