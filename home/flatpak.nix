@@ -14,7 +14,6 @@
       "flathub:app/org.mozilla.firefox//stable"
       "flathub:app/org.chromium.Chromium//stable"
       "flathub:app/org.videolan.VLC//stable"
-      "flathub:app/io.mpv.Mpv//stable"
       "flathub:app/com.visualstudio.code//stable"
       "flathub:app/com.obsproject.Studio//stable"
       "flathub:app/one.ablaze.floorp//stable"
@@ -30,7 +29,6 @@
     onCalendar = "weekly";
   };
   programs.zsh.shellAliases = {
-    mpv     = "flatpak run io.mpv.Mpv";
     zen     = "flatpak run app.zen_browser.zen";
     firefox = "flatpak run org.mozilla.firefox";
     chrome  = "flatpak run org.chromium.Chromium";

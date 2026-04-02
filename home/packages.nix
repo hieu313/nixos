@@ -77,6 +77,7 @@ let
       translate-shell
       ffmpeg
       gifski
+			mpv
     ];
 
     apps = with pkgs; [
