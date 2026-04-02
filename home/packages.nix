@@ -103,6 +103,7 @@ let
       sl
       cowsay
       pipes-rs
+			evtest
       pokemon-colorscripts
     ];
 

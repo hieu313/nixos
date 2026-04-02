@@ -9,17 +9,17 @@
         "density": "default",
         "enableClipPreview": true,
         "enableClipboardChips": true,
-        "enableClipboardHistory": false,
+        "enableClipboardHistory": true,
         "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
-        "iconMode": "tabler",
+        "iconMode": "native",
         "ignoreMouseInput": false,
         "overviewLayer": false,
         "pinnedApps": [
         ],
-        "position": "center",
+        "position": "bottom_center",
         "screenshotAnnotationTool": "",
         "showCategories": true,
         "showIconBackground": false,
@@ -113,6 +113,19 @@
                     "unfocusedIconsOpacity": 1
                 },
                 {
+                    "defaultSettings": {
+                        "catColor": "default",
+                        "catOffsetY": 0,
+                        "catSize": 1,
+                        "idleTimeout": 150,
+                        "raveMode": false,
+                        "tappyMode": false,
+                        "useMprisFilter": false,
+                        "waitingTimeout": 30000
+                    },
+                    "id": "plugin:slowbongo"
+                },
+                {
                     "iconColor": "error",
                     "id": "SessionMenu"
                 }
@@ -185,6 +198,7 @@
                     "maxWidth": 145,
                     "scrollingMode": "always",
                     "showIcon": true,
+                    "showText": true,
                     "textColor": "none",
                     "useFixedWidth": false
                 },
@@ -301,7 +315,7 @@
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "graphic-clean",
+                    "displayMode": "graphic",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
@@ -437,6 +451,37 @@
                 "name": "HDMI-A-1",
                 "widgets": [
                     {
+                        "clockColor": "primary",
+                        "clockStyle": "digital",
+                        "customFont": "",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 1,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "x": 100,
+                        "y": 100
+                    }
+                ]
+            },
+            {
+                "name": "eDP-1",
+                "widgets": [
+                    {
+                        "hideMode": "visible",
+                        "id": "MediaPlayer",
+                        "roundedCorners": true,
+                        "scale": 1,
+                        "showAlbumArt": true,
+                        "showBackground": true,
+                        "showButtons": true,
+                        "showVisualizer": true,
+                        "visualizerType": "linear",
+                        "x": 100,
+                        "y": 100
+                    },
+                    {
                         "defaultSettings": {
                             "barWidth": 0.6,
                             "bloomIntensity": 0.5,
@@ -452,36 +497,10 @@
                             "waveThickness": 1
                         },
                         "id": "plugin:fancy-audiovisualizer",
-                        "scale": 1.3223964980472416,
-                        "showBackground": true,
-                        "x": 1462,
-                        "y": 428
-                    },
-                    {
-                        "clockColor": "none",
-                        "clockStyle": "digital",
-                        "customFont": "",
-                        "format": "HH:mm\\nd MMMM yyyy",
-                        "id": "Clock",
-                        "roundedCorners": true,
                         "scale": 1,
                         "showBackground": true,
-                        "useCustomFont": false,
-                        "x": 120,
+                        "x": 100,
                         "y": 100
-                    },
-                    {
-                        "hideMode": "visible",
-                        "id": "MediaPlayer",
-                        "roundedCorners": true,
-                        "scale": 1,
-                        "showAlbumArt": true,
-                        "showBackground": true,
-                        "showButtons": true,
-                        "showVisualizer": true,
-                        "visualizerType": "linear",
-                        "x": 1460,
-                        "y": 332
                     }
                 ]
             }
@@ -614,6 +633,7 @@
     },
     "location": {
         "analogClockInCalendar": false,
+        "autoLocate": true,
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
@@ -826,7 +846,7 @@
         "overviewEnabled": true,
         "overviewTint": 0.6,
         "panelPosition": "follow_bar",
-        "randomIntervalSec": 60,
+        "randomIntervalSec": 600,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": false,
