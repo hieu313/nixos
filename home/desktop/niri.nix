@@ -45,9 +45,22 @@ in
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
-    style.name = "Fusion";
+    platformTheme.name = "qt6ct";
+    style = {
+			name = "kvantum";
+			package = pkgs.kdePackages.qtstyleplugin-kvantum;
+		};
   };
+
+	dconf.settings = {
+		"org/gnome/desktop/interface" = {
+			color-scheme = "prefer-dark";
+			gtk-theme = "Tokyonight-Dark";
+			icon-theme = "Papirus";
+			cursor-theme = "Bibata-Modern-Classic";
+			cursor-size = 20;
+		};
+	};
 
   xdg.configFile = {
     "gtk-3.0/settings.ini".force = true;
@@ -72,6 +85,7 @@ in
     NIXOS_OZONE_WL = "1";
     ICON_THEME = "Papirus";
     QS_ICON_THEME = "Papirus";
-    QT_QPA_PLATFORM      = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+		GTK_THEME = "Tokyonight-Dark";
   };
 }

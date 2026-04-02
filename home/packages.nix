@@ -82,7 +82,6 @@ let
 
     apps = with pkgs; [
       kdePackages.konsole
-      kdePackages.dolphin
       nautilus
       pavucontrol
 			ghostty
@@ -120,6 +119,7 @@ in
 		./flatpak.nix
     ./appimage.nix
 		./programs/tmux.nix
+		./programs/dolphin.nix
 	];
   config = {
     home.packages = allPackages;
