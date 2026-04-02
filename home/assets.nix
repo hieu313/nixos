@@ -49,7 +49,6 @@
 	xdg.configFile."yazi/init.lua".source = ../config/yazi/init.lua;
 	xdg.configFile."yazi/yazi.toml".source = ../config/yazi/yazi.toml;
 	xdg.configFile."yazi/theme.toml".source = ../config/yazi/theme.toml;
-	xdg.configFile."yazi/package.toml".source = ../config/yazi/package.toml;
 
 	xdg.configFile."atuin/config.toml".source = ../config/atuin/config.toml;
 	xdg.configFile."atuin/themes/catppuccin-macchiato-mauve.toml".source = ../config/atuin/themes/macchiato/catppuccin-macchiato-mauve.toml;

@@ -92,8 +92,9 @@ prepend_fetchers = [
 		{ id = "mime", name = "*", run = "mime-ext" , if = "!mime", prio = "high" },
 ]
 prepend_previewers = [
-		{ url = "*", run = 'piper -- echo "$1"' },
-		{ url = "*/", run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
+    { mime = "text/*", run = "rich-preview" },
+    { mime = "application/{json,ndjson}", run = "rich-preview" },
+    { name = "*/", run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
 ]
 spotters = [
     { name = "*/", run = "folder" },

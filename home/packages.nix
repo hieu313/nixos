@@ -78,6 +78,12 @@ let
       ffmpeg
       gifski
 			mpv
+
+			unar
+			ffmpegthumbnailer
+			poppler-utils
+			unar
+			font-manager
     ];
 
     apps = with pkgs; [
