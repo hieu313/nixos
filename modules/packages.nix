@@ -35,6 +35,7 @@ let
     git
     btop
     less
+		appimage-run
   ];
 in
 {
