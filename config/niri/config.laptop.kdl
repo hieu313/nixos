@@ -176,6 +176,7 @@ binds {
     Mod+B { spawn-sh "flatpak run org.chromium.Chromium"; }
     Mod+Shift+B { spawn-sh "flatpak run app.zen_browser.zen"; }
     Mod+C { spawn-sh "cursor-ai"; }
+		Mod+T { spawn-sh "Telegram"; }
     Mod+Shift+C { spawn-sh "flatpak run com.visualstudio.code"; }
     Mod+N { spawn-sh "kitty -e nvim"; }
     Mod+Y { spawn-sh "kitty -e yazi"; }
@@ -193,10 +194,6 @@ binds {
     Ctrl+Super+Shift+Alt+W { spawn "libreoffice"; }
     Ctrl+Super+V { spawn-sh "pavucontrol-qt || pavucontrol"; }
     Mod+Ctrl+I { spawn "systemsettings"; }
-
-    // Screenshots
-    Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | wl-copy"; }
-    Ctrl+Print { spawn-sh "mkdir -p \"$(xdg-user-dir PICTURES)/Screenshots\" && grim \"$(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +%F_%H.%M.%S).png\""; }
 
     // Session actions
     Ctrl+Alt+Delete { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }

@@ -131,10 +131,6 @@ clipimg() {
   cliphist list | head -n 1 | cliphist decode | kitten icat
 }
 
-telegram() {
-  Telegram > /dev/null 2>&1 & disown
-}
-
 zen() {
   /home/hieunm/Desktop/zen/zen-bin > /dev/null 2>&1 & disown
 }
