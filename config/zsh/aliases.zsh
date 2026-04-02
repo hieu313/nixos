@@ -111,9 +111,6 @@ ccg() {
   )
 }
 
-proxypal() {
-  cd ~/Desktop/proxypal && pnpm tauri dev > /dev/null 2>&1 & disown
-}
 claudekit() {
   /home/hieunm/Workspace/claudekit/link-manager.sh "$@"
 }
