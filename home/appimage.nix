@@ -8,11 +8,9 @@ in
   # Merge-friendly: home.packages concatenates across modules
   home.packages = [
     cursor-ai
-    proxypal
   ];
 
   programs.zsh.shellAliases = {
     cursor-ai = "cursor-ai";
-    proxypal = "proxypal";
   };
 }
