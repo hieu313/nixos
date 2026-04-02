@@ -29,9 +29,13 @@ let
       python3Packages.cloudscraper
       python313Packages.unrpa
       yamllint
+			rustc
+			cargo
+			gcc
     ];
 
     cloudDevops = with pkgs; [
+			gnumake
       awscli2
       stripe-cli
       cloudflared
@@ -39,6 +43,7 @@ let
       lazydocker
       lazysql
 			lazygit
+			openssl
     ];
 
     cliTools = with pkgs; [
