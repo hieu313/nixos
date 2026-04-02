@@ -6,7 +6,7 @@ hash = "4ee57085277d616acfa0ef1fef37dc00"
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
 rev = "19dc890"
-hash = "27ca02f49fd236b5cc7bf03c243859fe"
+hash = "94081eed9bc9fe176715c33b0db55d35"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
@@ -68,7 +68,17 @@ use = "yazi-rs/plugins:smart-paste"
 rev = "19dc890"
 hash = "75fd60b2df7115e0a6ca31a6a804d320"
 
+[[plugin.deps]]
+use = "AnirudhG07/rich-preview"
+rev = "7d616ad"
+hash = "d64feec9761392cbc250d199ab4b8a3a"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "1962818"
+hash = "384464b6df8cb807425c521f8cd790f3"
+
 [[flavor.deps]]
 use = "mingo99/tokyonight"
 rev = "005118e"
-hash = "104dd0f5e87aa4fea8f8e68ffa689a4e"
+hash = "b65705619d8f3baec00115a2fc431122"
