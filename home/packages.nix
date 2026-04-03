@@ -127,6 +127,7 @@ in
     ./appimage.nix
 		./programs/tmux.nix
 		./programs/dolphin.nix
+		./programs/neovim.nix
 	];
   config = {
     home.packages = allPackages;
