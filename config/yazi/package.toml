@@ -78,6 +78,11 @@ use = "yazi-rs/plugins:piper"
 rev = "1962818"
 hash = "384464b6df8cb807425c521f8cd790f3"
 
+[[plugin.deps]]
+use = "mikavilpas/easyjump.yazi:easyjump"
+rev = "4284164"
+hash = "dee6991cbf5f04f879be03218856d65"
+
 [[flavor.deps]]
 use = "mingo99/tokyonight"
 rev = "005118e"

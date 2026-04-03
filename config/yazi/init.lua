@@ -41,6 +41,11 @@ require("smart-enter"):setup {
 	open_multi = true,
 }
 
+require("easyjump"):setup({
+  icon_fg = "#94e2d5",      -- color for hint labels
+  first_key_fg = "#45475a", -- color for first char of double-key hints
+})
+
 function Status:name()
 	local h = cx.active.current.hovered
 	if not h then
