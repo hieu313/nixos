@@ -79,7 +79,6 @@ let
       gifski
 			mpv
 
-			unar
 			ffmpegthumbnailer
 			poppler-utils
 			unar
@@ -127,6 +126,7 @@ in
     ./appimage.nix
 		./programs/tmux.nix
 		./programs/dolphin.nix
+		./programs/nemo.nix
 		./programs/neovim.nix
 	];
   config = {

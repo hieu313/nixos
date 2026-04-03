@@ -31,6 +31,9 @@ let
     p7zip
     unrar
     unzip
+		gzip
+		bzip2
+		xz
     parallel
     git
     btop
