@@ -125,6 +125,7 @@ in
 	imports = [
 		./flatpak.nix
     ./appimage.nix
+		./programs/obs.nix
 		./programs/tmux.nix
 		./programs/dolphin.nix
 		./programs/nemo.nix

@@ -14,7 +14,6 @@
       "flathub:app/org.mozilla.firefox//stable"
       "flathub:app/org.videolan.VLC//stable"
       "flathub:app/com.visualstudio.code//stable"
-      "flathub:app/com.obsproject.Studio//stable"
       "flathub:app/one.ablaze.floorp//stable"
     ];
     overrides = {
@@ -31,7 +30,6 @@
     firefox = "flatpak run org.mozilla.firefox";
     vlc     = "flatpak run org.videolan.VLC";
     vscode  = "flatpak run com.visualstudio.code";
-    obs     = "flatpak run com.obsproject.Studio";
     floorp  = "flatpak run one.ablaze.floorp";
   };
 }
