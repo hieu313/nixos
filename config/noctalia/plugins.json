@@ -23,6 +23,10 @@
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },
+        "mini-docs": {
+            "enabled": true,
+            "sourceUrl": "local"
+        },
         "mini-docker": {
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"

@@ -1,0 +1,46 @@
+{
+  "id": "mini-docs",
+  "name": "Mini Docs",
+  "version": "0.1.0",
+  "minNoctaliaVersion": "3.6.0",
+  "author": "hieunm + Claude Code",
+  "license": "MIT",
+  "description": "Browse curated docs and generated keybindings from a lightweight searchable panel.",
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "panel": "Panel.qml",
+    "settings": "Settings.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "panelWidth": 1200,
+      "defaultSourceId": "yazi",
+      "searchPlaceholder": "Search current tool...",
+      "lastStatus": "Idle",
+      "lastError": "",
+      "sources": [
+        {
+          "id": "yazi",
+          "title": "Yazi",
+          "icon": "folder",
+          "type": "markdown",
+          "path": "/home/hieunm/nixos/config/yazi/huong-dan-su-dung-yazi.md",
+          "enabled": true
+        },
+        {
+          "id": "niri",
+          "title": "Niri",
+          "icon": "dashboard",
+          "type": "generated-keybinds",
+          "generator": "niri",
+          "path": "/home/hieunm/nixos/config/niri/config.laptop.kdl",
+          "enabled": true
+        }
+      ]
+    }
+  }
+}
