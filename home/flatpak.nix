@@ -12,7 +12,6 @@
     packages = [
       "flathub:app/app.zen_browser.zen//stable"
       "flathub:app/org.mozilla.firefox//stable"
-      "flathub:app/org.chromium.Chromium//stable"
       "flathub:app/org.videolan.VLC//stable"
       "flathub:app/com.visualstudio.code//stable"
       "flathub:app/com.obsproject.Studio//stable"
@@ -24,14 +23,12 @@
       "app.zen_browser.zen".Context.filesystems = "xdg-download:rw;xdg-documents:rw";
       "org.mozilla.firefox".Context.filesystems   = "xdg-download:rw;xdg-documents:rw";
       "one.ablaze.floorp".Context.filesystems     = "xdg-download:rw;xdg-documents:rw";
-      "org.chromium.Chromium".Context.filesystems = "xdg-download:rw;xdg-documents:rw";
     };
     onCalendar = "weekly";
   };
   programs.zsh.shellAliases = {
     zen     = "flatpak run app.zen_browser.zen";
     firefox = "flatpak run org.mozilla.firefox";
-    chrome  = "flatpak run org.chromium.Chromium";
     vlc     = "flatpak run org.videolan.VLC";
     vscode  = "flatpak run com.visualstudio.code";
     obs     = "flatpak run com.obsproject.Studio";

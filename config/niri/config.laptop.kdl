@@ -141,14 +141,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"nemo$"#
-    default-column-width { fixed 1000; }
-    default-window-height { fixed 900; }
-    open-floating true
-    default-floating-position x=0 y=14.5 relative-to="top"
-}
-
-window-rule {
     match app-id="org.jellyfin.JellyfinDesktop"
     draw-border-with-background false
     open-maximized true
@@ -181,7 +173,7 @@ binds {
 
     // #"Applications"
     Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Browser" { spawn-sh "flatpak run org.chromium.Chromium"; }
+    Mod+B hotkey-overlay-title="Browser" { spawn-sh "google-chrome"; }
     Mod+Shift+B { spawn-sh "flatpak run app.zen_browser.zen"; }
     Mod+C hotkey-overlay-title="Code editor" { spawn-sh "cursor-ai"; }
     Mod+Shift+C hotkey-overlay-title="VS Code" { spawn-sh "flatpak run com.visualstudio.code"; }

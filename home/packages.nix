@@ -86,6 +86,7 @@ let
     ];
 
     apps = with pkgs; [
+			google-chrome
       kdePackages.konsole
       nautilus
       pavucontrol
