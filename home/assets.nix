@@ -46,6 +46,11 @@
 		recursive = true;
 	};
 
+	xdg.configFile."noctalia/plugins/mini-docs" = {
+		source = ../config/noctalia/plugins/mini-docs;
+		recursive = true;
+	};
+
 	xdg.configFile."yazi/init.lua".source = ../config/yazi/init.lua;
 	xdg.configFile."yazi/yazi.toml".source = ../config/yazi/yazi.toml;
 	xdg.configFile."yazi/keymap.toml".source = ../config/yazi/keymap.toml;

@@ -192,7 +192,7 @@
                     "usePadding": false
                 },
                 {
-                    "colorizeIcons": false,
+                    "colorizeIcons": true,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
                     "maxWidth": 145,
@@ -444,32 +444,19 @@
     },
     "desktopWidgets": {
         "enabled": true,
-        "gridSnap": false,
-        "gridSnapScale": false,
+        "gridSnap": true,
+        "gridSnapScale": true,
         "monitorWidgets": [
             {
                 "name": "HDMI-A-1",
                 "widgets": [
-                    {
-                        "clockColor": "primary",
-                        "clockStyle": "digital",
-                        "customFont": "",
-                        "format": "HH:mm\\nd MMMM yyyy",
-                        "id": "Clock",
-                        "roundedCorners": true,
-                        "scale": 1,
-                        "showBackground": true,
-                        "useCustomFont": false,
-                        "x": 100,
-                        "y": 100
-                    }
                 ]
             },
             {
                 "name": "eDP-1",
                 "widgets": [
                     {
-                        "hideMode": "visible",
+                        "hideMode": "hidden",
                         "id": "MediaPlayer",
                         "roundedCorners": true,
                         "scale": 1,
@@ -478,10 +465,14 @@
                         "showButtons": true,
                         "showVisualizer": true,
                         "visualizerType": "linear",
-                        "x": 100,
-                        "y": 100
+                        "x": 80,
+                        "y": 80
                     },
                     {
+                        "barWidth": 0.6,
+                        "bloomIntensity": 0.5,
+                        "customPrimaryColor": "#6750a4",
+                        "customSecondaryColor": "#625b71",
                         "defaultSettings": {
                             "barWidth": 0.6,
                             "bloomIntensity": 0.5,
@@ -496,11 +487,19 @@
                             "visualizationMode": 3,
                             "waveThickness": 1
                         },
+                        "fadeWhenIdle": true,
                         "id": "plugin:fancy-audiovisualizer",
-                        "scale": 1,
+                        "innerDiameter": 0.7,
+                        "ringOpacity": 0.8,
+                        "rotationSpeed": 0.5,
+                        "scale": 1.2263294126969755,
+                        "sensitivity": 1.5,
                         "showBackground": true,
-                        "x": 100,
-                        "y": 100
+                        "useCustomColors": false,
+                        "visualizationMode": 3,
+                        "waveThickness": 1,
+                        "x": 1540,
+                        "y": 700
                     }
                 ]
             }
@@ -619,7 +618,7 @@
     },
     "idle": {
         "customCommands": "[]",
-        "enabled": false,
+        "enabled": true,
         "fadeDuration": 5,
         "lockCommand": "",
         "lockTimeout": 660,
@@ -637,7 +636,7 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Hanoi",
+        "name": "Ho Chi Minh City",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
