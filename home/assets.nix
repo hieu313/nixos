@@ -26,6 +26,11 @@
 		"lazygit/config.yml".source = ../config/lazygit/tokyonight_moon.yml;
   };
 
+	xdg.configFile."bat" = {
+		source = ../config/bat;
+		recursive = true;
+	};
+
   xdg.configFile."kitty" = {
     source = ../config/kitty;
     recursive = true;

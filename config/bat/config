@@ -1,0 +1,14 @@
+# This is `bat`s configuration file. Each line either contains a comment or
+# a command-line option that you want to pass to `bat` by default. You can
+# run `bat --help` to get a list of all possible configuration options.
+
+# Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
+# for a list of all available themes
+--color=always
+--theme="tokyonight_storm"
+--style="numbers,changes,header,grid"
+--paging=auto
+--pager="less --RAW-CONTROL-CHARS --quit-if-one-screen"
+--italic-text=always
+--tabs=2
+--wrap=character

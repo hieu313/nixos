@@ -245,7 +245,7 @@ export EZA_ICONS_AUTO=1
 # Modern command replacements
 has_command fd && export FDFIND_DEFAULT_COMMAND="fd -H"
 has_command eza && export EZA_DEFAULT_COMMAND="eza --icons=always --long --color=always -a"
-has_command bat && export BAT_DEFAULT_COMMAND="bat --theme=\"Catppuccin Mocha\" --color=always"
+has_command bat && export BAT_DEFAULT_COMMAND="bat"
 has_command rg && export RG_DEFAULT_COMMAND="rg --color=always --smart-case --line-number --column"
 
 # FZF environment variables
