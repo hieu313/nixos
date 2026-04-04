@@ -130,6 +130,7 @@ in
 		./programs/dolphin.nix
 		./programs/nemo.nix
 		./programs/neovim.nix
+		./programs/wine.nix
 	];
   config = {
     home.packages = allPackages;
