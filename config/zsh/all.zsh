@@ -382,3 +382,7 @@ fi
 # 10. Custom Aliases: Move to last with zsh-defer because it must be loaded after all other plugins are loaded to avoid conflicts
 # ============================================================================
 zsh-defer -c 'source "$ZSH/aliases.zsh"'
+# import api keys or something else do not want to be committed
+if [ -f "$ZSH/keys.zsh" ]; then
+  source "$ZSH/keys.zsh"
+fi
