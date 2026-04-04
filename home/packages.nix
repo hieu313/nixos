@@ -123,14 +123,20 @@ let
 in
 {
 	imports = [
+		# imports
 		./flatpak.nix
     ./appimage.nix
+
+		# programs
 		./programs/obs.nix
 		./programs/tmux.nix
 		./programs/dolphin.nix
 		./programs/nemo.nix
 		./programs/neovim.nix
 		./programs/wine.nix
+
+		# dev
+		./dev/java.nix
 	];
   config = {
     home.packages = allPackages;

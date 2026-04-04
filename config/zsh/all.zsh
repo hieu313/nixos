@@ -100,10 +100,6 @@ export VISUAL="$nvim_path"
 export EDITOR="$nvim_path"
 export TERM=xterm-256color
 
-# Path extensions
-local jdk_path="$XDG_CONFIG_HOME/Java/jdks/openjdk-25/bin"
-has_directory "$jdk_path" && export PATH="$PATH:$jdk_path"
-
 # Rust
 export RUST_BACKTRACE=1
 
