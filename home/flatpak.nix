@@ -15,7 +15,6 @@
       "flathub:app/org.videolan.VLC//stable"
       "flathub:app/com.visualstudio.code//stable"
       "flathub:app/one.ablaze.floorp//stable"
-			"flathub:app/com.usebottles.bottles//stable"
     ];
     overrides = {
       global.Context.filesystems = "xdg-download";
@@ -32,6 +31,5 @@
     vlc     = "flatpak run org.videolan.VLC";
     vscode  = "flatpak run com.visualstudio.code";
     floorp  = "flatpak run one.ablaze.floorp";
-		bottles = "flatpak run com.usebottles.bottles//stable";
   };
 }
