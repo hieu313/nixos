@@ -33,6 +33,7 @@
     ../../../modules/polkit.nix
     ../../../modules/docker.nix
     ../../../modules/i18n.nix
+    ../../../modules/nix-ld.nix
   ];
 
   # hostname
@@ -40,6 +41,7 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   workstation = {
+		nix-ld.enable = true;
     sddm.enable = true;
 		baseline = {
 			enable = true;
