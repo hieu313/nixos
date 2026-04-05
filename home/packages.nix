@@ -47,6 +47,7 @@ let
     ];
 
     cliTools = with pkgs; [
+			atool
 			atuin
 			fastfetch
       fd
@@ -134,6 +135,7 @@ in
 		./programs/nemo.nix
 		./programs/neovim.nix
 		./programs/wine.nix
+		./programs/jetbrains.nix
 
 		# dev
 		./dev/java.nix
