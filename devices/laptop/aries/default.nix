@@ -77,7 +77,6 @@
   services.fprintd.enable = true;
 
   programs.steam.enable = false;
-	programs.nix-ld.enable = true;
 
 	programs.neovim = {
 		enable = true;
