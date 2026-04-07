@@ -4,6 +4,7 @@
 # check ~/.local/share/applications/jetbrains-toolbox.desktop, if it's exists, then remove it
 let
   toolboxScripts = "${config.home.homeDirectory}/.local/share/JetBrains/Toolbox/scripts";
+	enableCustomDesktopEntries = true;
 
   mkJetbrainsEntry = { name, desktopName, script, comment, wmClass, categories ? [ "Development" "IDE" ] }: {
     inherit name;
@@ -21,14 +22,18 @@ let
     };
   };
 
+	# TODO: Toolbox automatically creates desktop entries for the installed IDEs, but sometimes it doesn't work
+	# so we need to create custom desktop entries for the installed IDEs
+	# If you use custom desktop entries, you need to set enableCustomDesktopEntries to true in the configuration
+	# and remove .desktop files which created by Toolbox in ~/.local/share/applications
   ideList = [
-    {
-      name = "intellij-idea-ultimate";
-      desktopName = "IntelliJ IDEA Ultimate";
-      script = "idea";
-      comment = "Capable and Ergonomic IDE for JVM";
-      wmClass = "jetbrains-idea";
-    }
+    # {
+    #   name = "intellij-idea-ultimate";
+    #   desktopName = "IntelliJ IDEA Ultimate";
+    #   script = "idea";
+    #   comment = "Capable and Ergonomic IDE for JVM";
+    #   wmClass = "jetbrains-idea";
+    # }
     # {
     #   name = "goland";
     #   desktopName = "GoLand";
@@ -51,20 +56,19 @@ let
     #   wmClass = "jetbrains-datagrip";
     # }
   ];
+
+	allDesktopEntries = {
+		jetbrains-toolbox = {
+			name = "JetBrains Toolbox";
+			exec = "env JETBRAINS_CLIENT_WAYLAND=1 DISPLAY=:0 ${pkgs.jetbrains-toolbox}/bin/jetbrains-toolbox %U";
+			icon = "jetbrains-toolbox";
+			comment = "JetBrains Toolbox";
+			categories = [ "Development" ];
+		};
+	} // builtins.listToAttrs (map mkJetbrainsEntry ideList);
 in
 {
   home.packages = [ pkgs.jetbrains-toolbox ];
 
-  xdg.desktopEntries =
-    {
-      jetbrains-toolbox = {
-        name = "JetBrains Toolbox";
-        exec = "env JETBRAINS_CLIENT_WAYLAND=1 DISPLAY=:0 jetbrains-toolbox %U";
-        icon = "jetbrains-toolbox";
-        comment = "JetBrains Toolbox";
-        categories = [ "Development" ];
-        terminal = false;
-      };
-    }
-    // builtins.listToAttrs (map mkJetbrainsEntry ideList);
+  xdg.desktopEntries = lib.mkIf enableCustomDesktopEntries allDesktopEntries;
 }
