@@ -134,7 +134,6 @@ in
 		./programs/dolphin.nix
 		./programs/nemo.nix
 		./programs/neovim.nix
-		./programs/wine.nix
 		./programs/jetbrains.nix
 
 		# dev
@@ -144,3 +143,5 @@ in
     home.packages = allPackages;
   };
 }
+# Note: to use wine, you need to install it manually with:
+# flatpak install org.winehq.Wine
