@@ -34,6 +34,7 @@
     ../../../modules/docker.nix
     ../../../modules/i18n.nix
     ../../../modules/nix-ld.nix
+    ../../../modules/waydroid.nix
   ];
 
   # hostname
@@ -65,6 +66,7 @@
       enablePlymouth = true;
     };
     docker.enable = true;
+    waydroid.enable = true;
     i18n.enable = true;
   };
 
