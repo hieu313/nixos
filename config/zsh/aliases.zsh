@@ -19,7 +19,7 @@ has_command rg && alias rg="$RG_DEFAULT_COMMAND"
 
 # Trash-cli instead of rm
 alias rmrm="command rm -rf"
-if has_command trashy; then
+if has_command trash; then
     alias rm="trash"
     alias rmlist="trash list"
     alias rmrestore="trash restore"
@@ -53,7 +53,7 @@ has_command lazygit && alias lzg="lazygit"
 has_command lazydocker && alias lzd="lazydocker"
 
 # Gemini CLI
-has_command gemini && alias how="gemini -p"
+# has_command gemini && alias how="gemini -p"
 has_command serie && alias gitgraph="serie"
 
 # Amazing
@@ -62,29 +62,17 @@ alias lich="curl lich.day"
 alias weather="curl wttr.in"
 
 # Wine
-has_command wine && alias ws="wine start"
+# has_command wine && alias ws="wine start"
 has_command claude && alias claude="claude --dangerously-skip-permissions"
 
-claudekit() {
+function claudekit() {
   /home/hieunm/Workspace/claudekit/link-manager.sh "$@"
 }
 
-floorp(){
-  /home/hieunm/Desktop/floorp/floorp > /dev/null 2>&1 & disown
-}
-
-ytm(){
+function ytm(){
   mpv --no-video "$@"
 }
 
-vbook() {
-  java --module-path /home/hieunm/Desktop/Java/javafx-sdk-25.0.1/lib  --add-modules javafx.controls,javafx.fxml,javafx.web -jar ~/Workspace/Vbook/vbook-hieu/ExtensionMaker.jar > /dev/null 2>&1 & disown
-}
-
-clipimg() {
+function clipimg() {
   cliphist list | head -n 1 | cliphist decode | kitten icat
-}
-
-zen() {
-  /home/hieunm/Desktop/zen/zen-bin > /dev/null 2>&1 & disown
 }
