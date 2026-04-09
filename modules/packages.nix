@@ -36,6 +36,7 @@ let
 		xz
     parallel
     git
+    htop
     btop
     less
 		appimage-run
