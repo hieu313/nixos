@@ -89,52 +89,52 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
-
-window-rule {
-    match app-id=r#"zen$"#
-    draw-border-with-background false
-    geometry-corner-radius 8
-    clip-to-geometry true
-    open-on-workspace "3"
-    open-maximized true
-    opacity 0.95
-}
-
-window-rule {
-    match app-id="feishin"
-    draw-border-with-background false
-    geometry-corner-radius 8
-    clip-to-geometry true
-    open-on-workspace "4"
-    open-maximized true
-    opacity 0.75
-}
-
-window-rule {
-    match app-id="com.libretro.RetroArch"
-    open-floating true
-    default-column-width { fixed 1200; }
-    default-floating-position x=168 y=96 relative-to="top-left"
-}
-
-// Opacity rule
-window-rule {
-    match app-id=r#"Bitwarden$"#
-    match app-id="signal"
-    match app-id="codium"
-    match app-id="com.mitchellh.ghostty"
-    match app-id=r#"nemo$"#
-    opacity 0.85
-    draw-border-with-background false
-}
-
-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-    match app-id=r#"Bitwarden$"#
-    block-out-from "screen-capture"
-}
-
+//
+// window-rule {
+//     match app-id=r#"zen$"#
+//     draw-border-with-background false
+//     geometry-corner-radius 8
+//     clip-to-geometry true
+//     open-on-workspace "3"
+//     open-maximized true
+//     opacity 0.95
+// }
+//
+// window-rule {
+//     match app-id="feishin"
+//     draw-border-with-background false
+//     geometry-corner-radius 8
+//     clip-to-geometry true
+//     open-on-workspace "4"
+//     open-maximized true
+//     opacity 0.75
+// }
+//
+// window-rule {
+//     match app-id="com.libretro.RetroArch"
+//     open-floating true
+//     default-column-width { fixed 1200; }
+//     default-floating-position x=168 y=96 relative-to="top-left"
+// }
+//
+// // Opacity rule
+// window-rule {
+//     match app-id=r#"Bitwarden$"#
+//     match app-id="signal"
+//     match app-id="codium"
+//     match app-id="com.mitchellh.ghostty"
+//     match app-id=r#"nemo$"#
+//     opacity 0.85
+//     draw-border-with-background false
+// }
+//
+// window-rule {
+//     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+//     match app-id=r#"^org\.gnome\.World\.Secrets$"#
+//     match app-id=r#"Bitwarden$"#
+//     block-out-from "screen-capture"
+// }
+//
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
@@ -162,19 +162,19 @@ binds {
     Super+Shift+L hotkey-overlay-title="Lock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
     // #"Launchers & Panels"
-    Mod+Z hotkey-overlay-title="Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    Mod+S hotkey-overlay-title="Toggle right sidebar" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+    Mod+S hotkey-overlay-title="Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+Shift+S hotkey-overlay-title="Toggle right sidebar" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+D hotkey-overlay-title="Toggle assistant panel" { spawn-sh "noctalia-shell ipc call plugin:assistant-panel toggle"; }
     Mod+V hotkey-overlay-title="Clipboard history" { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
     Mod+Alt+H { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
     Mod+Alt+Period hotkey-overlay-title="Emoji >> clipboard" { spawn-sh "noctalia-shell ipc call launcher emoji"; }
     Ctrl+Alt+Delete hotkey-overlay-title="Toggle session menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
     Mod+Shift+M hotkey-overlay-title="Toggle media controls" { spawn-sh "noctalia-shell ipc call plugin togglePanel mediaMini"; }
-
+    Mod+Shift+T hotkey-overlay-title="Toggle wallpaper selecter" { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
     // #"Applications"
     Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Browser" { spawn-sh "google-chrome"; }
-    Mod+Shift+B { spawn-sh "flatpak run app.zen_browser.zen"; }
+    Mod+Shift+B hotkey-overlay-title="Browser" { spawn-sh "google-chrome"; }
+    Mod+B { spawn-sh "flatpak run app.zen_browser.zen"; }
     Mod+C hotkey-overlay-title="Code editor" { spawn-sh "cursor-ai"; }
     Mod+Shift+C hotkey-overlay-title="VS Code" { spawn-sh "flatpak run com.visualstudio.code"; }
     Mod+T hotkey-overlay-title="Telegram" { spawn-sh "Telegram"; }
