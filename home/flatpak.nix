@@ -32,4 +32,17 @@
     vscode = "flatpak run com.visualstudio.code";
     floorp = "flatpak run one.ablaze.floorp";
   };
+	# Add wine to the PATH
+	home.file.".local/bin/wine" = {
+		executable = true;
+		text = ''
+			#!/bin/sh
+			exec flatpak run \
+				--branch=stable-25.08 \
+				--env=WINEPREFIX=/home/hieunm/WindowsApps \
+				--filesystem=/home/hieunm/WindowsApps \
+				--command=wine \
+				org.winehq.Wine "$@"
+		'';
+	};
 }

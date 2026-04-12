@@ -79,6 +79,7 @@ in
 			libxkbcommon
 			libxml2
 			mesa
+			libgbm
 			nspr
 			nss
 			openssl
