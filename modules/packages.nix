@@ -16,6 +16,7 @@ let
     ddcutil
     brightnessctl
 		ntfs3g
+    efibootmgr
 
     # Network
     wget
