@@ -27,7 +27,10 @@ in
   config = lib.mkIf cfg.enable {
     boot = {
       loader = {
-        efi.canTouchEfiVariables = true;
+        efi = {
+					canTouchEfiVariables = true;
+					efiSysMountPoint = "/boot";
+				};
 
         systemd-boot = {
           enable = cfg.loader == "systemd-boot";
