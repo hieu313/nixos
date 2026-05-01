@@ -2,6 +2,7 @@
 let
   jdkMappings = [
     { name = "openjdk-25"; pkg = pkgs.jdk25; }
+    { name = "openjdk-17"; pkg = pkgs.jdk17; }
   ];
 in
 {
@@ -9,6 +10,7 @@ in
     enable = true;
     package = pkgs.jdk25;
   };
+  home.packages = [ pkgs.maven ];
   home.sessionPath = [ "$HOME/.config/Java/jdks" ];
   home.file = builtins.listToAttrs (
     builtins.map (entry: {

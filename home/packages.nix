@@ -4,6 +4,14 @@
   ...
 }:
 let
+
+  nixAlienPkgs = import (builtins.fetchTarball {
+    url = "https://github.com/thiagokokada/nix-alien/tarball/4c5e52dda0d6ab3de814e364046769321d3e1021";
+    sha256 = "sha256-TRts0fKUPFcf1i6rZHFGUDTfti/x3oKEg/CqsPRpSgs=";
+  }) {
+    inherit pkgs;
+  };
+
   packageGroups = {
     terminalShell = with pkgs; [
       starship
@@ -22,12 +30,6 @@ let
       gopls
       gotools
       golangci-lint
-      python3Packages.pyclip
-      python3Packages.httpx
-      python3Packages.pillow
-      python3Packages.curl-cffi
-      python3Packages.cloudscraper
-      python313Packages.unrpa
       yamllint
 			rustc
 			cargo
@@ -88,6 +90,7 @@ let
 
     apps = with pkgs; [
 			google-chrome
+			nemo-with-extensions
       kdePackages.konsole
       nautilus
       pavucontrol
@@ -96,6 +99,7 @@ let
       telegram-desktop
       ipatool
       imagemagick
+      postman
     ];
 
     fun = with pkgs; [
@@ -118,6 +122,10 @@ let
       flameshot
       wl-screenrec
     ];
+
+    extra = [
+      nixAlienPkgs.nix-alien
+    ];
   };
 
   allPackages = lib.flatten (builtins.attrValues packageGroups);
@@ -132,12 +140,12 @@ in
 		./programs/obs.nix
 		./programs/tmux.nix
 		./programs/dolphin.nix
-		./programs/nemo.nix
 		./programs/neovim.nix
 		./programs/jetbrains.nix
 
 		# dev
 		./dev/java.nix
+    ./dev/python.nix
 	];
   config = {
     home.packages = allPackages;
