@@ -76,3 +76,13 @@ function ytm(){
 function clipimg() {
   cliphist list | head -n 1 | cliphist decode | kitten icat
 }
+
+function wine() {
+  WINEPREFIX=/home/hieunm/WindowsApps flatpak run \
+    --branch=stable-25.08 \
+    --env=WINEPREFIX=/home/hieunm/WindowsApps \
+    --filesystem=/home/hieunm/WindowsApps \
+    --command=wine \
+    org.winehq.Wine \
+    "$@"
+}
