@@ -15,6 +15,11 @@
     };
 
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =
@@ -24,6 +29,7 @@
       home-managerU,
       noctalia,
       flatpaks,
+      nixos-wsl,
       ...
     }@inputs:
     let
@@ -63,18 +69,40 @@
             }
           ];
         };
+
+      mkWsl =
+        { deviceModule, hmImports }:
+        libU.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            nixos-wsl.nixosModules.default
+            deviceModule
+            home-managerU.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                extraSpecialArgs = { inherit inputs; };
+                sharedModules = [
+                  (
+                    { osConfig, ... }:
+                    {
+                      _module.args.hostName = osConfig.networking.hostName;
+                    }
+                  )
+                ];
+                users.hieunm = {
+                  imports = hmImports;
+                };
+              };
+            }
+          ];
+        };
     in
     {
       nixosConfigurations = {
-        erebos = mkWorkstation {
-          deviceModule = ./devices/desktop/erebos/default.nix;
-          hmImports = [
-            ./home/common.nix
-            ./home/programs/zsh.nix
-            ./home/desktop/kde.nix
-          ];
-        };
-
         prometheus = mkWorkstation {
           deviceModule = ./devices/laptop/prometheus/default.nix;
           hmImports = [
@@ -93,20 +121,10 @@
           ];
         };
 
-        null = mkWorkstation {
-          deviceModule = ./devices/desktop/null/default.nix;
+        wsl = mkWsl {
+          deviceModule = ./devices/wsl/default.nix;
           hmImports = [
-            ./home/common.nix
-            ./home/programs/zsh.nix
-            ./home/desktop/kde.nix
-          ];
-        };
-
-        # steamos build is still in testing, expect major changes and broken functionality
-        steamos = mkWorkstation {
-          deviceModule = ./devices/desktop/dionysus/default.nix;
-          hmImports = [
-            ./home/programs/steam.nix
+            ./home/wsl.nix
           ];
         };
       };
