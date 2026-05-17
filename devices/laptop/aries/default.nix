@@ -35,6 +35,8 @@
     ../../../modules/i18n.nix
     ../../../modules/nix-ld.nix
     ../../../modules/waydroid.nix
+		../../../modules/warp.nix
+		../../../modules/usbmuxd.nix
   ];
 
   # hostname
@@ -68,6 +70,8 @@
     docker.enable = true;
     waydroid.enable = true;
     i18n.enable = true;
+    warp.enable = true;
+    usbmuxd.enable = true;
   };
 
   # environments, switch to true as needed
