@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   hostName,
   ...
@@ -18,7 +17,7 @@
     recursive = true;
   };
 
-	xdg.configFile."zsh/keys.zsh" = {
+  xdg.configFile."zsh/keys.zsh" = {
     source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/nixos/config/zsh/keys.zsh";
   };
@@ -31,7 +30,11 @@
     shellAliases = {
     };
     initContent = lib.mkAfter ''
-      source "$XDG_CONFIG_HOME/zsh/all.zsh"
+      export XDG_CONFIG_HOME="''${XDG_CONFIG_HOME:-$HOME/.config}"
+      export XDG_CACHE_HOME="''${XDG_CACHE_HOME:-$HOME/.cache}"
+      export XDG_DATA_HOME="''${XDG_DATA_HOME:-$HOME/.local/share}"
+      export XDG_STATE_HOME="''${XDG_STATE_HOME:-$HOME/.local/state}"
+      source "''${XDG_CONFIG_HOME:-$HOME/.config}/zsh/all.zsh"
     '';
     history.size = 10000;
   };

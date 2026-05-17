@@ -2,14 +2,6 @@
 # Main configuration file - consolidated from multiple files
 
 # ============================================================================
-# 1. XDG Base Directory
-# ============================================================================
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
-export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
-
-# ============================================================================
 # 2. Helpers
 # ============================================================================
 # log_info: log info
@@ -30,6 +22,8 @@ has_command() {
 		return 1;
 	fi
 }
+
+command_exists() { command -v "$1" >/dev/null 2>&1; }
 
 has_directory() { 
 	if [[ -d "$1" ]]; then
@@ -77,7 +71,7 @@ is_linux() { [[ "$OSTYPE" == linux* ]]; }
 is_macos() { [[ "$OSTYPE" == darwin* ]]; }
 
 # is_wsl: check if running under WSL
-is_wsl() { [[ "$(uname -r)" == *microsoft* ]]; }
+is_wsl() { [[ -n "$WSL_DISTRO_NAME" || "$(uname -r)" == *microsoft* || "$(uname -r)" == *Microsoft* ]]; }
 
 # is_running_in_warp_terminal
 is_running_in_warp_terminal() { [[ "$TERM_PROGRAM" == "WarpTerminal" ]]; }
@@ -201,12 +195,12 @@ bindkey '^Z' undo
 # 7. External Tool Integrations
 # ============================================================================
 # fzf - load immediately (needed for keybindings)
-if has_command fzf; then
+if command_exists fzf; then
     source <(fzf --zsh)
 fi
 
 # atuin - deferred loading
-if has_command atuin; then
+if command_exists atuin; then
     zsh-defer -c 'eval "$(atuin init zsh --disable-up-arrow)"'
 fi
 
@@ -216,17 +210,17 @@ if [[ -r "$HOME/.config/fzf/fzf-git.sh" ]]; then
 fi
 
 # zoxide - deferred loading
-if has_command zoxide; then
+if command_exists zoxide; then
     zsh-defer -c 'eval "$(zoxide init zsh)"'
 fi
 
 # pay-respects - deferred loading
-if has_command pay-respects; then
+if command_exists pay-respects; then
     zsh-defer -c 'eval "$(pay-respects zsh --alias)"'
 fi
 
 # fnm - deferred loading
-if has_command fnm; then
+if command_exists fnm; then
     zsh-defer -c 'eval "$(fnm env --use-on-cd --shell zsh)"'
 fi
 
@@ -364,7 +358,7 @@ function fzf_kill_process {
 # 11. Custom Key Bindings
 # ============================================================================
 # FZF keybindings
-if has_command fzf; then
+if command_exists fzf; then
   ## Ctrl+F: FZF + ripgrep integration
   zle -N fzfrg_widget fzfrg
   bindkey '^F' fzfrg_widget
