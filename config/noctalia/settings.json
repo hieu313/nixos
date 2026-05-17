@@ -18,6 +18,10 @@
         "ignoreMouseInput": false,
         "overviewLayer": false,
         "pinnedApps": [
+            "kitty",
+            "org.telegram.desktop",
+            "jetbrains-idea-9d6b25e3-4264-450e-a049-b38c29e6d154",
+            "one.ablaze.floorp"
         ],
         "position": "bottom_center",
         "screenshotAnnotationTool": "",
@@ -61,7 +65,7 @@
         "middleClickFollowMouse": false,
         "monitors": [
         ],
-        "mouseWheelAction": "none",
+        "mouseWheelAction": "volume",
         "mouseWheelWrap": true,
         "outerCorners": true,
         "position": "top",
@@ -113,6 +117,10 @@
                     "unfocusedIconsOpacity": 1
                 },
                 {
+                    "iconColor": "error",
+                    "id": "SessionMenu"
+                },
+                {
                     "defaultSettings": {
                         "catColor": "default",
                         "catOffsetY": 0,
@@ -126,8 +134,23 @@
                     "id": "plugin:slowbongo"
                 },
                 {
-                    "iconColor": "error",
-                    "id": "SessionMenu"
+                    "defaultSettings": {
+                        "colorHistory": [
+                        ],
+                        "detectedCompositor": "",
+                        "detectedRecorder": "",
+                        "filenameFormat": "",
+                        "installedLangs": [
+                            "eng"
+                        ],
+                        "paletteColors": [
+                        ],
+                        "screenshotPath": "",
+                        "selectedOcrLang": "eng",
+                        "transAvailable": false,
+                        "videoPath": ""
+                    },
+                    "id": "plugin:screen-toolkit"
                 }
             ],
             "left": [
@@ -199,7 +222,7 @@
                     "scrollingMode": "always",
                     "showIcon": true,
                     "showText": true,
-                    "textColor": "none",
+                    "textColor": "primary",
                     "useFixedWidth": false
                 },
                 {
@@ -221,43 +244,19 @@
             ],
             "right": [
                 {
-                    "commandPrefix": "music-search",
                     "defaultSettings": {
-                        "autoSaveMp3AfterPlayback": false,
-                        "defaultPanelLibrarySection": "tracks",
-                        "defaultPanelTab": "search",
-                        "panelDensity": "balanced",
-                        "previewMetadataMode": "always",
-                        "previewPaneWidth": 0,
-                        "previewThumbnailSize": "comfortable",
-                        "showAlbumMetadata": true,
-                        "showBarHoverTrackTitle": true,
-                        "showDurationMetadata": true,
-                        "showHomeArtists": true,
-                        "showHomePlaylists": true,
-                        "showHomeRecent": true,
-                        "showHomeTags": true,
-                        "showHomeTop": true,
-                        "showPanelHeader": true,
-                        "showPanelNowPlaying": true,
-                        "showPanelPlaybackProgress": true,
-                        "showPanelPreview": true,
-                        "showPanelProviderChips": true,
-                        "showPanelQueueControls": true,
-                        "showPanelRecentTracks": true,
-                        "showPanelSearchHelper": true,
-                        "showPanelSpeedControls": true,
-                        "showPanelStatusBanner": true,
-                        "showPanelUrlActions": true,
-                        "showPlayStatsMetadata": true,
-                        "showPreviewChips": true,
-                        "showRatingMetadata": true,
-                        "showStatusMetadata": true,
-                        "showTagMetadata": true,
-                        "showUploaderMetadata": true,
-                        "ytPlayerClient": "android"
+                        "autoHeight": true,
+                        "cheatsheetData": [
+                        ],
+                        "columnCount": 3,
+                        "detectedCompositor": "",
+                        "hyprlandConfigPath": "~/.config/hypr/hyprland.conf",
+                        "modKeyVariable": "$mod",
+                        "niriConfigPath": "~/.config/niri/config.kdl",
+                        "windowHeight": 0,
+                        "windowWidth": 1400
                     },
-                    "id": "plugin:music-search"
+                    "id": "plugin:keybind-cheatsheet"
                 },
                 {
                     "defaultSettings": {
@@ -278,21 +277,6 @@
                         "useCustomColors": false
                     },
                     "id": "plugin:network-indicator"
-                },
-                {
-                    "defaultSettings": {
-                        "colorHistory": [
-                        ],
-                        "detectedRecorder": "",
-                        "installedLangs": [
-                            "eng"
-                        ],
-                        "paletteColors": [
-                        ],
-                        "selectedOcrLang": "eng",
-                        "transAvailable": false
-                    },
-                    "id": "plugin:screen-toolkit"
                 },
                 {
                     "blacklist": [
@@ -450,6 +434,19 @@
             {
                 "name": "HDMI-A-1",
                 "widgets": [
+                    {
+                        "clockColor": "primary",
+                        "clockStyle": "digital",
+                        "customFont": "",
+                        "format": "h:mm AP \\n ddd MMM d",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 1,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "x": 40,
+                        "y": 40
+                    }
                 ]
             },
             {
@@ -636,7 +633,7 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Ho Chi Minh City",
+        "name": "Hanoi",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
@@ -715,7 +712,7 @@
         "overlayLayer": true
     },
     "plugins": {
-        "autoUpdate": false,
+        "autoUpdate": true,
         "notifyUpdates": true
     },
     "sessionMenu": {
@@ -829,28 +826,42 @@
         "translucentWidgets": false
     },
     "wallpaper": {
-        "automationEnabled": true,
-        "directory": "/home/arch/Pictures/Wallpapers/cherry",
-        "enableMultiMonitorDirectories": true,
+        "automationEnabled": false,
+        "directory": "/home/arch/Pictures/Wallpapers",
+        "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
+            {
+                "appearance": "dark",
+                "colorScheme": "Tokyo Night",
+                "darkMode": true,
+                "generationMethod": "tonal-spot",
+                "paletteColors": [
+                    "#7aa2f7",
+                    "#bb9af7",
+                    "#9ece6a",
+                    "#f7768e"
+                ],
+                "path": "/home/arch/Pictures/Wallpapers/Manga-Shrine.png",
+                "useWallpaperColors": false
+            }
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
-        "hideWallpaperFilenames": false,
+        "hideWallpaperFilenames": true,
         "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
         ],
-        "overviewBlur": 0.4,
+        "overviewBlur": 0.11,
         "overviewEnabled": true,
-        "overviewTint": 0.6,
+        "overviewTint": 0.51,
         "panelPosition": "follow_bar",
         "randomIntervalSec": 600,
         "setWallpaperOnAllMonitors": true,
-        "showHiddenFiles": false,
+        "showHiddenFiles": true,
         "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
-        "sortOrder": "name",
+        "sortOrder": "date_asc",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
@@ -864,7 +875,7 @@
         "useOriginalImages": false,
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "single",
+        "viewMode": "browse",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
