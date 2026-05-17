@@ -1,0 +1,201 @@
+target plugin:keybind-cheatsheet
+  function toggle(): void
+target toast
+  function dismiss(): void
+  function send(json: string): void
+target lockScreen
+  function lock(): void
+target plugin:slowbongo
+  function resume(): void
+  function pause(): void
+  function toggle(): void
+target darkMode
+  function toggle(): void
+  function setDark(): void
+  function setLight(): void
+target plugin:giphy-search
+  function toggle(): void
+target airplaneMode
+  function enable(): void
+  function disable(): void
+  function toggle(): void
+target battery
+  function togglePanel(): void
+target brightness
+  function decrease(): void
+  function set(value: string): void
+  function increase(): void
+target volume
+  function decrease(): void
+  function muteInput(): void
+  function increaseInput(): void
+  function openPanel(): void
+  function closePanel(): void
+  function muteOutput(): void
+  function togglePanel(): void
+  function increase(): void
+  function decreaseInput(): void
+target monitors
+  function off(): void
+  function on(): void
+target media
+  function pause(): void
+  function previous(): void
+  function seekRelative(offset: string): void
+  function next(): void
+  function toggle(): void
+  function seekByRatio(position: string): void
+  function play(): void
+  function playPause(): void
+  function stop(): void
+target notifications
+  function dismissAll(): void
+  function disableDND(): void
+  function invokeDefaultAndDismiss(index: string): bool
+  function getActions(index: string): string
+  function invokeAction(id: string, actionId: string): bool
+  function invokeDefault(index: string): bool
+  function clear(): void
+  function toggleDND(): void
+  function dismissOldest(): void
+  function removeFromHistory(id: string): bool
+  function toggleHistory(): void
+  function removeOldestHistory(): void
+  function getHistory(): string
+  function enableDND(): void
+target plugin:web-search
+  function toggle(): void
+target settings
+  function open(): void
+  function openTab(tab: string): void
+  function toggleTab(tab: string): void
+  function toggle(): void
+target dock
+  function toggle(): void
+target nightLight
+  function toggle(): void
+target sessionMenu
+  function lock(): void
+  function lockAndSuspend(): void
+  function toggle(): void
+target location
+  function set(name: string): void
+  function get(): string
+target bar
+  function hideBar(): void
+  function setDisplayMode(mode: string, screen: string): void
+  function toggle(): void
+  function setPosition(position: string, screen: string): void
+  function showBar(): void
+  function peek(): void
+target wallpaper
+  function toggleAutomation(): void
+  function set(path: string, screen: string): void
+  function disableAutomation(): void
+  function get(screen: string): string
+  function toggle(): void
+  function enableAutomation(): void
+  function random(screen: string): void
+  function refresh(): void
+target launcher
+  function clipboard(): void
+  function settings(): void
+  function emoji(): void
+  function windows(): void
+  function command(): void
+  function toggle(): void
+target state
+  function all(): string
+target controlCenter
+  function toggle(): void
+target calendar
+  function toggle(): void
+target cb
+  function middle(identifier: string): void
+  function wheel(identifier: string): void
+  function up(identifier: string): void
+  function left(identifier: string): void
+  function down(identifier: string): void
+  function right(identifier: string): void
+  function refresh(identifier: string): void
+target network
+  function togglePanel(): void
+target desktopWidgets
+  function enable(): void
+  function disable(): void
+  function toggle(): void
+  function edit(): void
+target plugin:music
+  function resume(): void
+  function renamePlaylist(playlistId: string, name: string): void
+  function status(): void
+  function playEntry(entryId: string, title: string, url: string, uploader: string, duration: real): void
+  function panel(): void
+  function pause(): void
+  function speed(value: real): void
+  function toggle(): void
+  function launcher(): void
+  function togglePanel(): void
+  function play(url: string): void
+  function setProvider(provider: string): void
+  function seek(position: real): void
+  function stop(): void
+  function save(url: string): void
+target idleInhibitor
+  function enable(): void
+  function disable(): void
+  function enableFor(seconds: string): void
+  function toggle(): void
+target wifi
+  function enable(): void
+  function disable(): void
+  function toggle(): void
+target plugin:screen-toolkit
+  function palette(): void
+  function lens(): void
+  function ocr(): void
+  function mirror(): void
+  function record(): void
+  function pin(): void
+  function annotate(): void
+  function measure(): void
+  function toggle(): void
+  function qr(): void
+  function recordStop(): void
+  function colorPicker(): void
+target powerProfile
+  function enableNoctaliaPerformance(): void
+  function set(mode: string): void
+  function cycleReverse(): void
+  function toggleNoctaliaPerformance(): void
+  function cycle(): void
+  function disableNoctaliaPerformance(): void
+target systemMonitor
+  function toggle(): void
+target plugin:assistant-panel
+  function open(): void
+  function translateText(text: string, targetLang: string): void
+  function close(): void
+  function clear(): void
+  function toggle(): void
+  function setModel(modelName: string): void
+  function setProvider(providerName: string): void
+  function send(message: string): void
+target colorScheme
+  function set(schemeName: string): void
+  function setGenerationMethod(method: string): void
+target plugin:mimeapp-gui
+  function open(): void
+target plugin
+  function openPanel(key: string): void
+  function closePanel(key: string): void
+  function openSettings(key: string): void
+  function togglePanel(key: string): void
+target bluetooth
+  function enable(): void
+  function enableAutoConnect(): void
+  function disable(): void
+  function toggle(): void
+  function togglePanel(): void
+  function disableAutoConnect(): void
+  function toggleAutoConnect(): void
