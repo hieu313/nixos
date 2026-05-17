@@ -11,5 +11,6 @@ in
 		python3Packages.curl-cffi
 		python3Packages.cloudscraper
 		python313Packages.unrpa
+    python3Packages.markdown-it-py
 	];
 }
