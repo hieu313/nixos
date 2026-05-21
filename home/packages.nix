@@ -19,6 +19,8 @@ let
       eza
       zoxide
       bat
+      direnv
+      nix-direnv
     ];
 
     dev = with pkgs; [
@@ -100,6 +102,7 @@ let
       ipatool
       imagemagick
       postman
+      zenity
     ];
 
     fun = with pkgs; [

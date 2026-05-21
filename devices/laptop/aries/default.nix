@@ -102,7 +102,24 @@
     };
   };
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver   # iHD driver, dùng cho Gen 9+ (Tiger Lake)
+      vpl-gpu-rt           # oneVPL runtime cho encode/decode hiện đại
+    ];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
+  users.users.hieunm.extraGroups = [ "render" ];
+
   environment.systemPackages = with pkgs; [
     v4l-utils
+    libva-utils
+    pulseaudio
   ];
 }

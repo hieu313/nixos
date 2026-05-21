@@ -1,9 +1,4 @@
 {
-  lib,
-  hostName,
-  ...
-}:
-{
   services.flatpak = {
     enable = true;
     remotes = {
@@ -15,12 +10,14 @@
       "flathub:app/org.videolan.VLC/x86_64/stable"
       "flathub:app/com.visualstudio.code/x86_64/stable"
       "flathub:app/one.ablaze.floorp/x86_64/stable"
+      "flathub:app/com.navicat.premiumlite.en/x86_64/stable"
     ];
 
     overrides = {
       global.Context.filesystems = [ "xdg-download" ];
       "app.zen_browser.zen".Context.filesystems = "xdg-download:rw;xdg-documents:rw";
       "one.ablaze.floorp".Context.filesystems = "xdg-download:rw;xdg-documents:rw";
+      "com.navicat.premiumlite.en".Context.filesystems = "xdg-download:rw;xdg-documents:rw";
     };
 
     onCalendar = "weekly";
@@ -31,5 +28,6 @@
     vlc = "flatpak run org.videolan.VLC";
     vscode = "flatpak run com.visualstudio.code";
     floorp = "flatpak run one.ablaze.floorp";
+    navicat = "flatpak run com.navicat.premiumlite.en";
   };
 }
