@@ -68,7 +68,7 @@ alias weather="curl wttr.in"
 command_exists claude && alias claude="claude --dangerously-skip-permissions"
 
 function claudekit() {
-  /home/hieunm/Workspace/claudekit/link-manager.sh "$@"
+  $HOME/Workspace/claudekit/link-manager.sh "$@"
 }
 
 function ytm(){
@@ -81,10 +81,10 @@ if ! is_wsl; then
   }
 
   function wine() {
-    WINEPREFIX=/home/hieunm/WindowsApps flatpak run \
+    WINEPREFIX=$HOME/WindowsApps flatpak run \
       --branch=stable-25.08 \
-      --env=WINEPREFIX=/home/hieunm/WindowsApps \
-      --filesystem=/home/hieunm/WindowsApps \
+      --env=WINEPREFIX=$HOME/WindowsApps \
+      --filesystem=$HOME/WindowsApps \
       --command=wine \
       org.winehq.Wine \
       "$@"
@@ -92,5 +92,5 @@ if ! is_wsl; then
 fi
 
 function nixupdate() {
-  /home/hieunm/nixos/update.sh
+  $HOME/nixos/update.sh
 }

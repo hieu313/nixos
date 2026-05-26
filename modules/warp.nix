@@ -14,5 +14,8 @@ in
     environment.systemPackages = [ pkgs.cloudflare-warp ];
     systemd.packages = [ pkgs.cloudflare-warp ];
     systemd.targets.multi-user.wants = [ "warp-svc.service" ];
+
+    services.resolved.enable = true;
+    networking.networkmanager.dns = "systemd-resolved";
   };
 }
