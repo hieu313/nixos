@@ -56,14 +56,6 @@ in
               search --no-floppy --fs-uuid --set=root D0D1-D1CA
               chainloader /efi/Microsoft/Boot/bootmgfw.efi
             }
-
-            menuentry "Arch Linux" --class arch --class linux --class os {
-              insmod part_gpt
-              insmod ext2
-              search --no-floppy --fs-uuid --set=root ee5e8f38-3176-47a1-b00f-a5b9dc7ef605
-              linux /boot/vmlinuz-linux root=UUID=ee5e8f38-3176-47a1-b00f-a5b9dc7ef605 rw quiet
-              initrd /boot/intel-ucode.img /boot/initramfs-linux.img
-            }
           '';
         };
       };

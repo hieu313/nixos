@@ -812,7 +812,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/arch/Pictures/Wallpapers",
+        "directory": "/home/hieunm/Data/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
@@ -827,7 +827,7 @@
                     "#9ece6a",
                     "#f7768e"
                 ],
-                "path": "/home/arch/Pictures/Wallpapers/Manga-Shrine.png",
+                "path": "/home/hieunm/Data/Pictures/Wallpapers/Manga-Shrine.png",
                 "useWallpaperColors": false
             }
         ],
