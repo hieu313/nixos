@@ -26,7 +26,6 @@
     # ../../../modules/gnome.nix    <-- gnome environemt
     ../../../modules/kde.nix
     # ../../../modules/xfce.nix     <-- xfce environment
-    ../../../modules/storagebox.nix
     ../../../modules/packages.nix
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
