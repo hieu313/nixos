@@ -16,7 +16,6 @@
     # ../../../modules/gnome.nix    <-- gnome environemt
     ../../../modules/kde.nix
     # ../../../modules/xfce.nix     <-- xfce environment
-    ../../../modules/storagebox.nix
     ../../../modules/packages.nix
     ../../../modules/yazi.nix
     ../../../modules/virtualization.nix
@@ -30,11 +29,7 @@
   workstation = {
     baseline = {
       enable = true;              # enable baseline config
-      packages = {
-        tools = true;             # enable common suite of CLI tools
-        dev = true;               # enable common langs/lang related tools
-        apps = true;              # enable common desktop applications
-      };
+      packages.enable = true;     # enable common system packages
     }; 
     niri.enable = true;           # change to a different profile if you want
     kde.enable= false;
