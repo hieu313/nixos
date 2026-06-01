@@ -106,7 +106,7 @@
         prometheus = mkWorkstation {
           deviceModule = ./devices/laptop/prometheus/default.nix;
           hmImports = [
-            ./home/common.nix
+            ./home/workstation.nix
             ./home/programs/zsh.nix
             ./home/desktop/niri.nix
           ];
@@ -115,7 +115,7 @@
         aries = mkWorkstation {
           deviceModule = ./devices/laptop/aries/default.nix;
           hmImports = [
-            ./home/common.nix
+            ./home/workstation.nix
             ./home/programs/zsh.nix
             ./home/desktop/niri.nix
             {

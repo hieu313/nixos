@@ -20,7 +20,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 
 - `/config`: software configuration files (ghostty, fastfetch, niri binds, etc). Pretty much all of these are managed through Home Manager and deployed to `~/.config`.
 - `/devices`: broken into `/desktop` and `/laptop`. This is where device-specific configurations and modules are imported and set, as well as the home for `hardware-configuration.nix`. If you're cloning this repo, don't forget to replace this file with your own.
-- `/home`: Home Manager configurations for my baseline (`common.nix`), WSL profile (`wsl.nix`), DE/WM-specific configurations, and optional dev stacks under `home/dev/`.
+- `/home`: Home Manager profiles (`workstation.nix`, `wsl.nix`), shared modules, DE/WM-specific configurations, and optional dev stacks under `home/dev/`.
 - `/modules`: this is where the vast majority of the restructuring was done. Review and adjust as needed. Many things are specific to my environment. Overall, the move to modules should make this repo much more flexible for both myself and anyone else who may want to use it.
 - `/pics`: profile pictures and eventually screenshots to include in the README.
 
