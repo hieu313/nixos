@@ -67,10 +67,6 @@ alias weather="curl wttr.in"
 # command_exists wine && alias ws="wine start"
 command_exists claude && alias claude="claude --dangerously-skip-permissions"
 
-function claudekit() {
-  $HOME/Workspace/claudekit/link-manager.sh "$@"
-}
-
 function ytm(){
   mpv --no-video "$@"
 }
