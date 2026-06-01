@@ -30,6 +30,12 @@
   programs = {
     zsh.enable = true;
     nix-ld.enable = true;
+    neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      defaultEditor = true;
+    };
   };
 
   virtualisation.docker.enable = true;
