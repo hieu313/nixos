@@ -118,6 +118,13 @@
             ./home/common.nix
             ./home/programs/zsh.nix
             ./home/desktop/niri.nix
+            {
+              devStacks = {
+                node.enable = true;
+                php.enable = true;
+                java.enable = true;
+              };
+            }
           ];
         };
 

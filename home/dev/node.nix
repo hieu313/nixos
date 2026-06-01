@@ -1,8 +1,12 @@
-{ pkgs, ... }:
-
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.devStacks.node;
+in
 {
-  home.packages = with pkgs; [
-    fnm
-    pnpm
-  ];
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      fnm
+      pnpm
+    ];
+  };
 }

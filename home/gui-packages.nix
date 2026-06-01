@@ -10,6 +10,7 @@ let
 in
 {
   imports = [
+    ./gui-assets.nix
     ./flatpak.nix
     ./appimage.nix
     ./programs/obs.nix

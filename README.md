@@ -20,7 +20,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 
 - `/config`: software configuration files (ghostty, fastfetch, niri binds, etc). Pretty much all of these are managed through Home Manager and deployed to `~/.config`.
 - `/devices`: broken into `/desktop` and `/laptop`. This is where device-specific configurations and modules are imported and set, as well as the home for `hardware-configuration.nix`. If you're cloning this repo, don't forget to replace this file with your own.
-- `/home`: Home Manager configurations for my baseline (`common.nix`), DE/WM-specific configurations, etc.
+- `/home`: Home Manager configurations for my baseline (`common.nix`), WSL profile (`wsl.nix`), DE/WM-specific configurations, and optional dev stacks under `home/dev/`.
 - `/modules`: this is where the vast majority of the restructuring was done. Review and adjust as needed. Many things are specific to my environment. Overall, the move to modules should make this repo much more flexible for both myself and anyone else who may want to use it.
 - `/pics`: profile pictures and eventually screenshots to include in the README.
 
@@ -30,6 +30,7 @@ Though I've learned a lot about NixOS since I started daily driving it in 2025, 
 - `/modules/baseline.nix` is exactly what it sounds like. Services, kernel and boot parameters, and other core, shared settings are defined here. You should review this file. The baseline is enabled with: ```workstation.baseline.enable = true;```. Most modules are nested within the ```workstation``` option.
 - `/modules/packages.nix` handles all shared packages for workstations. It is broken up into options, being ```tools```, ```dev```, and ```apps```. I have nested the modules options into the ```baseline``` option as I still consider it a part of the baseline, but that file was getting too big and this makes more sense.
 - All builds use **zsh** by default. I have separate **zsh** and **bash** Home Manager files, you can switch the shell to say bash by modifying the shell file Home Manager imports under either machines entry in ```flake.nix```.
+- Optional Home Manager dev stacks live under `devStacks`. All optional dev stacks are enabled for `aries`; Node is enabled for `wsl`; `prometheus` intentionally has no optional dev stacks enabled by default. Python and general TUI packages are still shared outside `devStacks`.
 - I use **Niri** almost exclusively. The Niri module uses **Noctalia Shell**. If you don't want to use Noctalia, remove it's input in `flake.nix` and remove the package from Niri's module. If you're using my Niri config from `/config/niri`, remove ```spawn-at-startup "noctalia-shell"``` from the file. The Niri module will be up to date more often than the others. GNOME and XFCE modules should be stable and usable.
 - Hyprland currently lags behind upstream. Breaking changes were made to window-rule syntax in version 0.53, and I have not yet made adjustments to accommodate this. I don't really have any window rules though so it's probably fine. Use niri.
 - KDE and GNOME work great if that's what you like.
