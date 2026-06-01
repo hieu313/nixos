@@ -6,6 +6,8 @@
     ./programs/neovim.nix
     ./dev/java.nix
     ./dev/python.nix
+    ./dev/php.nix
+    ./dev/node.nix
   ];
 
   home.packages = with pkgs; [
@@ -25,7 +27,6 @@
     eza
     fastfetch
     fd
-    fnm
     fzf
     gcc
     gifski
@@ -44,10 +45,7 @@
     nix-direnv
     openssl
     pay-respects
-    php82
-    php82Packages.composer
     pipes-rs
-    pnpm
     pokemon-colorscripts
     rclone
     ripgrep
