@@ -50,5 +50,6 @@ in
     yt-dlp
     zenity
     nixAlienPkgs.nix-alien
+    discord
   ];
 }
