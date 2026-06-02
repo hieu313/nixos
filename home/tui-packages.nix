@@ -60,6 +60,7 @@
     stow
     stripe-cli
     superfile
+    tg
     tldr
     translate-shell
     trashy
