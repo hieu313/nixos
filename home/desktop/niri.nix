@@ -6,9 +6,28 @@
   ...
 }:
 let
-  niriConfig = if builtins.elem hostName [ "prometheus" "aries" ]
-    then ../../config/niri/config.laptop.kdl 
-    else ../../config/niri/config.desktop.kdl;
+  cursor = {
+    name = "Future-cursors";
+    package = pkgs.callPackage ../../pkgs/future-cursor.nix { };
+    size = 20;
+  };
+
+  niriConfigTemplate =
+    if
+      builtins.elem hostName [
+        "prometheus"
+        "aries"
+      ]
+    then
+      ../../config/niri/config.laptop.kdl
+    else
+      ../../config/niri/config.desktop.kdl;
+
+  niriConfig =
+    builtins.replaceStrings
+      [ "@cursorTheme@" "@cursorSize@" ]
+      [ cursor.name (builtins.toString cursor.size) ]
+      (builtins.readFile niriConfigTemplate);
 in
 {
   gtk = {
@@ -24,21 +43,21 @@ in
     };
 
     cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 20;
+      name = cursor.name;
+      package = cursor.package;
+      size = cursor.size;
     };
 
     gtk3.extraConfig = {
       "gtk-application-prefer-dark-theme" = true;
-      "gtk-cursor-theme-name" = "Bibata-Modern-Classic";
+      "gtk-cursor-theme-name" = cursor.name;
     };
 
     gtk4.extraConfig = {
       "gtk-application-prefer-dark-theme" = true;
       Settings = ''
-      gtk-cursor-theme-name=Bibata-Modern-Classic
-      gtk-cursor-theme-size=16
+        gtk-cursor-theme-name=${cursor.name}
+        gtk-cursor-theme-size=${builtins.toString cursor.size}
       '';
     };
   };
@@ -47,45 +66,45 @@ in
     enable = true;
     platformTheme.name = "qt6ct";
     style = {
-			name = "kvantum";
-			package = pkgs.kdePackages.qtstyleplugin-kvantum;
-		};
+      name = "kvantum";
+      package = pkgs.kdePackages.qtstyleplugin-kvantum;
+    };
   };
 
-	dconf.settings = {
-		"org/gnome/desktop/interface" = {
-			color-scheme = "prefer-dark";
-			gtk-theme = "Tokyonight-Dark";
-			icon-theme = "Papirus";
-			cursor-theme = "Bibata-Modern-Classic";
-			cursor-size = 20;
-		};
-	};
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "Tokyonight-Dark";
+      icon-theme = "Papirus";
+      cursor-theme = cursor.name;
+      cursor-size = cursor.size;
+    };
+  };
 
   xdg.configFile = {
     "gtk-3.0/settings.ini".force = true;
     "gtk-4.0/settings.ini".force = true;
     "gtk-4.0/gtk.css".force = true;
-    "niri/config.kdl".source = niriConfig;
+    "niri/config.kdl".text = niriConfig;
     "niri/noctalia.kdl".source = ../../config/niri/noctalia.kdl;
     "ghostty/config".source = ../../config/ghostty/tokyo-night.ghostty;
   };
 
   home.pointerCursor = {
-    name = "Bibata-Modern-Classic";
-    package = pkgs.bibata-cursors;
-    size = 20;
+    name = cursor.name;
+    package = cursor.package;
+    size = cursor.size;
     gtk.enable = true;
     x11.enable = true;
   };
 
   home.sessionVariables = {
-    XCURSOR_THEME = "Bibata-Modern-Classic";
-    XCURSOR_SIZE = "20";
+    XCURSOR_THEME = cursor.name;
+    XCURSOR_SIZE = builtins.toString cursor.size;
     NIXOS_OZONE_WL = "1";
     ICON_THEME = "Papirus";
     QS_ICON_THEME = "Papirus";
     QT_QPA_PLATFORM = "wayland";
-		GTK_THEME = "Tokyonight-Dark";
+    GTK_THEME = "Tokyonight-Dark";
   };
 }

@@ -293,8 +293,8 @@ binds {
 }
 
 cursor {
-    xcursor-theme "Bibata-Modern-Classic"
-    xcursor-size 20
+    xcursor-theme "@cursorTheme@"
+    xcursor-size @cursorSize@
     hide-when-typing
     hide-after-inactive-ms 10000
 }
