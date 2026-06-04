@@ -39,9 +39,6 @@ alias du="du -ahx --max-depth=1 . | sort -hr"
 # Fzf
 command_exists fzf && alias fzf="fzf --preview-window=right:50% --preview='[[ -d {} ]] && $FZF_PREVIEW_FOLDER {} | nl || $FZF_PREVIEW_FILE {}'"
 
-# Docker
-command_exists docker && alias drmia!="docker rmi -f $(docker images -aq)"
-command_exists docker && alias drmca!="docker rm -f $(docker ps -aq)"
 # Fun
 command_exists terminal-rain && alias rain="terminal-rain"
 command_exists cbonsai && alias cbonsai="cbonsai --screensaver --life 40 --multiplier 5 --time 20 --screensaver"

@@ -373,6 +373,6 @@ fi
 # ============================================================================
 zsh-defer -c 'source "$ZSH/aliases.zsh"'
 # import api keys or something else do not want to be committed
-if [ -f "$ZSH/keys.zsh" ]; then
-  source "$ZSH/keys.zsh"
+if [ -f "$ZSH/local.zsh" ]; then
+  source "$ZSH/local.zsh"
 fi

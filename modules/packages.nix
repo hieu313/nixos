@@ -8,6 +8,9 @@ let
   cfg = config.workstation.baseline.packages;
 
   systemPackages = with pkgs; [
+    # NixOS helper tools
+    nixfmt
+    
     # Hardware and disk
     parted
     usbutils
