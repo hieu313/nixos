@@ -29,9 +29,17 @@
     autocd = true;
     shellAliases = {
     };
-    initContent = lib.mkAfter ''
-      source "''${XDG_CONFIG_HOME:-$HOME/.config}/zsh/all.zsh"
-    '';
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
+        DISABLE_AUTO_UPDATE="true"
+        DISABLE_MAGIC_FUNCTIONS="true"
+        DISABLE_COMPFIX="true"
+      '')
+
+      (lib.mkAfter ''
+        source "''${XDG_CONFIG_HOME:-$HOME/.config}/zsh/all.zsh"
+      '')
+    ];
     history.size = 10000;
   };
 }
